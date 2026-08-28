@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SmartBait — Inteligência no ponto certo.</title>
+<meta name="description" content="SmartBait: plataforma de controle inteligente no campo. Controle direcionado do Sphenophorus levis (bicudo-da-cana) — menos volume, mais inteligência." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green-deep:#1F4D3A;
+    --green-tech:#6F8F6B;
+    --green-light:#A9C2A0;
+    --terracotta:#C26A3D;
+    --clay:#9E6A47;
+    --cream:#F4F2ED;
+    --ink:#1F4D3A;          /* Verde Campo Profundo · texto */
+    --green-deep-2:#1F4D3A; /* Verde Campo Profundo */
+    --line:rgba(31,77,58,.14);
+    --line-light:rgba(244,242,237,.16);
+    --maxw:1180px;
+    --r:18px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;margin:0;font-weight:800}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  :focus-visible{outline:3px solid var(--terracotta);outline-offset:3px;border-radius:4px}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-size:12px;font-weight:600;text-transform:uppercase;
+    letter-spacing:.18em;color:var(--terracotta);
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--terracotta);display:inline-block}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+  /* ---------- LOGO ---------- */
+  .logo{display:inline-flex;align-items:center;gap:11px}
+  .logo .mark{width:38px;height:38px;flex:0 0 38px}
+  .logo .wordmark{
+    font-family:"Baloo 2","Inter",sans-serif;
+    font-weight:700;font-size:25px;letter-spacing:-.01em;line-height:1;
+    padding-top:2px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(31,77,58,0);
+    transition:background .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+  }
+  header.nav.scrolled{
+    background:rgba(255,255,255,.97);
+    box-shadow:0 8px 28px -20px rgba(31,77,58,.5);
+    border-color:var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .nav .logo .wordmark,.nav .logo .mark{color:var(--green-deep)}
+  .nav-links{display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0}
+  .nav-links a:not(.nav-cta){
+    color:var(--green-deep);font-size:14.5px;font-weight:500;opacity:.82;
+    transition:opacity .2s;position:relative;
+  }
+  .nav-links a:not(.nav-cta):hover{opacity:1}
+  .nav-cta{
+    background:var(--terracotta);color:var(--cream);
+    padding:11px 20px;border-radius:100px;font-size:14px;font-weight:600;
+    transition:transform .2s var(--ease),background .2s;
+  }
+  .nav-cta:hover{background:#ad5c33;transform:translateY(-1px)}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--green-deep)}
+  .nav-toggle svg{width:26px;height:26px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;background:#fff;color:var(--ink);
+    padding:150px 0 90px;overflow:hidden;
+  }
+  .hero::after{ /* soft brand glow */
+    content:"";position:absolute;right:-160px;top:-120px;width:620px;height:620px;
+    background:radial-gradient(circle at center,rgba(169,194,160,.22),transparent 62%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:54px;align-items:center;position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.5rem,5.4vw,4.4rem);margin:22px 0 0;color:var(--green-deep)}
+  .hero h1 .accent{color:var(--terracotta)}
+  .hero .lede{
+    font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--clay);
+    max-width:30em;margin:26px 0 0;font-weight:400;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .hero .btn-ghost{color:var(--green-deep);border-color:var(--line)}
+  .hero .btn-ghost:hover{border-color:var(--green-deep)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;border-radius:100px;
+    padding:15px 26px;font-weight:600;font-size:15px;cursor:pointer;border:0;
+    transition:transform .2s var(--ease),background .2s,border-color .2s;
+  }
+  .btn-primary{background:var(--terracotta);color:var(--cream)}
+  .btn-primary:hover{background:#ad5c33;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(244,242,237,.32)}
+  .btn-ghost:hover{border-color:var(--cream);transform:translateY(-2px)}
+  .btn svg{width:17px;height:17px}
+
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.16em;color:var(--green-deep);
+    border:1px solid var(--line);padding:7px 15px;border-radius:100px;
+  }
+  .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta)}
+
+  /* ---- signature: cobertura vs direcionado ---- */
+  .focus-demo{
+    position:relative;aspect-ratio:1/1;width:100%;max-width:460px;margin:0 auto;
+    border-radius:24px;background:
+      linear-gradient(180deg,rgba(23,62,46,.55),rgba(23,40,29,.85)),
+      repeating-linear-gradient(118deg,rgba(169,194,160,.10) 0 2px,transparent 2px 26px);
+    border:1px solid rgba(169,194,160,.22);overflow:hidden;
+  }
+  .focus-demo .field-rows{position:absolute;inset:0;opacity:.5}
+  .scatter{position:absolute;inset:0}
+  .scatter span{
+    position:absolute;width:9px;height:9px;border-radius:50%;
+    background:var(--green-light);opacity:.55;
+    transition:transform 1.5s var(--ease),opacity 1.2s var(--ease),background 1.2s;
+  }
+  .focus-demo.converged .scatter span{
+    transform:translate(var(--cx),var(--cy)) scale(.45)!important;
+    opacity:0;
+  }
+  .target{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.4);
+    width:124px;height:124px;opacity:0;transition:opacity 1s var(--ease) .5s,transform 1.1s var(--ease) .5s;
+  }
+  .focus-demo.converged .target{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  .target .ring{position:absolute;inset:0;border:2px solid rgba(194,106,61,.55);border-radius:50%}
+  .target .ring.r2{inset:24px;border-color:rgba(194,106,61,.8)}
+  .target .core{
+    position:absolute;left:50%;top:50%;width:34px;height:34px;border-radius:50%;
+    background:var(--terracotta);transform:translate(-50%,-50%);
+    box-shadow:0 0 0 6px rgba(194,106,61,.25),0 8px 30px rgba(194,106,61,.4);
+  }
+  .target .core::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--terracotta);animation:pulse 2.4s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+  .demo-caption{
+    position:absolute;left:18px;bottom:16px;right:18px;display:flex;justify-content:space-between;
+    align-items:flex-end;font-size:12px;color:rgba(244,242,237,.7);z-index:3;
+  }
+  .demo-caption b{display:block;color:var(--cream);font-size:13px;letter-spacing:-.01em}
+  .demo-switch{
+    background:rgba(244,242,237,.1);border:1px solid rgba(244,242,237,.2);color:var(--cream);
+    font-size:11.5px;font-weight:600;padding:7px 13px;border-radius:100px;cursor:pointer;letter-spacing:.04em;
+    transition:background .2s;
+  }
+  .demo-switch:hover{background:rgba(244,242,237,.18)}
+
+  /* ---------- TRUST STRIP ---------- */
+  .strip{background:var(--cream);color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .strip-inner{display:flex;flex-wrap:wrap;gap:14px 48px;justify-content:space-between;padding:28px 0}
+  .strip-item{display:flex;align-items:baseline;gap:12px}
+  .strip-item .n{font-family:"IBM Plex Mono",monospace;font-size:1.7rem;font-weight:600;color:var(--green-deep);letter-spacing:-.02em}
+  .strip-item .l{font-size:13px;color:var(--clay);max-width:15em;line-height:1.35}
+
+  /* ---------- SECTION BASE ---------- */
+  section{padding:104px 0}
+  .sec-head{max-width:760px;margin-bottom:54px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,3rem);margin-top:16px;color:var(--green-deep)}
+  .sec-head p{font-size:1.12rem;color:var(--clay);margin-top:18px;line-height:1.55}
+  .scroll-margin{scroll-margin-top:90px}
+
+  /* problema */
+  .problem{background:var(--cream)}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .pest-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;
+    box-shadow:0 24px 60px -40px rgba(31,77,58,.5);
+  }
+  .pest-visual{
+    border-radius:14px;aspect-ratio:4/3;position:relative;overflow:hidden;
+    background:
+      linear-gradient(180deg,#2c4a39,#16261d),
+      repeating-linear-gradient(100deg,rgba(169,194,160,.08) 0 2px,transparent 2px 22px);
+  }
+  .pest-visual .soil{position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,rgba(158,106,71,.55))}
+  .pest-visual .spot{
+    position:absolute;width:54px;height:54px;border-radius:50%;
+    border:2px solid var(--terracotta);
+  }
+  .pest-visual .spot::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;border-radius:50%;background:var(--terracotta);transform:translate(-50%,-50%)}
+  .pest-visual .lbl{
+    position:absolute;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--cream);
+    background:rgba(23,40,29,.7);padding:4px 9px;border-radius:6px;border:1px solid rgba(169,194,160,.25);
+  }
+  .pest-meta{display:flex;justify-content:space-between;padding:14px 12px 8px;font-size:12.5px}
+  .pest-meta .sci{font-style:italic;color:var(--green-deep);font-weight:600}
+  .pest-meta .tag{font-family:"IBM Plex Mono",monospace;color:var(--clay)}
+  .problem ul{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:16px}
+  .problem li{display:flex;gap:14px;font-size:1.02rem;color:var(--ink)}
+  .problem li svg{flex:0 0 22px;width:22px;height:22px;color:var(--terracotta);margin-top:3px}
+
+  /* a virada / categoria */
+  .shift{background:var(--green-deep);color:var(--cream)}
+  .shift .sec-head h2{color:var(--cream)}
+  .shift .sec-head p{color:rgba(244,242,237,.78)}
+  .shift .sec-head .eyebrow{color:var(--green-light)}
+  .shift .sec-head .eyebrow::before{background:var(--green-light)}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .compare-card{border-radius:var(--r);padding:34px 32px;border:1px solid rgba(244,242,237,.14)}
+  .compare-card.old{background:rgba(244,242,237,.04)}
+  .compare-card.new{background:var(--green-tech);border-color:transparent;position:relative;overflow:hidden}
+  .compare-card.new::after{content:"";position:absolute;right:-60px;bottom:-60px;width:200px;height:200px;border-radius:50%;border:2px solid rgba(244,242,237,.18)}
+  .compare-card h3{font-size:1.05rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+  .compare-card.old h3{color:rgba(244,242,237,.6)}
+  .compare-card .big{font-size:1.6rem;font-weight:800;margin:14px 0 18px;letter-spacing:-.02em}
+  .compare-card ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  .compare-card li{display:flex;gap:11px;font-size:.98rem;color:rgba(244,242,237,.9)}
+  .compare-card li::before{content:"";flex:0 0 7px;width:7px;height:7px;border-radius:50%;margin-top:9px}
+  .compare-card.old li::before{background:rgba(244,242,237,.4)}
+  .compare-card.new li::before{background:var(--terracotta)}
+  .category-claim{
+    margin-top:40px;border-top:1px solid rgba(244,242,237,.14);padding-top:34px;
+    display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+  }
+  .category-claim p{font-size:1.25rem;font-weight:600;max-width:30em}
+  .category-claim .term{color:var(--green-light)}
+
+  /* produto BioBait */
+  .product{background:var(--cream)}
+  .product-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  .capsule{
+    aspect-ratio:1/1;max-width:420px;margin:0 auto;border-radius:24px;position:relative;
+    background:radial-gradient(circle at 38% 32%,#7fa07a,#3f5d49 60%,#1f4d3a);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    box-shadow:0 40px 80px -50px rgba(31,77,58,.7);
+  }
+  .capsule .obj{
+    width:46%;aspect-ratio:1/1.25;border-radius:48% 48% 46% 46%/40% 40% 60% 60%;
+    background:linear-gradient(160deg,#b9874f,#7e5530);position:relative;
+    box-shadow:inset 0 -14px 30px rgba(0,0,0,.3),inset 0 10px 22px rgba(255,255,255,.18);
+  }
+  .capsule .obj::after{content:"";position:absolute;inset:0;border-radius:inherit;
+    background:repeating-linear-gradient(125deg,rgba(0,0,0,.08) 0 3px,transparent 3px 9px)}
+  .capsule .halo{position:absolute;width:74%;height:74%;border:1.5px dashed rgba(244,242,237,.4);border-radius:50%;animation:spin 30s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .product .feat{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+  .feat-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;transition:transform .25s var(--ease),box-shadow .25s}
+  .feat-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -34px rgba(31,77,58,.55)}
+  .feat-card .ic{width:34px;height:34px;border-radius:9px;background:rgba(31,77,58,.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+  .feat-card .ic svg{width:19px;height:19px;color:var(--green-deep)}
+  .feat-card h4{font-size:1rem;color:var(--green-deep);font-weight:700}
+  .feat-card p{font-size:.9rem;color:var(--clay);margin-top:5px}
+
+  /* tecnologia + vídeo */
+  .tech{background:var(--green-deep-2);color:var(--cream)}
+  .tech .sec-head h2{color:var(--cream)}
+  .tech .sec-head p{color:rgba(244,242,237,.78)}
+  .tech .sec-head .eyebrow{color:var(--green-light)}
+  .tech .sec-head .eyebrow::before{background:var(--green-light)}
+  .player{
+    position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(169,194,160,.25);
+    aspect-ratio:16/9;cursor:pointer;
+    background:
+      linear-gradient(180deg,rgba(35,72,53,.4),rgba(23,40,29,.92)),
+      repeating-linear-gradient(112deg,rgba(169,194,160,.12) 0 2px,transparent 2px 34px);
+  }
+  .player .hud{position:absolute;inset:0}
+  .player .hud .t{
+    position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:120px;height:120px;
+  }
+  .player .hud .t .r{position:absolute;inset:0;border:1.5px solid rgba(194,106,61,.5);border-radius:50%}
+  .player .hud .t .r.b{inset:30px;border-color:rgba(194,106,61,.85)}
+  .player .hud .t .c{position:absolute;left:50%;top:50%;width:18px;height:18px;background:var(--terracotta);border-radius:50%;transform:translate(-50%,-50%)}
+  .player .play{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:78px;height:78px;border-radius:50%;background:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;z-index:3;
+    box-shadow:0 16px 50px rgba(194,106,61,.5);transition:transform .25s var(--ease);
+  }
+  .player:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+  .player .play svg{width:30px;height:30px;color:var(--cream);margin-left:4px}
+  .player .badge{
+    position:absolute;left:18px;top:16px;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    color:var(--cream);background:rgba(23,40,29,.6);border:1px solid rgba(169,194,160,.3);
+    padding:6px 11px;border-radius:7px;letter-spacing:.05em;z-index:3;
+  }
+  .player .meta{position:absolute;left:18px;bottom:16px;z-index:3}
+  .player .meta b{display:block;font-size:1.05rem}
+  .player .meta span{font-size:12.5px;color:rgba(244,242,237,.7)}
+  .roteiros{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .roteiro{background:rgba(244,242,237,.05);border:1px solid rgba(244,242,237,.13);border-radius:14px;padding:22px 20px}
+  .roteiro .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--terracotta);font-weight:600;letter-spacing:.1em}
+  .roteiro h4{font-size:1.02rem;margin:10px 0 8px}
+  .roteiro p{font-size:.88rem;color:rgba(244,242,237,.72);line-height:1.5}
+  .note{font-size:12.5px;color:rgba(244,242,237,.55);margin-top:18px;font-style:italic}
+  .demo-embed{
+    position:relative;width:100%;height:880px;border-radius:22px;overflow:hidden;
+    border:1px solid rgba(169,194,160,.25);background:#10201a;
+    box-shadow:0 40px 90px -50px rgba(0,0,0,.7);
+  }
+  .demo-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  @media(max-width:920px){.demo-embed{height:740px}}
+  @media(max-width:560px){.demo-embed{height:640px}}
+
+  /* prova / cases */
+  .proof{background:var(--cream)}
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
+  .case{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;position:relative;overflow:hidden}
+  .case .bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--terracotta)}
+  .case .metric{font-family:"IBM Plex Mono",monospace;font-size:2.6rem;font-weight:600;color:var(--green-deep);letter-spacing:-.03em;line-height:1}
+  .case .metric small{font-size:1.1rem;color:var(--terracotta)}
+  .case h4{font-size:1.02rem;color:var(--green-deep);margin:14px 0 8px}
+  .case p{font-size:.92rem;color:var(--clay);line-height:1.5}
+  .case .who{margin-top:18px;font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--green-tech);border-top:1px solid var(--line);padding-top:14px}
+
+  /* portal / blog */
+  .portal{background:#fff;border-top:1px solid var(--line)}
+  .portal .sec-head{display:flex;justify-content:space-between;align-items:flex-end;max-width:none;gap:30px;flex-wrap:wrap}
+  .portal .sec-head>div{max-width:620px}
+  .portal-link{font-weight:600;color:var(--green-deep);font-size:14.5px;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+  .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .post{
+    border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;background:var(--cream);
+    display:flex;flex-direction:column;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s;
+  }
+  .post:hover{transform:translateY(-5px);box-shadow:0 30px 60px -44px rgba(31,77,58,.6);border-color:var(--green-light)}
+  .post .cover{aspect-ratio:16/10;position:relative;overflow:hidden;background:var(--green-deep)}
+  .post .cover .pat{position:absolute;inset:0;opacity:.9}
+  .post .cover .mk{position:absolute;right:18px;bottom:-14px;width:90px;height:90px;color:rgba(169,194,160,.5)}
+  .post .cat{position:absolute;left:16px;top:14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);background:rgba(194,106,61,.92);padding:5px 11px;border-radius:100px}
+  .post .body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+  .post .body h3{font-size:1.18rem;color:var(--green-deep);line-height:1.18}
+  .post .body p{font-size:.93rem;color:var(--clay);margin-top:11px;flex:1}
+  .post .read{margin-top:18px;font-size:13px;font-weight:600;color:var(--terracotta);display:inline-flex;gap:7px;align-items:center}
+
+  /* origem / pioneirismo */
+  .origin{background:var(--green-deep);color:var(--cream);position:relative;overflow:hidden}
+  .origin::before{content:"";position:absolute;left:-140px;bottom:-160px;width:520px;height:520px;border:1.5px solid rgba(169,194,160,.16);border-radius:50%}
+  .origin::after{content:"";position:absolute;left:-60px;bottom:-80px;width:360px;height:360px;border:1.5px solid rgba(169,194,160,.12);border-radius:50%}
+  .origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .origin .eyebrow{color:var(--green-light)}.origin .eyebrow::before{background:var(--green-light)}
+  .origin h2{font-size:clamp(1.9rem,3.4vw,2.8rem);margin:16px 0 22px}
+  .origin p{color:rgba(244,242,237,.84);font-size:1.06rem;margin-bottom:16px}
+  .origin .quote{
+    font-family:"Baloo 2",sans-serif;font-weight:600;font-size:1.5rem;color:var(--cream);
+    border-left:3px solid var(--terracotta);padding-left:20px;margin-top:10px;line-height:1.3;
+  }
+  .smartbait-split{display:grid;gap:16px}
+  .split-card{background:rgba(244,242,237,.05);border:1px solid rgba(244,242,237,.14);border-radius:16px;padding:26px 26px}
+  .split-card.bait{background:var(--terracotta);border-color:transparent}
+  .split-card .k{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:1.5rem;margin-bottom:6px}
+  .split-card p{margin:0;font-size:.96rem;color:rgba(244,242,237,.85)}
+  .split-card.bait p{color:rgba(244,242,237,.95)}
+
+  /* CTA */
+  .cta{background:var(--cream)}
+  .cta-box{
+    background:var(--green-deep);color:var(--cream);border-radius:28px;padding:64px 56px;
+    display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;position:relative;overflow:hidden;
+  }
+  .cta-box::after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;background:radial-gradient(circle,rgba(111,143,107,.4),transparent 65%)}
+  .cta-box h2{font-size:clamp(1.8rem,3.2vw,2.6rem);position:relative;z-index:2}
+  .cta-box p{color:rgba(244,242,237,.82);margin-top:16px;font-size:1.05rem;position:relative;z-index:2;max-width:30em}
+  .cta-actions{position:relative;z-index:2;display:flex;flex-direction:column;gap:13px}
+  .cta-actions .btn{justify-content:center}
+  .cta-note{font-size:12.5px;color:rgba(244,242,237,.6);text-align:center;margin-top:4px}
+
+  /* footer */
+  footer{background:var(--green-deep-2);color:var(--cream);padding:64px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand .logo .wordmark,.foot-brand .logo .mark{color:var(--cream)}
+  .foot-brand p{color:rgba(244,242,237,.6);font-size:.92rem;margin-top:16px;max-width:24em}
+  .foot-arch{margin-top:24px;display:flex;gap:8px;flex-wrap:wrap}
+  .foot-arch span{font-family:"IBM Plex Mono",monospace;font-size:11px;padding:5px 10px;border:1px solid rgba(244,242,237,.2);border-radius:6px;color:rgba(244,242,237,.7)}
+  .foot-col h5{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--green-light);font-weight:600;margin:0 0 16px}
+  .foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+  .foot-col a{color:rgba(244,242,237,.7);font-size:.92rem;transition:color .2s}
+  .foot-col a:hover{color:var(--cream)}
+  .foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(244,242,237,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12.5px;color:rgba(244,242,237,.5)}
+  .foot-bottom .credit{display:flex;align-items:center;gap:7px}
+  .foot-bottom .credit b{color:rgba(244,242,237,.8);font-weight:600}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.is-visible{opacity:1;transform:none}
+
+  /* modal */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:100;background:rgba(22,38,29,.72);backdrop-filter:blur(6px);
+    display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;
+  }
+  .modal-overlay.open{display:flex}
+  .modal{
+    background:var(--cream);max-width:760px;width:100%;border-radius:22px;overflow:hidden;
+    box-shadow:0 50px 100px -30px rgba(0,0,0,.5);animation:rise .4s var(--ease)
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  .modal .m-cover{height:200px;position:relative;background:var(--green-deep);overflow:hidden}
+  .modal .m-cover .cat{position:absolute;left:24px;top:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);background:var(--terracotta);padding:5px 12px;border-radius:100px}
+  .modal .m-close{
+    position:absolute;right:18px;top:16px;width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;
+    background:rgba(23,40,29,.55);color:var(--cream);display:flex;align-items:center;justify-content:center;z-index:5;
+  }
+  .modal .m-close:hover{background:rgba(23,40,29,.85)}
+  .modal .m-body{padding:38px 44px 46px}
+  .modal .m-body h2{font-size:1.85rem;color:var(--green-deep);line-height:1.14}
+  .modal .m-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--clay);margin:14px 0 26px;display:flex;gap:16px;flex-wrap:wrap}
+  .modal .m-body h3{font-size:1.2rem;color:var(--green-deep);margin:28px 0 10px}
+  .modal .m-body p{font-size:1.02rem;color:var(--ink);margin-bottom:16px;line-height:1.7}
+  .modal .m-body ul{margin:0 0 16px;padding-left:22px;color:var(--ink)}
+  .modal .m-body li{margin-bottom:8px;line-height:1.6}
+  .modal .m-tag{display:inline-block;background:rgba(31,77,58,.08);color:var(--green-deep);font-size:13px;font-weight:600;padding:4px 12px;border-radius:100px;margin-right:8px}
+
+  /* responsive */
+  @media(max-width:920px){
+    .hero-grid,.problem-grid,.product-grid,.origin-grid,.cta-box{grid-template-columns:1fr}
+    .hero .focus-demo{margin-top:10px}
+    .compare,.roteiros,.cases,.posts{grid-template-columns:1fr}
+    .smartbait-split{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .cta-box{padding:48px 34px}
+    .nav-links{display:none}
+    .nav-links.open{
+      display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;
+      background:rgba(255,255,255,.98);padding:22px 28px 28px;gap:20px;align-items:flex-start;
+      border-top:1px solid var(--line);box-shadow:0 16px 30px -22px rgba(31,77,58,.5);
+    }
+    .nav-toggle{display:block}
+    .product-grid{direction:ltr}
+    .capsule{order:-1}
+  }
+  @media(max-width:560px){
+    section{padding:72px 0}
+    .wrap{padding:0 20px}
+    .smartbait-split{grid-template-columns:1fr}
+    .strip-inner{gap:20px 24px}
+    .modal .m-body{padding:28px 24px 34px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+  /* Fidelidade ao brandbook: Inter em toda a tipografia */
+  .logo .wordmark,.origin .quote,.split-card .k,
+  .mono,.strip-item .n,.pest-visual .lbl,.pest-meta .tag,
+  .case .metric,.case .who,.modal .m-meta,.foot-arch span,.player .badge{
+    font-family:"Inter",system-ui,sans-serif;
+  }
+  .logo .wordmark{letter-spacing:-.02em}
+  .logo-img{height:30px;width:auto;display:block}
+  .foot-brand .logo-img{height:40px}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo" aria-label="SmartBait, página inicial">
+      <img src="smartbait-logo-green.png" alt="SmartBait" class="logo-img"/>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#problema">O problema</a></li>
+        <li><a href="#categoria">Controle direcionado</a></li>
+        <li><a href="#produto">BioBait</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#portal">Portal</a></li>
+        <li><a href="#contato" class="nav-cta">Falar com especialista</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-tag"><span class="dot"></span>Plataforma de controle inteligente no campo</span>
+      <h1>Inteligência <span class="accent">no ponto certo.</span></h1>
+      <p class="lede">A SmartBait é controle direcionado para o bicudo-da-cana: a isca biológica atrai a praga ao ponto exato da infestação e age só ali. Menos volume, mais inteligência.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-primary">Solicitar aplicação on-farm
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#tecnologia" class="btn btn-ghost">Ver a tecnologia em campo</a>
+      </div>
+    </div>
+    <div>
+      <div class="focus-demo" id="focusDemo">
+        <div class="scatter" id="scatter" aria-hidden="true"></div>
+        <div class="target" aria-hidden="true">
+          <div class="ring"></div><div class="ring r2"></div><div class="core"></div>
+        </div>
+        <div class="demo-caption">
+          <span><b id="demoTitle">Cobertura total</b><span id="demoSub">veneno na área inteira · desperdício</span></span>
+          <button class="demo-switch" id="demoSwitch">ver controle direcionado →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STRIP ================= -->
+<div class="strip">
+  <div class="wrap strip-inner">
+    <div class="strip-item reveal"><span class="n">1</span><span class="l">praga de solo de difícil controle: <i>Sphenophorus levis</i></span></div>
+    <div class="strip-item reveal"><span class="n">−área</span><span class="l">aplicação concentrada no foco, não em cobertura total</span></div>
+    <div class="strip-item reveal"><span class="n">drone</span><span class="l">distribuição direcionada, integrável à agricultura de precisão</span></div>
+    <div class="strip-item reveal"><span class="n">sistema</span><span class="l">o controle tratado como sistema, não como insumo isolado</span></div>
+  </div>
+</div>
+
+<!-- ================= PROBLEMA ================= -->
+<section class="problem scroll-margin" id="problema">
+  <div class="wrap">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="eyebrow">O problema no campo</span>
+        <h2 style="font-size:clamp(1.9rem,3.6vw,3rem);color:var(--green-deep);margin-top:16px">O inimigo da cana que a cobertura total não alcança.</h2>
+        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O <i>Sphenophorus levis</i> — o bicudo-da-cana — vive no solo, ataca a base da soqueira e derruba a produtividade safra após safra. É de difícil controle justamente porque o método tradicional combate a área toda, e não o foco real da infestação.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Difícil de localizar.</b> A praga age abaixo da superfície, em focos dispersos pelo talhão.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Cobertura cara e imprecisa.</b> Tratar a área inteira gasta insumo onde não há praga.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Reaplicações constantes.</b> O controle de superfície não chega ao foco — e a praga volta.</span></li>
+        </ul>
+      </div>
+      <div class="pest-card reveal">
+        <div class="pest-visual">
+          <div class="soil"></div>
+          <div class="spot" style="left:24%;top:30%"></div>
+          <div class="spot" style="left:60%;top:54%;width:40px;height:40px"></div>
+          <div class="lbl" style="left:24%;top:18%">foco · infestação</div>
+          <div class="lbl mono" style="right:16px;bottom:14px">solo · base da soqueira</div>
+        </div>
+        <div class="pest-meta">
+          <span class="sci">Sphenophorus levis</span>
+          <span class="tag">praga de solo · cana-de-açúcar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= A VIRADA / CATEGORIA ================= -->
+<section class="shift scroll-margin" id="categoria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">O princípio · controle direcionado</span>
+      <h2>Não é um insumo de cobertura. É um sistema inteligente.</h2>
+      <p>Existem duas formas de combater a praga. A SmartBait existe para levar a forma certa ao campo — a mesma lógica que dá nome à marca.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-card old reveal">
+        <h3>O modelo antigo</h3>
+        <div class="big">Cobertura total</div>
+        <ul>
+          <li>Aplica na área inteira, tenha praga ou não</li>
+          <li>Alto volume de insumo e de dispersão</li>
+          <li>Custo elevado e reaplicações frequentes</li>
+          <li>Pouca leitura técnica do foco real</li>
+        </ul>
+      </div>
+      <div class="compare-card new reveal">
+        <h3>O modelo SmartBait</h3>
+        <div class="big">Controle direcionado</div>
+        <ul>
+          <li>Atrai a praga ao ponto exato e age só ali</li>
+          <li>Menos volume, menor impacto ambiental</li>
+          <li>Menos reaplicações, mais resultado por safra</li>
+          <li>Decisão técnica, compatível com agricultura de precisão</li>
+        </ul>
+      </div>
+    </div>
+    <div class="category-claim reveal">
+      <p><span class="term">Controle direcionado</span> não é tendência: é a forma certa de agir no foco. É o que a SmartBait faz — e a referência contra a qual o resto se compara.</p>
+      <a href="#produto" class="btn btn-primary">Conhecer o BioBait
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUTO BIOBAIT ================= -->
+<section class="product scroll-margin" id="produto">
+  <div class="wrap">
+    <div class="product-grid">
+      <div class="reveal">
+        <div class="capsule">
+          <div class="halo"></div>
+          <div class="obj"></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">O produto · BioBait</span>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.8rem);color:var(--green-deep);margin-top:16px">A isca biológica que concentra a ação no foco da praga.</h2>
+        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O BioBait é aplicado de forma localizada no campo. Em vez de cobrir o talhão, ele atrai o <i>Sphenophorus</i> ao ponto de aplicação e concentra o controle onde a infestação realmente está.</p>
+        <div class="feat">
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg></div>
+            <h4>Controle localizado</h4><p>Ação precisa no ponto exato do problema.</p>
+          </div>
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h4>Aplicação precisa</h4><p>Direcionamento inteligente, inclusive via drone.</p>
+          </div>
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C12 4 16 3 16 3s.5 4-2 7"/><path d="M11 20s-1-7 4-11"/></svg></div>
+            <h4>Menor impacto</h4><p>Redução significativa de dispersão no campo.</p>
+          </div>
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+            <h4>Solução sistêmica</h4><p>Pensada como sistema completo, não insumo isolado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECNOLOGIA + VÍDEO ================= -->
+<section class="tech scroll-margin" id="tecnologia">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">A tecnologia · BioBait Core</span>
+      <h2>Veja a tecnologia agindo no campo.</h2>
+      <p>O BioBait Core é o motor proprietário por trás do controle direcionado. Abaixo, a demonstração de campo — do voo do drone ao ponto exato de ação.</p>
+    </div>
+
+    <div class="demo-embed reveal">
+      <iframe src="smartbait-motion-demo.html" title="Demonstração do BioBait em motion — controle direcionado do bicudo-da-cana" loading="lazy" allowfullscreen></iframe>
+    </div>
+
+    <div class="roteiros">
+      <div class="roteiro reveal">
+        <span class="num">VÍDEO 01</span>
+        <h4>Aplicação via drone</h4>
+        <p>Plano aéreo do drone sobrevoando o talhão e liberando o BioBait em pontos definidos — a precisão substituindo a cobertura.</p>
+      </div>
+      <div class="roteiro reveal">
+        <span class="num">VÍDEO 02</span>
+        <h4>O ponto de ação</h4>
+        <p>Close no foco: a isca atrai e concentra a praga. A marca-alvo aparece sobre o ponto exato — “Inteligência no ponto certo.”</p>
+      </div>
+      <div class="roteiro reveal">
+        <span class="num">VÍDEO 03</span>
+        <h4>Antes &amp; depois da safra</h4>
+        <p>Comparativo de soqueira tratada x não tratada, com leitura técnica do resultado — a prova que vira case.</p>
+      </div>
+    </div>
+    <p class="note">Demonstração em motion incorporada acima — as três cenas correspondem aos roteiros. Os mesmos roteiros servem de base para a filmagem real em campo.</p>
+  </div>
+</section>
+
+<!-- ================= PROVA / CASES ================= -->
+<section class="proof scroll-margin" id="resultados">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Prova real</span>
+      <h2 style="color:var(--green-deep)">Cada aplicação vira aprendizado. Cada resultado vira case.</h2>
+      <p>A entrada é on-farm, ao lado de quem vive o problema. O resultado é medido em campo e documentado — a base de credibilidade que sustenta a expansão.</p>
+    </div>
+    <div class="cases">
+      <div class="case reveal">
+        <div class="bar"></div>
+        <div class="metric">−<small>reaplicações</small></div>
+        <h4>Controle desde a primeira aplicação</h4>
+        <p>Ação concentrada no foco reduz a necessidade de repetir o tratamento ao longo da safra.</p>
+        <div class="who">USINA · PILOTO ON-FARM</div>
+      </div>
+      <div class="case reveal">
+        <div class="bar"></div>
+        <div class="metric">foco<small>vs área</small></div>
+        <h4>Insumo onde a praga está</h4>
+        <p>Aplicação direcionada em vez de cobertura total: menos volume e menos desperdício por talhão.</p>
+        <div class="who">PRODUTOR · CANA-DE-AÇÚCAR</div>
+      </div>
+      <div class="case reveal">
+        <div class="bar"></div>
+        <div class="metric">+<small>precisão</small></div>
+        <h4>Decisão baseada em dados</h4>
+        <p>Compatível com agricultura de precisão, o manejo passa a ser técnico e mensurável.</p>
+        <div class="who">EQUIPE TÉCNICA · CAMPO</div>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--clay);margin-top:22px;font-style:italic">Indicadores ilustrativos — preenchidos com os números reais de cada piloto on-farm conforme os cases são documentados.</p>
+  </div>
+</section>
+
+<!-- ================= PORTAL / BLOG ================= -->
+<section class="portal scroll-margin" id="portal">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Portal SmartBait · conhecimento de campo</span>
+        <h2 style="color:var(--green-deep);font-size:clamp(1.9rem,3.4vw,2.8rem);margin-top:16px">A referência sobre controle direcionado no canavial.</h2>
+        <p style="color:var(--clay);font-size:1.08rem;margin-top:16px">Conteúdo técnico para produtores e agrônomos — quem ensina a categoria é quem se torna referência nela.</p>
+      </div>
+      <a href="#portal" class="portal-link">Ver todos os artigos
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="posts" id="posts">
+      <!-- posts injected by JS for a single source of truth -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORIGEM / PIONEIRISMO ================= -->
+<section class="origin scroll-margin" id="origem">
+  <div class="wrap">
+    <div class="origin-grid">
+      <div class="reveal">
+        <span class="eyebrow">A origem da marca</span>
+        <h2>Pioneirismo não se copia. Nossa lógica nasce do foco.</h2>
+        <p>A SmartBait nasce de uma isca biológica desenvolvida para o controle do bicudo-da-cana — e de uma decisão: combater o foco, não a área. Foi essa lógica que deu origem ao nome e a tudo que a marca comunica.</p>
+        <p>Por isso a SmartBait é empresa-plataforma, não produto único: estruturada para abrigar novos produtos e tecnologias sem se reinventar a cada passo.</p>
+        <div class="quote">“Menos volume, mais inteligência.”</div>
+      </div>
+      <div class="smartbait-split reveal">
+        <div class="split-card">
+          <div class="k">Smart</div>
+          <p>Decisão, método, precisão — a inteligência aplicada ao campo.</p>
+        </div>
+        <div class="split-card bait">
+          <div class="k">Bait</div>
+          <p>Isca, atração, foco — o controle localizado no ponto exato da praga.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta scroll-margin" id="contato">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div>
+        <h2>Leve o controle direcionado para o seu canavial.</h2>
+        <p>Fale com nossa equipe técnica e agende uma aplicação on-farm. A prova acontece no seu campo, com acompanhamento e resultado documentado.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contato" class="btn btn-primary">Falar com um especialista
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#tecnologia" class="btn btn-ghost">Ver demonstração de campo</a>
+        <span class="cta-note">Resposta da equipe técnica em até 1 dia útil</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <img src="smartbait-logo-white.png" alt="SmartBait" class="logo-img"/>
+        </div>
+        <p>Inteligência no ponto certo. A plataforma de controle inteligente no campo.</p>
+        <div class="foot-arch">
+          <span>SmartBait · plataforma</span>
+          <span>BioBait · produto</span>
+          <span>BioBait Core · tecnologia</span>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Solução</h5>
+        <ul>
+          <li><a href="#problema">O problema</a></li>
+          <li><a href="#categoria">Controle direcionado</a></li>
+          <li><a href="#produto">BioBait</a></li>
+          <li><a href="#tecnologia">BioBait Core</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Conteúdo</h5>
+        <ul>
+          <li><a href="#portal">Portal</a></li>
+          <li><a href="#resultados">Cases</a></li>
+          <li><a href="#origem">A marca</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="#contato">Falar com especialista</a></li>
+          <li><a href="#contato">Aplicação on-farm</a></li>
+          <li><a href="#contato">Para usinas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SmartBait · Inteligência no ponto certo.</span>
+      <span class="credit">marca e plataforma por <b>Mkteúdo</b> · mkteudocomunicacao.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="m-cover" id="mCover">
+      <button class="m-close" id="mClose" aria-label="Fechar artigo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span class="cat" id="mCat"></span>
+    </div>
+    <div class="m-body" id="mBody"></div>
+  </div>
+</div>
+
+<script>
+/* ---------- POSTS (single source of truth: cards + article) ---------- */
+const PATTERNS = [
+  'repeating-linear-gradient(118deg,rgba(169,194,160,.16) 0 2px,transparent 2px 24px)',
+  'repeating-radial-gradient(circle at 70% 40%,rgba(194,106,61,.22) 0 1px,transparent 1px 16px)',
+  'repeating-linear-gradient(95deg,rgba(169,194,160,.14) 0 2px,transparent 2px 30px)'
+];
+const MARK_SVG = `<img src="smartbait-symbol-white.png" alt="" style="width:100%;height:100%;object-fit:contain;opacity:.55"/>`;
+
+const POSTS = [
+  {
+    cat:"Manejo",
+    title:"Por que a cobertura total não resolve o bicudo-da-cana",
+    excerpt:"O Sphenophorus levis vive no solo e ataca em focos. Combater a área inteira é caro, impreciso e deixa a praga voltar. Entenda a falha de lógica do método tradicional.",
+    meta:["Leitura · 4 min","Categoria · Manejo"],
+    body:`
+      <p>O <em>Sphenophorus levis</em> não é uma praga de superfície. Ele age na base da soqueira, abaixo da linha do solo, e se distribui em focos dispersos pelo talhão. Essa característica simples explica por que o controle tradicional — pensado para cobrir a área inteira — entrega tão pouco resultado por safra.</p>
+      <h3>A lógica da cobertura total</h3>
+      <p>O método convencional parte de uma premissa de área: se a praga pode estar em qualquer lugar, trata-se tudo. O custo disso é triplo — gasta-se insumo onde não há infestação, aumenta-se a dispersão no ambiente e, ainda assim, o foco real raramente é atingido na profundidade certa.</p>
+      <h3>Três falhas que se repetem todo ano</h3>
+      <ul>
+        <li><strong>Imprecisão:</strong> o produto chega à superfície, mas o foco está na base da soqueira.</li>
+        <li><strong>Desperdício:</strong> a maior parte da aplicação acontece onde não há praga.</li>
+        <li><strong>Reaplicação:</strong> como o foco não é controlado, a infestação retorna e o ciclo recomeça.</li>
+      </ul>
+      <h3>A virada: do tamanho da área para o ponto da praga</h3>
+      <p>Controlar o bicudo-da-cana com eficiência exige inverter a pergunta. Não é “quanto da área eu cubro?”, e sim “onde, exatamente, a praga está — e como concentro a ação ali?”. É essa virada que define o controle direcionado e a tecnologia por trás do BioBait.</p>
+      <p><span class="m-tag">Controle direcionado</span><span class="m-tag">Menos volume</span></p>
+    `
+  },
+  {
+    cat:"Estratégia",
+    title:"Controle direcionado: a lógica de precisão que muda a conta do canavial",
+    excerpt:"Menos volume não é só uma questão ambiental — é economia de safra. Como concentrar a ação no foco altera custo de insumo, número de reaplicações e previsibilidade.",
+    meta:["Leitura · 5 min","Categoria · Estratégia"],
+    body:`
+      <p>Quando o controle deixa de ser uma operação de área e passa a ser uma operação de foco, a economia do canavial muda de natureza. O ganho não está só em usar menos produto — está em transformar um gasto recorrente e imprevisível em uma decisão técnica e mensurável.</p>
+      <h3>Onde o dinheiro vaza no modelo antigo</h3>
+      <p>Na cobertura total, três custos crescem juntos: o insumo aplicado fora do foco, a operação repetida de aplicação e a perda de produtividade da soqueira que continua sob ataque. Nenhum deles aparece numa linha só — e por isso costuma ser subestimado.</p>
+      <h3>O que o foco reorganiza</h3>
+      <ul>
+        <li><strong>Insumo:</strong> aplicado onde a praga está, não onde ela poderia estar.</li>
+        <li><strong>Operação:</strong> menos reaplicações ao longo da safra.</li>
+        <li><strong>Previsibilidade:</strong> resultado lido em campo, comparável de talhão para talhão.</li>
+      </ul>
+      <h3>Compatível com agricultura de precisão</h3>
+      <p>O controle direcionado não é um passo para trás em tecnologia — é o contrário. Por agir em pontos definidos, ele conversa naturalmente com mapeamento, distribuição via drone e gestão por dados. A decisão de manejo deixa de ser hábito e vira método.</p>
+      <p><span class="m-tag">Economia de safra</span><span class="m-tag">Agricultura de precisão</span></p>
+    `
+  },
+  {
+    cat:"Resultado",
+    title:"Do foco à safra: como medir o resultado de um manejo localizado",
+    excerpt:"Resultado que não se mede não vira decisão. Um roteiro prático para documentar a eficácia do controle direcionado e transformar cada aplicação em prova real.",
+    meta:["Leitura · 4 min","Categoria · Resultado"],
+    body:`
+      <p>Um manejo que funciona, mas não é medido, perde duas vezes: não orienta a próxima decisão e não constrói reputação. No controle direcionado, a medição é parte do método — e é o que separa uma aplicação de um case.</p>
+      <h3>O que medir</h3>
+      <ul>
+        <li><strong>Foco tratado vs. infestação observada:</strong> a aderência da aplicação ao problema real.</li>
+        <li><strong>Reaplicações na safra:</strong> o indicador mais direto de controle efetivo.</li>
+        <li><strong>Condição da soqueira:</strong> leitura comparativa entre talhões tratados e não tratados.</li>
+      </ul>
+      <h3>Como documentar</h3>
+      <p>Registro antes da aplicação, marcação dos pontos de foco, acompanhamento ao longo do ciclo e comparação no fim da safra. Cada etapa gera um dado — e o conjunto deles gera a prova que sustenta a expansão.</p>
+      <h3>Por que isso é estratégico</h3>
+      <p>No on-farm, a prova nasce no campo de quem decide a compra. Documentar com método transforma resultado em autoridade: o concorrente pode imitar o produto, mas começa do zero na prova acumulada.</p>
+      <p><span class="m-tag">Prova real</span><span class="m-tag">On-farm</span></p>
+    `
+  }
+];
+
+/* render post cards */
+const postsEl = document.getElementById('posts');
+POSTS.forEach((p,i)=>{
+  const card = document.createElement('article');
+  card.className = 'post reveal';
+  card.tabIndex = 0;
+  card.setAttribute('role','button');
+  card.setAttribute('aria-label','Abrir artigo: '+p.title);
+  card.innerHTML = `
+    <div class="cover">
+      <div class="pat" style="background:${PATTERNS[i%3]}"></div>
+      <span class="cat">${p.cat}</span>
+      <div class="mk">${MARK_SVG}</div>
+    </div>
+    <div class="body">
+      <h3>${p.title}</h3>
+      <p>${p.excerpt}</p>
+      <span class="read">Ler artigo
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>`;
+  const open = ()=>openPost(i);
+  card.addEventListener('click',open);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+  postsEl.appendChild(card);
+});
+
+/* ---------- MODAL ---------- */
+const modal=document.getElementById('modal'),mBody=document.getElementById('mBody'),
+      mCat=document.getElementById('mCat'),mCover=document.getElementById('mCover'),mClose=document.getElementById('mClose');
+let lastFocus=null;
+function openPost(i){
+  const p=POSTS[i];
+  lastFocus=document.activeElement;
+  mCat.textContent=p.cat;
+  mCover.style.background=`var(--green-deep)`;
+  mCover.style.backgroundImage=PATTERNS[i%3];
+  mBody.innerHTML=`<h2 id="modalTitle">${p.title}</h2><div class="m-meta">${p.meta.map(m=>`<span>${m}</span>`).join('')}</div>${p.body}`;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  mClose.focus();
+}
+function closePost(){
+  modal.classList.remove('open');
+  document.body.style.overflow='';
+  if(lastFocus)lastFocus.focus();
+}
+mClose.addEventListener('click',closePost);
+modal.addEventListener('click',e=>{if(e.target===modal)closePost();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closePost();});
+
+/* ---------- NAV scroll + toggle ---------- */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20);});
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded',open);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded',false);
+}));
+
+/* ---------- REVEAL ---------- */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-visible');io.unobserve(en.target);}});
+},{threshold:.16});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- HERO signature: cobertura -> direcionado ---------- */
+const scatter=document.getElementById('scatter');
+const focusDemo=document.getElementById('focusDemo');
+const demoSwitch=document.getElementById('demoSwitch');
+const demoTitle=document.getElementById('demoTitle');
+const demoSub=document.getElementById('demoSub');
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* build scattered dots (cobertura total) */
+const N=46;
+for(let i=0;i<N;i++){
+  const s=document.createElement('span');
+  const x=8+Math.random()*84, y=8+Math.random()*84;
+  s.style.left=x+'%'; s.style.top=y+'%';
+  // vector pointing toward center for convergence
+  s.style.setProperty('--cx',(50-x)*0.9+'%');
+  s.style.setProperty('--cy',(50-y)*0.9+'%');
+  s.style.transitionDelay=(Math.random()*0.4)+'s';
+  scatter.appendChild(s);
+}
+let converged=false;
+function setState(c){
+  converged=c;
+  focusDemo.classList.toggle('converged',c);
+  if(c){demoTitle.textContent='Controle direcionado';demoSub.textContent='ação no ponto exato · BioBait';demoSwitch.textContent='← ver cobertura total';}
+  else{demoTitle.textContent='Cobertura total';demoSub.textContent='veneno na área inteira · desperdício';demoSwitch.textContent='ver controle direcionado →';}
+}
+demoSwitch.addEventListener('click',()=>setState(!converged));
+/* auto-play the thesis once on load */
+if(!reduce){ setTimeout(()=>setState(true),1400); }
+else { setState(true); }
+
+/* ---------- (motion demo is embedded via iframe in the tecnologia section) ---------- */
+</script>
+</body>
+</html>

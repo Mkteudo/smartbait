@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SmartBait — Motion · Demonstração do BioBait</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --green-deep:#1F4D3A;--green-tech:#6F8F6B;--green-light:#A9C2A0;
+    --terracotta:#C26A3D;--clay:#9E6A47;--cream:#F4F2ED;--ink:#16261D;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:#10201a;color:var(--cream);
+    font-family:"Inter",system-ui,sans-serif;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;min-height:100vh;padding:30px 18px;gap:18px;
+    background:radial-gradient(900px 600px at 50% -10%,#1d3a2c,#10201a 70%);
+  }
+  .head{text-align:center;max-width:720px}
+  .head .logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
+  .head .logo .mark{width:34px;height:34px;color:var(--cream)}
+  .head .logo .wm{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:22px;line-height:1;padding-top:2px}
+  .head h1{font-size:1.15rem;font-weight:600;margin:0;color:rgba(244,242,237,.8);letter-spacing:.01em}
+  .head h1 b{color:var(--cream);font-weight:700}
+
+  /* ---------- STAGE ---------- */
+  .stage{
+    position:relative;width:100%;max-width:920px;aspect-ratio:16/9;border-radius:18px;
+    overflow:hidden;box-shadow:0 50px 110px -50px rgba(0,0,0,.8),0 0 0 1px rgba(169,194,160,.18);
+    background:#0c1813;
+  }
+  .scene{position:absolute;inset:0;opacity:0;transition:opacity .8s var(--ease);pointer-events:none}
+  .scene.active{opacity:1}
+
+  /* shared captions */
+  .cap{position:absolute;left:30px;bottom:26px;z-index:20;max-width:70%}
+  .cap .num{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;color:var(--terracotta);font-weight:600}
+  .cap h2{font-family:"Baloo 2",sans-serif;font-size:clamp(1.1rem,2.6vw,1.7rem);margin:6px 0 4px;font-weight:700;color:#fff;letter-spacing:-.01em}
+  .cap p{font-size:clamp(.8rem,1.5vw,.98rem);color:rgba(255,255,255,.82);margin:0;max-width:24em}
+  .scene.active .cap{animation:capIn .8s var(--ease) both .25s}
+  @keyframes capIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  .wmk{position:absolute;right:22px;top:18px;z-index:20;display:flex;align-items:center;gap:8px;opacity:.9}
+  .wmk .mark{width:24px;height:24px;color:#fff}
+  .wmk .wm{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:15px;color:#fff;padding-top:2px}
+
+  /* focal target */
+  .target{position:absolute;width:120px;height:120px;transform:translate(-50%,-50%) scale(0);z-index:14}
+  .target .r{position:absolute;inset:0;border:2px solid rgba(194,106,61,.55);border-radius:50%}
+  .target .r.b{inset:30px;border-color:rgba(194,106,61,.9)}
+  .target .c{position:absolute;left:50%;top:50%;width:16px;height:16px;background:var(--terracotta);border-radius:50%;transform:translate(-50%,-50%)}
+  .target .ping{position:absolute;inset:0;border:2px solid var(--terracotta);border-radius:50%;opacity:0}
+
+  /* =================== SCENE 1 — APLICAÇÃO =================== */
+  #s1{background:linear-gradient(180deg,#a9cbe0 0%,#cfe0d4 46%,#7a8b5a 60%,#5d6b3f 100%)}
+  #s1 .sun{position:absolute;right:16%;top:14%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,247,224,.95),rgba(255,247,224,0) 70%)}
+  .ground{position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(180deg,#6b5836,#4a3c25)}
+  .rows{position:absolute;left:0;right:0;bottom:32%;height:46%;overflow:hidden}
+  .rows i{position:absolute;bottom:0;width:3px;height:100%;background:linear-gradient(180deg,#94ad6a,#3f5d36);border-radius:3px;transform-origin:bottom center;opacity:.85}
+  .scene.active .rows i{animation:sway 3.2s ease-in-out infinite alternate}
+  @keyframes sway{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
+
+  .drone{position:absolute;left:50%;top:-80px;width:150px;transform:translateX(-50%);z-index:12}
+  .scene.active #drone1{animation:droneIn 2.4s var(--ease) both}
+  @keyframes droneIn{from{top:-90px;opacity:0}40%{opacity:1}to{top:12%;opacity:1}}
+  .drone .body{position:relative;width:64px;height:30px;margin:0 auto;background:linear-gradient(180deg,#2d3a33,#16201b);border-radius:7px;box-shadow:0 8px 18px rgba(0,0,0,.4)}
+  .drone .body::after{content:"";position:absolute;left:50%;bottom:-12px;transform:translateX(-50%);width:26px;height:16px;background:#0f1814;border-radius:0 0 6px 6px}
+  .drone .arm{position:absolute;top:10px;width:40px;height:3px;background:#1c2823}
+  .drone .arm.l{right:54%;transform:rotate(18deg)}
+  .drone .arm.r{left:54%;transform:rotate(-18deg)}
+  .drone .rotor{position:absolute;top:2px;width:34px;height:34px}
+  .drone .rotor::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px dashed rgba(20,30,25,.6)}
+  .drone .rotor.l{right:64%}.drone .rotor.r{left:64%}
+  .drone .blade{position:absolute;left:50%;top:50%;width:34px;height:4px;background:rgba(20,30,25,.85);border-radius:3px;transform:translate(-50%,-50%)}
+  .scene.active .drone .blade{animation:spin .12s linear infinite}
+  @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+  .pellet{position:absolute;left:50%;top:16%;width:18px;height:22px;border-radius:46% 46% 50% 50%/40% 40% 60% 60%;
+    background:linear-gradient(160deg,#b9874f,#7e5530);transform:translate(-50%,-50%);z-index:13;opacity:0;
+    box-shadow:inset 0 -4px 8px rgba(0,0,0,.3)}
+  .scene.active #pellet1{animation:drop 1.5s var(--ease) both 2.2s}
+  @keyframes drop{
+    0%{opacity:0;top:18%}10%{opacity:1}
+    100%{opacity:1;top:74%;transform:translate(-50%,-50%) rotate(160deg)}
+  }
+  #s1 .target{left:50%;top:74%}
+  .scene.active #s1 .target{animation:lockOn .7s var(--ease) both 3.5s}
+  @keyframes lockOn{from{transform:translate(-50%,-50%) scale(0);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
+  .scene.active #s1 .target .ping{animation:ping 1.6s ease-out infinite 3.8s}
+  @keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.4);opacity:0}}
+
+  /* =================== SCENE 2 — PONTO DE AÇÃO =================== */
+  #s2{background:
+      radial-gradient(120% 90% at 50% 40%,#5a4a30,#3a2e1c 70%,#241a10 100%)}
+  #s2 .straw{position:absolute;inset:0;opacity:.5;background:
+      repeating-linear-gradient(58deg,rgba(214,196,150,.25) 0 2px,transparent 2px 13px),
+      repeating-linear-gradient(-46deg,rgba(180,160,120,.18) 0 2px,transparent 2px 18px)}
+  .bait{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:10;width:150px;height:120px}
+  .bait .lump{
+    position:absolute;inset:0;border-radius:52% 48% 46% 54%/56% 54% 46% 44%;
+    background:radial-gradient(circle at 40% 35%,#7a6a4a,#4c3f28 70%,#33291a);
+    box-shadow:inset 0 -14px 26px rgba(0,0,0,.45),inset 0 10px 18px rgba(255,240,200,.12),0 16px 30px rgba(0,0,0,.5);
+  }
+  .bait .lump::after{content:"";position:absolute;inset:0;border-radius:inherit;
+    background:
+      radial-gradient(circle at 60% 60%,rgba(216,190,140,.5) 0 2px,transparent 3px),
+      radial-gradient(circle at 30% 70%,rgba(216,190,140,.4) 0 2px,transparent 3px),
+      radial-gradient(circle at 70% 35%,rgba(216,190,140,.45) 0 1.5px,transparent 3px),
+      repeating-linear-gradient(120deg,rgba(60,45,25,.3) 0 1px,transparent 1px 6px)}
+  #s2 .target{left:50%;top:52%;width:170px;height:170px}
+  .scene.active #s2 .target{animation:lockOn2 1s var(--ease) both 3.6s}
+  @keyframes lockOn2{from{transform:translate(-50%,-50%) scale(1.5);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:.95}}
+
+  .beetle{position:absolute;width:46px;z-index:11;opacity:0}
+  .beetle svg{width:100%;display:block}
+  .scene.active .beetle{opacity:1}
+  /* each beetle walks from an edge toward center with a bob */
+  .scene.active #b1{animation:walk1 3.4s var(--ease) both .3s, bob .5s ease-in-out infinite .3s}
+  .scene.active #b2{animation:walk2 3.6s var(--ease) both .5s, bob .45s ease-in-out infinite .5s}
+  .scene.active #b3{animation:walk3 3.8s var(--ease) both .2s, bob .55s ease-in-out infinite .2s}
+  .scene.active #b4{animation:walk4 3.5s var(--ease) both .7s, bob .5s ease-in-out infinite .7s}
+  .scene.active #b5{animation:walk5 4s var(--ease) both .4s, bob .6s ease-in-out infinite .4s}
+  @keyframes walk1{from{left:-12%;top:30%;opacity:0;transform:rotate(20deg)}20%{opacity:1}to{left:34%;top:44%;transform:rotate(18deg)}}
+  @keyframes walk2{from{left:108%;top:24%;opacity:0;transform:rotate(168deg)}20%{opacity:1}to{left:60%;top:40%;transform:rotate(160deg)}}
+  @keyframes walk3{from{left:-10%;top:74%;opacity:0;transform:rotate(-26deg)}20%{opacity:1}to{left:38%;top:62%;transform:rotate(-20deg)}}
+  @keyframes walk4{from{left:110%;top:80%;opacity:0;transform:rotate(204deg)}20%{opacity:1}to{left:60%;top:62%;transform:rotate(196deg)}}
+  @keyframes walk5{from{left:50%;top:112%;opacity:0;transform:rotate(-90deg)}20%{opacity:1}to{left:50%;top:70%;transform:rotate(-90deg)}}
+  @keyframes bob{0%,100%{margin-top:0}50%{margin-top:-3px}}
+
+  /* =================== SCENE 3 — RESULTADO =================== */
+  #s3{background:linear-gradient(135deg,#1F4D3A,#173E2E)}
+  #s3 .half{position:absolute;top:0;bottom:0;width:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px}
+  #s3 .half.l{left:0;border-right:1px dashed rgba(244,242,237,.18)}
+  #s3 .half.r{right:0}
+  #s3 .lbl{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  #s3 .half.l .lbl{color:rgba(244,242,237,.55)}
+  #s3 .half.r .lbl{color:var(--green-light)}
+  .field-box{position:relative;width:150px;height:150px;border-radius:14px;border:1px solid rgba(244,242,237,.2);overflow:hidden;background:rgba(244,242,237,.04)}
+  .field-box .dot{position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(169,194,160,.7)}
+  #s3 .right-target{position:relative;width:150px;height:150px;display:flex;align-items:center;justify-content:center}
+  #s3 .right-target .ring{position:absolute;border:2px solid rgba(194,106,61,.5);border-radius:50%}
+  #s3 .right-target .ring.a{width:130px;height:130px}
+  #s3 .right-target .ring.b{width:74px;height:74px;border-color:rgba(194,106,61,.85)}
+  #s3 .right-target .core{width:30px;height:30px;border-radius:50%;background:var(--terracotta);box-shadow:0 0 0 6px rgba(194,106,61,.25)}
+  .scene.active #s3 .right-target .core{animation:beat 1.6s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+  #s3 .endcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#1F4D3A,#173E2E);opacity:0;z-index:30}
+  .scene.active #s3 .endcard{animation:endIn 1s var(--ease) both 3.2s}
+  @keyframes endIn{from{opacity:0}to{opacity:1}}
+  #s3 .endcard .mk{width:62px;height:62px;color:#fff}
+  #s3 .endcard .slogan{font-family:"Baloo 2",sans-serif;font-size:clamp(1.4rem,3.6vw,2.4rem);font-weight:700;color:#fff;text-align:center}
+  #s3 .endcard .slogan .a{color:var(--terracotta)}
+  #s3 .endcard .sub{font-size:.95rem;color:rgba(244,242,237,.75);letter-spacing:.02em}
+  #s3 .endcard .wm{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:1.1rem;color:#fff;display:flex;align-items:center;gap:9px;margin-top:6px}
+  #s3 .endcard .wm .mark{width:26px;height:26px}
+
+  /* ---------- CONTROLS ---------- */
+  .controls{width:100%;max-width:920px}
+  .progress{display:flex;gap:6px;margin-bottom:12px}
+  .progress .seg{flex:1;height:4px;border-radius:3px;background:rgba(244,242,237,.16);overflow:hidden}
+  .progress .seg i{display:block;height:100%;width:0;background:var(--terracotta)}
+  .progress .seg.done i{width:100%}
+  .progress .seg.active i{animation:fill var(--segdur,6s) linear forwards}
+  .stage.paused ~ .controls .progress .seg.active i{animation-play-state:paused}
+  @keyframes fill{to{width:100%}}
+  .ctrl-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .scene-tabs{display:flex;gap:8px;flex-wrap:wrap}
+  .tab{font-size:12.5px;font-weight:600;color:rgba(244,242,237,.6);background:rgba(244,242,237,.06);
+    border:1px solid rgba(244,242,237,.12);padding:8px 13px;border-radius:100px;cursor:pointer;transition:.2s}
+  .tab.on{color:#fff;background:rgba(194,106,61,.9);border-color:transparent}
+  .tab:hover{color:#fff}
+  .buttons{display:flex;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;cursor:pointer;
+    border-radius:100px;padding:10px 18px;border:1px solid rgba(244,242,237,.2);background:transparent;color:var(--cream);transition:.2s}
+  .btn:hover{background:rgba(244,242,237,.08)}
+  .btn.primary{background:var(--terracotta);border-color:transparent}
+  .btn.primary:hover{background:#ad5c33}
+  .btn svg{width:15px;height:15px}
+  .hint{font-size:12.5px;color:rgba(244,242,237,.5);text-align:center;margin-top:14px;line-height:1.5}
+  .hint b{color:rgba(244,242,237,.72);font-weight:600}
+  :focus-visible{outline:3px solid var(--terracotta);outline-offset:3px}
+
+  @media(max-width:560px){
+    .cap{left:18px;bottom:18px;max-width:78%}
+    .ctrl-row{justify-content:center}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001s!important;transition:none!important}
+  }
+  /* Fidelidade ao brandbook: Inter em toda a tipografia */
+  .head .logo .wm,.cap h2,.wmk .wm,.cap .num,
+  #s3 .lbl,#s3 .endcard .slogan,#s3 .endcard .wm{
+    font-family:"Inter",system-ui,sans-serif;
+  }
+  .logo-img{height:30px;width:auto;display:block}
+  .wmk-img{height:22px;width:auto;display:block}
+  .mk-img{width:62px;height:62px;object-fit:contain;display:block}
+  .endwm-img{height:26px;width:auto;display:block}
+</style>
+</head>
+<body>
+
+<div class="head">
+  <img src="smartbait-logo-white.png" alt="SmartBait" class="logo-img"/>
+  <h1><b>Demonstração do BioBait</b> — controle direcionado do bicudo-da-cana, em motion</h1>
+</div>
+
+<!-- ===================== STAGE ===================== -->
+<div class="stage" id="stage">
+
+  <!-- SCENE 1 -->
+  <div class="scene" id="s1">
+    <div class="sun"></div>
+    <div class="rows" id="rows1"></div>
+    <div class="ground"></div>
+    <div class="drone" id="drone1">
+      <div class="rotor l"><span class="blade"></span></div>
+      <div class="rotor r"><span class="blade"></span></div>
+      <div class="arm l"></div><div class="arm r"></div>
+      <div class="body"></div>
+    </div>
+    <div class="pellet" id="pellet1"></div>
+    <div class="target"><div class="r"></div><div class="r b"></div><div class="ping"></div><div class="c"></div></div>
+    <div class="wmk"><img src="smartbait-logo-white.png" alt="SmartBait" class="wmk-img"/></div>
+    <div class="cap">
+      <div class="num">01 · APLICAÇÃO DIRECIONADA</div>
+      <h2>A isca é liberada no ponto exato</h2>
+      <p>Em vez de cobrir o talhão, o BioBait é aplicado de forma localizada — inclusive via drone.</p>
+    </div>
+  </div>
+
+  <!-- SCENE 2 -->
+  <div class="scene" id="s2">
+    <div class="straw"></div>
+    <div class="bait"><div class="lump"></div></div>
+    <div class="target"><div class="r"></div><div class="r b"></div><div class="c"></div></div>
+    <div class="beetle" id="b1"></div>
+    <div class="beetle" id="b2"></div>
+    <div class="beetle" id="b3"></div>
+    <div class="beetle" id="b4"></div>
+    <div class="beetle" id="b5"></div>
+    <div class="wmk"><img src="smartbait-logo-white.png" alt="SmartBait" class="wmk-img"/></div>
+    <div class="cap">
+      <div class="num">02 · O PONTO DE AÇÃO</div>
+      <h2>A isca atrai e concentra a praga</h2>
+      <p>O <i>Sphenophorus levis</i> é atraído ao foco e a ação se concentra onde a infestação está.</p>
+    </div>
+  </div>
+
+  <!-- SCENE 3 -->
+  <div class="scene" id="s3">
+    <div class="half l">
+      <span class="lbl">Cobertura total</span>
+      <div class="field-box" id="scatterBox"></div>
+      <span class="lbl">desperdício</span>
+    </div>
+    <div class="half r">
+      <span class="lbl">Controle direcionado</span>
+      <div class="right-target"><span class="ring a"></span><span class="ring b"></span><span class="core"></span></div>
+      <span class="lbl">no ponto certo</span>
+    </div>
+    <div class="endcard">
+      <img src="smartbait-symbol-white.png" alt="SmartBait" class="mk-img"/>
+      <div class="slogan">Inteligência <span class="a">no ponto certo.</span></div>
+      <div class="sub">Menos volume, mais inteligência.</div>
+      <div class="wm"><img src="smartbait-logo-white.png" alt="SmartBait" class="endwm-img"/></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== CONTROLS ===================== -->
+<div class="controls">
+  <div class="progress">
+    <div class="seg" id="seg0"><i></i></div>
+    <div class="seg" id="seg1"><i></i></div>
+    <div class="seg" id="seg2"><i></i></div>
+  </div>
+  <div class="ctrl-row">
+    <div class="scene-tabs">
+      <button class="tab" data-go="0">01 · Aplicação</button>
+      <button class="tab" data-go="1">02 · Ponto de ação</button>
+      <button class="tab" data-go="2">03 · Resultado</button>
+    </div>
+    <div class="buttons">
+      <button class="btn" id="playBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor" id="playIcon"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+        <span id="playLabel">Pausar</span>
+      </button>
+      <button class="btn primary" id="replayBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+        Reiniciar
+      </button>
+    </div>
+  </div>
+  <p class="hint">Motion vetorial na identidade SmartBait, baseado nas fotos reais do produto.<br>
+  Para exportar como vídeo: abra em tela cheia e <b>grave a tela</b> (ou incorpore o HTML direto no site).</p>
+</div>
+
+<script>
+/* build cane rows for scene 1 */
+const rows=document.getElementById('rows1');
+for(let i=0;i<46;i++){
+  const s=document.createElement('i');
+  s.style.left=(i/46*100)+'%';
+  s.style.height=(70+Math.random()*30)+'%';
+  s.style.animationDelay=(Math.random()*2)+'s';
+  s.style.opacity=(.6+Math.random()*.4);
+  rows.appendChild(s);
+}
+
+/* beetle SVG (simplified Sphenophorus / billbug weevil, brand earth tones) */
+const BEETLE=`<svg viewBox="0 0 56 34">
+  <g stroke="#3a2615" stroke-width="2" stroke-linecap="round">
+    <path d="M18 22 L9 30"/><path d="M22 24 L18 33"/><path d="M26 24 L27 33"/>
+    <path d="M18 12 L9 6"/><path d="M22 11 L19 2"/><path d="M26 11 L28 3"/>
+  </g>
+  <ellipse cx="32" cy="17" rx="16" ry="10" fill="#9E6A47"/>
+  <path d="M18 17 q14 -9 28 0 q-14 9 -28 0z" fill="#7a5230"/>
+  <g stroke="#43291a" stroke-width="1.4" opacity=".8">
+    <path d="M24 11 L24 23"/><path d="M30 10.5 L30 23.5"/><path d="M36 11 L36 23"/><path d="M42 12 L42 22"/>
+  </g>
+  <ellipse cx="16" cy="17" rx="6.5" ry="5.5" fill="#5a3a22"/>
+  <path d="M11 17 q-7 -1 -9 -4" stroke="#5a3a22" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M3 11 L0 6" stroke="#3a2615" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M2 14 L-2 11" stroke="#3a2615" stroke-width="1.6" stroke-linecap="round"/>
+</svg>`;
+['b1','b2','b3','b4','b5'].forEach(id=>document.getElementById(id).innerHTML=BEETLE);
+
+/* scatter dots for scene 3 (cobertura total) */
+const sb=document.getElementById('scatterBox');
+for(let i=0;i<24;i++){
+  const d=document.createElement('span');
+  d.className='dot';
+  d.style.left=(8+Math.random()*80)+'%';
+  d.style.top=(8+Math.random()*80)+'%';
+  sb.appendChild(d);
+}
+
+/* ---------- SEQUENCER ---------- */
+const scenes=[document.getElementById('s1'),document.getElementById('s2'),document.getElementById('s3')];
+const segs=[document.getElementById('seg0'),document.getElementById('seg1'),document.getElementById('seg2')];
+const tabs=document.querySelectorAll('.tab');
+const DUR=[6200,6800,6000];
+const stage=document.getElementById('stage');
+let cur=-1, timer=null, paused=false;
+
+function setSegDur(){segs.forEach((s,i)=>s.style.setProperty('--segdur',DUR[i]+'ms'));}
+setSegDur();
+
+function show(n){
+  cur=n;
+  scenes.forEach((s,i)=>s.classList.toggle('active',i===n));
+  tabs.forEach((t,i)=>t.classList.toggle('on',i===n));
+  segs.forEach((s,i)=>{
+    s.classList.remove('active','done');
+    void s.offsetWidth; // reflow to restart fill
+    if(i<n)s.classList.add('done');
+    else if(i===n && !paused)s.classList.add('active');
+  });
+  clearTimeout(timer);
+  if(!paused){timer=setTimeout(()=>show((n+1)%3),DUR[n]);}
+}
+
+function play(){
+  paused=false;
+  stage.classList.remove('paused');
+  document.getElementById('playLabel').textContent='Pausar';
+  document.getElementById('playIcon').innerHTML='<rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/>';
+  if(cur>=0){segs[cur].classList.add('active');timer=setTimeout(()=>show((cur+1)%3),DUR[cur]);}
+  else show(0);
+}
+function pause(){
+  paused=true;
+  stage.classList.add('paused');
+  clearTimeout(timer);
+  segs.forEach(s=>s.classList.remove('active'));
+  document.getElementById('playLabel').textContent='Tocar';
+  document.getElementById('playIcon').innerHTML='<path d="M8 5v14l11-7z"/>';
+}
+document.getElementById('playBtn').addEventListener('click',()=>paused?play():pause());
+document.getElementById('replayBtn').addEventListener('click',()=>{paused=false;stage.classList.remove('paused');document.getElementById('playLabel').textContent='Pausar';show(0);});
+tabs.forEach(t=>t.addEventListener('click',()=>{paused=false;stage.classList.remove('paused');document.getElementById('playLabel').textContent='Pausar';show(parseInt(t.dataset.go));}));
+
+/* start */
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(reduce){ scenes.forEach(s=>s.classList.add('active')); pause(); show(0); }
+else { show(0); }
+</script>
+</body>
+</html>
