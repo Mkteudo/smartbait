@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SmartBait — Inteligência no ponto certo.</title>
 <meta name="description" content="SmartBait: plataforma de controle inteligente no campo. Controle direcionado do Sphenophorus levis (bicudo-da-cana) — menos volume, mais inteligência." />
+<meta name="theme-color" content="#1F4D3A" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -26,7 +27,7 @@
   }
 
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;font-size:17.5px}
   body{
     margin:0;
     font-family:"Inter",system-ui,-apple-system,sans-serif;
@@ -49,13 +50,13 @@
     display:inline-flex;align-items:center;gap:10px;
   }
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--terracotta);display:inline-block}
-  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .mono{font-family:"Inter",system-ui,sans-serif}
 
   /* ---------- LOGO ---------- */
   .logo{display:inline-flex;align-items:center;gap:11px}
   .logo .mark{width:38px;height:38px;flex:0 0 38px}
   .logo .wordmark{
-    font-family:"Baloo 2","Inter",sans-serif;
+    font-family:"Inter",sans-serif;
     font-weight:700;font-size:25px;letter-spacing:-.01em;line-height:1;
     padding-top:2px;
   }
@@ -73,17 +74,17 @@
     box-shadow:0 8px 28px -20px rgba(31,77,58,.5);
     border-color:var(--line);
   }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:82px}
   .nav .logo .wordmark,.nav .logo .mark{color:var(--green-deep)}
-  .nav-links{display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0}
+  .nav-links{display:flex;align-items:center;gap:34px;list-style:none;margin:0;padding:0}
   .nav-links a:not(.nav-cta){
-    color:var(--green-deep);font-size:14.5px;font-weight:500;opacity:.82;
+    color:var(--green-deep);font-size:15.5px;font-weight:500;opacity:.82;
     transition:opacity .2s;position:relative;
   }
   .nav-links a:not(.nav-cta):hover{opacity:1}
   .nav-cta{
     background:var(--terracotta);color:var(--cream);
-    padding:11px 20px;border-radius:100px;font-size:14px;font-weight:600;
+    padding:12px 22px;border-radius:100px;font-size:14.5px;font-weight:600;
     transition:transform .2s var(--ease),background .2s;
   }
   .nav-cta:hover{background:#ad5c33;transform:translateY(-1px)}
@@ -93,21 +94,51 @@
   /* ---------- HERO ---------- */
   .hero{
     position:relative;background:#fff;color:var(--ink);
-    padding:150px 0 90px;overflow:hidden;
+    padding:150px 0 0;overflow:hidden;
   }
   .hero::after{ /* soft brand glow */
     content:"";position:absolute;right:-160px;top:-120px;width:620px;height:620px;
     background:radial-gradient(circle at center,rgba(169,194,160,.22),transparent 62%);
     pointer-events:none;
   }
-  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:54px;align-items:center;position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;position:relative;z-index:2;max-width:840px}
   .hero h1{font-size:clamp(2.5rem,5.4vw,4.4rem);margin:22px 0 0;color:var(--green-deep)}
-  .hero h1 .accent{color:var(--terracotta)}
+  .hero h1 .accent{color:var(--green-tech)}
   .hero .lede{
     font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--clay);
     max-width:30em;margin:26px 0 0;font-weight:400;
   }
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .hero-benefits{
+    list-style:none;margin:32px 0 0;padding:20px 0 0;display:flex;flex-wrap:wrap;gap:22px 30px;
+    border-top:1px solid var(--line);
+  }
+  .hero-benefits li{
+    display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--green-deep);
+  }
+  .hb-dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta);flex:0 0 auto}
+  .hero-photo{position:relative;margin-top:56px;height:52vh;min-height:340px;max-height:520px;overflow:hidden;background:var(--green-deep)}
+  .hero-photo img,.hero-photo video{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(23,40,29,.72) 0%, rgba(23,40,29,.06) 42%, transparent 70%);
+  }
+  .hero-photo-tag{
+    position:absolute;left:28px;bottom:24px;z-index:2;color:var(--cream);font-weight:600;
+    font-size:1.05rem;max-width:26em;line-height:1.4;letter-spacing:-.01em;
+  }
+  .hero-photo-disclaimer{
+    position:absolute;right:16px;top:16px;z-index:2;font-size:11px;font-weight:600;letter-spacing:.02em;
+    color:var(--cream);background:rgba(23,40,29,.55);padding:5px 11px;border-radius:100px;
+    backdrop-filter:blur(4px);
+  }
+  @media(max-width:560px){
+    .hero-benefits{gap:16px 22px}
+    .hero-benefits li{font-size:12.5px}
+    .hero-photo{height:38vh;min-height:220px;margin-top:40px}
+    .hero-photo-tag{font-size:.92rem;left:18px;bottom:16px}
+    .hero-photo-disclaimer{font-size:10px;right:12px;top:12px;padding:4px 9px}
+  }
   .hero .btn-ghost{color:var(--green-deep);border-color:var(--line)}
   .hero .btn-ghost:hover{border-color:var(--green-deep)}
   .btn{
@@ -122,11 +153,14 @@
   .btn svg{width:17px;height:17px}
 
   .hero-tag{
-    display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;
-    text-transform:uppercase;letter-spacing:.16em;color:var(--green-deep);
-    border:1px solid var(--line);padding:7px 15px;border-radius:100px;
+    display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.16em;color:var(--terracotta);
   }
-  .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta)}
+  .hero-tag::before{content:"";width:26px;height:2px;background:var(--terracotta);display:inline-block;flex:0 0 auto}
+  @media(max-width:560px){
+    .hero-tag{font-size:11px;letter-spacing:.1em;gap:8px}
+    .hero-tag::before{width:18px}
+  }
 
   /* ---- signature: cobertura vs direcionado ---- */
   .focus-demo{
@@ -177,7 +211,7 @@
   .strip{background:var(--cream);color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .strip-inner{display:flex;flex-wrap:wrap;gap:14px 48px;justify-content:space-between;padding:28px 0}
   .strip-item{display:flex;align-items:baseline;gap:12px}
-  .strip-item .n{font-family:"IBM Plex Mono",monospace;font-size:1.7rem;font-weight:600;color:var(--green-deep);letter-spacing:-.02em}
+  .strip-item .n{font-family:"Inter",system-ui,sans-serif;font-size:1.7rem;font-weight:600;color:var(--green-deep);letter-spacing:-.02em}
   .strip-item .l{font-size:13px;color:var(--clay);max-width:15em;line-height:1.35}
 
   /* ---------- SECTION BASE ---------- */
@@ -207,15 +241,20 @@
   }
   .pest-visual .spot::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;border-radius:50%;background:var(--terracotta);transform:translate(-50%,-50%)}
   .pest-visual .lbl{
-    position:absolute;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--cream);
+    position:absolute;font-family:"Inter",system-ui,sans-serif;font-size:11px;color:var(--cream);
     background:rgba(23,40,29,.7);padding:4px 9px;border-radius:6px;border:1px solid rgba(169,194,160,.25);
   }
   .pest-meta{display:flex;justify-content:space-between;padding:14px 12px 8px;font-size:12.5px}
   .pest-meta .sci{font-style:italic;color:var(--green-deep);font-weight:600}
-  .pest-meta .tag{font-family:"IBM Plex Mono",monospace;color:var(--clay)}
+  .pest-meta .tag{font-family:"Inter",system-ui,sans-serif;color:var(--clay)}
   .problem ul{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:16px}
   .problem li{display:flex;gap:14px;font-size:1.02rem;color:var(--ink)}
-  .problem li svg{flex:0 0 22px;width:22px;height:22px;color:var(--terracotta);margin-top:3px}
+  .problem-num{
+    flex:0 0 30px;width:30px;height:30px;border-radius:8px;
+    background:rgba(194,106,61,.1);color:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:12.5px;letter-spacing:.02em;
+  }
 
   /* a virada / categoria */
   .shift{background:var(--green-deep);color:var(--cream)}
@@ -298,7 +337,7 @@
   .player:hover .play{transform:translate(-50%,-50%) scale(1.08)}
   .player .play svg{width:30px;height:30px;color:var(--cream);margin-left:4px}
   .player .badge{
-    position:absolute;left:18px;top:16px;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    position:absolute;left:18px;top:16px;font-family:"Inter",system-ui,sans-serif;font-size:11px;
     color:var(--cream);background:rgba(23,40,29,.6);border:1px solid rgba(169,194,160,.3);
     padding:6px 11px;border-radius:7px;letter-spacing:.05em;z-index:3;
   }
@@ -307,7 +346,7 @@
   .player .meta span{font-size:12.5px;color:rgba(244,242,237,.7)}
   .roteiros{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
   .roteiro{background:rgba(244,242,237,.05);border:1px solid rgba(244,242,237,.13);border-radius:14px;padding:22px 20px}
-  .roteiro .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--terracotta);font-weight:600;letter-spacing:.1em}
+  .roteiro .num{font-family:"Inter",system-ui,sans-serif;font-size:12px;color:var(--terracotta);font-weight:600;letter-spacing:.1em}
   .roteiro h4{font-size:1.02rem;margin:10px 0 8px}
   .roteiro p{font-size:.88rem;color:rgba(244,242,237,.72);line-height:1.5}
   .note{font-size:12.5px;color:rgba(244,242,237,.55);margin-top:18px;font-style:italic}
@@ -325,11 +364,11 @@
   .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
   .case{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;position:relative;overflow:hidden}
   .case .bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--terracotta)}
-  .case .metric{font-family:"IBM Plex Mono",monospace;font-size:2.6rem;font-weight:600;color:var(--green-deep);letter-spacing:-.03em;line-height:1}
+  .case .metric{font-family:"Inter",system-ui,sans-serif;font-size:2.6rem;font-weight:600;color:var(--green-deep);letter-spacing:-.03em;line-height:1}
   .case .metric small{font-size:1.1rem;color:var(--terracotta)}
   .case h4{font-size:1.02rem;color:var(--green-deep);margin:14px 0 8px}
   .case p{font-size:.92rem;color:var(--clay);line-height:1.5}
-  .case .who{margin-top:18px;font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--green-tech);border-top:1px solid var(--line);padding-top:14px}
+  .case .who{margin-top:18px;font-size:12px;font-family:"Inter",system-ui,sans-serif;color:var(--green-tech);border-top:1px solid var(--line);padding-top:14px}
 
   /* portal / blog */
   .portal{background:#fff;border-top:1px solid var(--line)}
@@ -360,13 +399,13 @@
   .origin h2{font-size:clamp(1.9rem,3.4vw,2.8rem);margin:16px 0 22px}
   .origin p{color:rgba(244,242,237,.84);font-size:1.06rem;margin-bottom:16px}
   .origin .quote{
-    font-family:"Baloo 2",sans-serif;font-weight:600;font-size:1.5rem;color:var(--cream);
+    font-family:"Inter",sans-serif;font-weight:600;font-size:1.5rem;color:var(--cream);
     border-left:3px solid var(--terracotta);padding-left:20px;margin-top:10px;line-height:1.3;
   }
   .smartbait-split{display:grid;gap:16px}
   .split-card{background:rgba(244,242,237,.05);border:1px solid rgba(244,242,237,.14);border-radius:16px;padding:26px 26px}
   .split-card.bait{background:var(--terracotta);border-color:transparent}
-  .split-card .k{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:1.5rem;margin-bottom:6px}
+  .split-card .k{font-family:"Inter",sans-serif;font-weight:700;font-size:1.5rem;margin-bottom:6px}
   .split-card p{margin:0;font-size:.96rem;color:rgba(244,242,237,.85)}
   .split-card.bait p{color:rgba(244,242,237,.95)}
 
@@ -389,7 +428,7 @@
   .foot-brand .logo .wordmark,.foot-brand .logo .mark{color:var(--cream)}
   .foot-brand p{color:rgba(244,242,237,.6);font-size:.92rem;margin-top:16px;max-width:24em}
   .foot-arch{margin-top:24px;display:flex;gap:8px;flex-wrap:wrap}
-  .foot-arch span{font-family:"IBM Plex Mono",monospace;font-size:11px;padding:5px 10px;border:1px solid rgba(244,242,237,.2);border-radius:6px;color:rgba(244,242,237,.7)}
+  .foot-arch span{font-family:"Inter",system-ui,sans-serif;font-size:11px;padding:5px 10px;border:1px solid rgba(244,242,237,.2);border-radius:6px;color:rgba(244,242,237,.7)}
   .foot-col h5{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--green-light);font-weight:600;margin:0 0 16px}
   .foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
   .foot-col a{color:rgba(244,242,237,.7);font-size:.92rem;transition:color .2s}
@@ -397,6 +436,153 @@
   .foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(244,242,237,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12.5px;color:rgba(244,242,237,.5)}
   .foot-bottom .credit{display:flex;align-items:center;gap:7px}
   .foot-bottom .credit b{color:rgba(244,242,237,.8);font-weight:600}
+
+  /* ---------- INSTITUTIONAL NUMBERS ---------- */
+  .institutional{
+    position:relative; color:var(--cream); padding:88px 0; overflow:hidden;
+    background:
+      linear-gradient(135deg, rgba(31,77,58,.93), rgba(23,62,46,.9)),
+      url('smartbait-img-aerial-fazenda.jpg') center 42%/cover no-repeat;
+  }
+  .institutional .wrap{ position:relative; z-index:2; }
+  .inst-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .inst-item{
+    display:flex;flex-direction:column;gap:10px;padding:0 32px;
+    border-left:1px solid rgba(244,242,237,.16);
+  }
+  .inst-item:first-child{border-left:0;padding-left:0}
+  .inst-n{font-size:1.3rem;font-weight:700;color:var(--cream);letter-spacing:-.01em}
+  .inst-l{font-size:.92rem;color:rgba(244,242,237,.72);line-height:1.5}
+  @media(max-width:920px){
+    .inst-grid{grid-template-columns:1fr 1fr;gap:28px 0}
+    .inst-item:nth-child(2){border-left:1px solid rgba(244,242,237,.16);padding-left:32px}
+    .inst-item:nth-child(3){border-left:0;padding-left:0}
+    .inst-item:nth-child(1),.inst-item:nth-child(3){padding-right:20px}
+  }
+  @media(max-width:560px){
+    .inst-grid{grid-template-columns:1fr;gap:24px}
+    .inst-item{border-left:0!important;padding:0 0 20px!important;border-bottom:1px solid rgba(244,242,237,.14)}
+    .inst-item:last-child{border-bottom:0;padding-bottom:0}
+  }
+
+  /* ---------- SUBNAV (âncora dentro da seção do produto) ---------- */
+  .subnav{
+    position:sticky;top:82px;z-index:30;background:rgba(244,242,237,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);margin-bottom:44px;
+  }
+  .subnav-inner{display:flex;gap:6px;overflow-x:auto;padding:14px 0;scrollbar-width:none}
+  .subnav-inner::-webkit-scrollbar{display:none}
+  .subnav a{
+    white-space:nowrap;font-size:13.5px;font-weight:600;color:var(--clay);
+    padding:8px 16px;border-radius:100px;transition:background .2s,color .2s;
+  }
+  .subnav a:hover{background:rgba(31,77,58,.07);color:var(--green-deep)}
+  .subnav a.on{background:var(--green-deep);color:var(--cream)}
+
+  /* ---------- FICHA TÉCNICA ---------- */
+  .techsheet{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:36px 34px;margin-top:52px}
+  .techsheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+  .techsheet-head h3{font-size:1.3rem;color:var(--green-deep)}
+  .techsheet-head p{font-size:.94rem;color:var(--clay);margin-top:6px;max-width:38em}
+  .dl-btn{
+    display:inline-flex;align-items:center;gap:8px;background:var(--green-deep);color:var(--cream);
+    padding:11px 20px;border-radius:100px;font-size:13.5px;font-weight:600;white-space:nowrap;
+    transition:background .2s,transform .2s var(--ease);
+  }
+  .dl-btn:hover{background:#173e2e;transform:translateY(-1px)}
+  .dl-btn svg{width:15px;height:15px}
+  .tt-wrap{overflow-x:auto}
+  table.tt{width:100%;border-collapse:collapse;font-size:.92rem;min-width:640px}
+  table.tt th{
+    text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--clay);font-weight:600;padding:10px 16px;border-bottom:2px solid var(--line);
+  }
+  table.tt td{padding:14px 16px;border-bottom:1px solid var(--line);color:var(--ink)}
+  table.tt tr:last-child td{border-bottom:0}
+  table.tt td.sci{font-style:italic;color:var(--green-deep);font-weight:600}
+  table.tt .tag-mini{display:inline-block;background:rgba(194,106,61,.12);color:var(--terracotta);font-weight:600;font-size:12px;padding:3px 10px;border-radius:100px}
+  .techsheet-note{font-size:12px;color:var(--clay);margin-top:18px;font-style:italic}
+
+  /* ---------- PARCERIA ON-FARM ---------- */
+  .onfarm{background:var(--cream);border-top:1px solid var(--line)}
+  .onfarm-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px}
+  .of-step{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px}
+  .of-step .of-n{
+    font-size:13px;font-weight:700;color:var(--terracotta);letter-spacing:.06em;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .of-step h4{font-size:1.02rem;color:var(--green-deep);margin:14px 0 8px}
+  .of-step p{font-size:.9rem;color:var(--clay);line-height:1.5}
+  .of-step::after{
+    content:"";position:absolute;right:-14px;top:50%;transform:translateY(-50%);
+    width:22px;height:1px;background:var(--line);
+  }
+  .of-step:last-child::after{display:none}
+  .onfarm-cta{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .onfarm-cta p{font-size:1.02rem;color:var(--ink);max-width:34em}
+  .onfarm-cta p b{color:var(--green-deep)}
+  @media(max-width:920px){.onfarm-steps{grid-template-columns:1fr 1fr}.of-step::after{display:none}}
+  @media(max-width:560px){.onfarm-steps{grid-template-columns:1fr}}
+
+  /* ---------- REAL/ILLUSTRATIVE PHOTOS ---------- */
+  .product-photo{
+    position:relative; max-width:420px; margin:0 auto; border-radius:24px; overflow:hidden;
+    box-shadow:0 40px 80px -50px rgba(31,77,58,.55); border:1px solid var(--line);
+  }
+  .product-photo img{ width:100%; display:block; aspect-ratio:3/4; object-fit:cover; }
+  .photo-tag{
+    position:absolute; left:14px; bottom:14px; font-size:11px; font-weight:600; letter-spacing:.03em;
+    color:var(--cream); background:rgba(23,40,29,.62); padding:5px 11px; border-radius:100px;
+    backdrop-filter:blur(4px);
+  }
+  .section-photo{
+    position:relative; border-radius:20px; overflow:hidden; margin-bottom:40px;
+    box-shadow:0 30px 60px -44px rgba(31,77,58,.5);
+  }
+  .section-photo img{ width:100%; display:block; object-fit:cover; }
+  .section-photo .photo-tag{ left:16px; bottom:16px; }
+
+  /* ---------- FLOATING CONTACT ---------- */
+  .float-contact{
+    position:fixed;right:24px;bottom:24px;z-index:70;
+    display:flex;align-items:center;gap:9px;background:var(--green-deep);color:var(--cream);
+    padding:14px 20px;border-radius:100px;font-size:13.5px;font-weight:600;
+    box-shadow:0 14px 34px -12px rgba(23,40,29,.55);
+    opacity:0;transform:translateY(14px);pointer-events:none;
+    transition:opacity .35s var(--ease),transform .35s var(--ease),background .2s;
+  }
+  .float-contact.visible{opacity:1;transform:none;pointer-events:auto}
+  .float-contact:hover{background:#173e2e}
+  .float-contact svg{width:18px;height:18px;flex:0 0 auto}
+  @media(max-width:560px){
+    .float-contact{right:16px;bottom:16px;padding:13px 16px}
+    .float-contact span{display:none}
+    .float-contact svg{width:20px;height:20px}
+  }
+
+  /* ---------- QUICK NAV ---------- */
+  .quicknav{background:#fff;border-bottom:1px solid var(--line)}
+  .quicknav-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .qn-item{
+    padding:28px 26px;border-left:1px solid var(--line);
+    display:flex;flex-direction:column;gap:6px;transition:background .2s;
+  }
+  .qn-item:first-child{border-left:0}
+  .qn-item:hover{background:var(--cream)}
+  .qn-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta)}
+  .qn-title{font-size:1.15rem;font-weight:700;color:var(--green-deep);letter-spacing:-.01em}
+  .qn-desc{font-size:.85rem;color:var(--clay);line-height:1.4}
+  @media(max-width:920px){
+    .quicknav-grid{grid-template-columns:1fr 1fr}
+    .qn-item:nth-child(2){border-left:1px solid var(--line)}
+    .qn-item:nth-child(3){border-left:0;border-top:1px solid var(--line)}
+    .qn-item:nth-child(4){border-top:1px solid var(--line)}
+  }
+  @media(max-width:560px){
+    .quicknav-grid{grid-template-columns:1fr}
+    .qn-item{border-left:0!important;border-top:1px solid var(--line)}
+    .qn-item:first-child{border-top:0}
+  }
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -422,7 +608,7 @@
   .modal .m-close:hover{background:rgba(23,40,29,.85)}
   .modal .m-body{padding:38px 44px 46px}
   .modal .m-body h2{font-size:1.85rem;color:var(--green-deep);line-height:1.14}
-  .modal .m-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--clay);margin:14px 0 26px;display:flex;gap:16px;flex-wrap:wrap}
+  .modal .m-meta{font-family:"Inter",system-ui,sans-serif;font-size:12px;color:var(--clay);margin:14px 0 26px;display:flex;gap:16px;flex-wrap:wrap}
   .modal .m-body h3{font-size:1.2rem;color:var(--green-deep);margin:28px 0 10px}
   .modal .m-body p{font-size:1.02rem;color:var(--ink);margin-bottom:16px;line-height:1.7}
   .modal .m-body ul{margin:0 0 16px;padding-left:22px;color:var(--ink)}
@@ -439,7 +625,7 @@
     .cta-box{padding:48px 34px}
     .nav-links{display:none}
     .nav-links.open{
-      display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;
+      display:flex;position:absolute;top:82px;left:0;right:0;flex-direction:column;
       background:rgba(255,255,255,.98);padding:22px 28px 28px;gap:20px;align-items:flex-start;
       border-top:1px solid var(--line);box-shadow:0 16px 30px -22px rgba(31,77,58,.5);
     }
@@ -458,15 +644,9 @@
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
     .reveal{opacity:1;transform:none}
   }
-  /* Fidelidade ao brandbook: Inter em toda a tipografia */
-  .logo .wordmark,.origin .quote,.split-card .k,
-  .mono,.strip-item .n,.pest-visual .lbl,.pest-meta .tag,
-  .case .metric,.case .who,.modal .m-meta,.foot-arch span,.player .badge{
-    font-family:"Inter",system-ui,sans-serif;
-  }
-  .logo .wordmark{letter-spacing:-.02em}
-  .logo-img{height:30px;width:auto;display:block}
-  .foot-brand .logo-img{height:40px}
+  /* Brandbook: Inter é a única fonte da marca — nenhuma exceção no CSS */
+  .logo-img{height:44px;width:auto;display:block}
+  .foot-brand .logo-img{height:48px}
 </style>
 </head>
 <body>
@@ -479,10 +659,11 @@
     </a>
     <nav>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#tecnologia">Tecnologia</a></li>
         <li><a href="#problema">O problema</a></li>
         <li><a href="#categoria">Controle direcionado</a></li>
         <li><a href="#produto">BioBait</a></li>
-        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#onfarm">On-farm</a></li>
         <li><a href="#portal">Portal</a></li>
         <li><a href="#contato" class="nav-cta">Falar com especialista</a></li>
       </ul>
@@ -498,7 +679,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="hero-tag"><span class="dot"></span>Plataforma de controle inteligente no campo</span>
+      <span class="hero-tag">Plataforma de controle inteligente no campo</span>
       <h1>Inteligência <span class="accent">no ponto certo.</span></h1>
       <p class="lede">A SmartBait é controle direcionado para o bicudo-da-cana: a isca biológica atrai a praga ao ponto exato da infestação e age só ali. Menos volume, mais inteligência.</p>
       <div class="hero-actions">
@@ -507,138 +688,48 @@
         </a>
         <a href="#tecnologia" class="btn btn-ghost">Ver a tecnologia em campo</a>
       </div>
+      <ul class="hero-benefits">
+        <li><span class="hb-dot"></span>Base biológica</li>
+        <li><span class="hb-dot"></span>Aplicação de precisão</li>
+        <li><span class="hb-dot"></span>Sem resíduo químico</li>
+        <li><span class="hb-dot"></span>Integra ao manejo existente</li>
+      </ul>
     </div>
-    <div>
-      <div class="focus-demo" id="focusDemo">
-        <div class="scatter" id="scatter" aria-hidden="true"></div>
-        <div class="target" aria-hidden="true">
-          <div class="ring"></div><div class="ring r2"></div><div class="core"></div>
-        </div>
-        <div class="demo-caption">
-          <span><b id="demoTitle">Cobertura total</b><span id="demoSub">veneno na área inteira · desperdício</span></span>
-          <button class="demo-switch" id="demoSwitch">ver controle direcionado →</button>
-        </div>
-      </div>
-    </div>
+  </div>
+  <div class="hero-photo">
+    <video src="smartbait-hero-video.mp4" poster="smartbait-img-aerial-fazenda.jpg" autoplay muted loop playsinline preload="auto">
+      <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
+    </video>
+    <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
+    <span class="hero-photo-disclaimer">Simulação em vídeo · gerada por IA</span>
   </div>
 </section>
 
-<!-- ================= STRIP ================= -->
-<div class="strip">
-  <div class="wrap strip-inner">
-    <div class="strip-item reveal"><span class="n">1</span><span class="l">praga de solo de difícil controle: <i>Sphenophorus levis</i></span></div>
-    <div class="strip-item reveal"><span class="n">−área</span><span class="l">aplicação concentrada no foco, não em cobertura total</span></div>
-    <div class="strip-item reveal"><span class="n">drone</span><span class="l">distribuição direcionada, integrável à agricultura de precisão</span></div>
-    <div class="strip-item reveal"><span class="n">sistema</span><span class="l">o controle tratado como sistema, não como insumo isolado</span></div>
+<!-- ================= NAVEGAÇÃO RÁPIDA ================= -->
+<nav class="quicknav" aria-label="Navegação rápida">
+  <div class="wrap quicknav-grid">
+    <a href="#produto" class="qn-item">
+      <span class="qn-label">Produto</span>
+      <span class="qn-title">BioBait</span>
+      <span class="qn-desc">A isca biológica de aplicação direcionada</span>
+    </a>
+    <a href="#tecnologia" class="qn-item">
+      <span class="qn-label">Tecnologia</span>
+      <span class="qn-title">BioBait Core</span>
+      <span class="qn-desc">O motor por trás do controle de precisão</span>
+    </a>
+    <a href="#onfarm" class="qn-item">
+      <span class="qn-label">Modelo</span>
+      <span class="qn-title">Parceria on-farm</span>
+      <span class="qn-desc">Diagnóstico, piloto e acompanhamento direto</span>
+    </a>
+    <a href="#portal" class="qn-item">
+      <span class="qn-label">Conteúdo</span>
+      <span class="qn-title">Portal técnico</span>
+      <span class="qn-desc">Referência sobre manejo do bicudo-da-cana</span>
+    </a>
   </div>
-</div>
-
-<!-- ================= PROBLEMA ================= -->
-<section class="problem scroll-margin" id="problema">
-  <div class="wrap">
-    <div class="problem-grid">
-      <div class="reveal">
-        <span class="eyebrow">O problema no campo</span>
-        <h2 style="font-size:clamp(1.9rem,3.6vw,3rem);color:var(--green-deep);margin-top:16px">O inimigo da cana que a cobertura total não alcança.</h2>
-        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O <i>Sphenophorus levis</i> — o bicudo-da-cana — vive no solo, ataca a base da soqueira e derruba a produtividade safra após safra. É de difícil controle justamente porque o método tradicional combate a área toda, e não o foco real da infestação.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Difícil de localizar.</b> A praga age abaixo da superfície, em focos dispersos pelo talhão.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Cobertura cara e imprecisa.</b> Tratar a área inteira gasta insumo onde não há praga.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Reaplicações constantes.</b> O controle de superfície não chega ao foco — e a praga volta.</span></li>
-        </ul>
-      </div>
-      <div class="pest-card reveal">
-        <div class="pest-visual">
-          <div class="soil"></div>
-          <div class="spot" style="left:24%;top:30%"></div>
-          <div class="spot" style="left:60%;top:54%;width:40px;height:40px"></div>
-          <div class="lbl" style="left:24%;top:18%">foco · infestação</div>
-          <div class="lbl mono" style="right:16px;bottom:14px">solo · base da soqueira</div>
-        </div>
-        <div class="pest-meta">
-          <span class="sci">Sphenophorus levis</span>
-          <span class="tag">praga de solo · cana-de-açúcar</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= A VIRADA / CATEGORIA ================= -->
-<section class="shift scroll-margin" id="categoria">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">O princípio · controle direcionado</span>
-      <h2>Não é um insumo de cobertura. É um sistema inteligente.</h2>
-      <p>Existem duas formas de combater a praga. A SmartBait existe para levar a forma certa ao campo — a mesma lógica que dá nome à marca.</p>
-    </div>
-    <div class="compare">
-      <div class="compare-card old reveal">
-        <h3>O modelo antigo</h3>
-        <div class="big">Cobertura total</div>
-        <ul>
-          <li>Aplica na área inteira, tenha praga ou não</li>
-          <li>Alto volume de insumo e de dispersão</li>
-          <li>Custo elevado e reaplicações frequentes</li>
-          <li>Pouca leitura técnica do foco real</li>
-        </ul>
-      </div>
-      <div class="compare-card new reveal">
-        <h3>O modelo SmartBait</h3>
-        <div class="big">Controle direcionado</div>
-        <ul>
-          <li>Atrai a praga ao ponto exato e age só ali</li>
-          <li>Menos volume, menor impacto ambiental</li>
-          <li>Menos reaplicações, mais resultado por safra</li>
-          <li>Decisão técnica, compatível com agricultura de precisão</li>
-        </ul>
-      </div>
-    </div>
-    <div class="category-claim reveal">
-      <p><span class="term">Controle direcionado</span> não é tendência: é a forma certa de agir no foco. É o que a SmartBait faz — e a referência contra a qual o resto se compara.</p>
-      <a href="#produto" class="btn btn-primary">Conhecer o BioBait
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRODUTO BIOBAIT ================= -->
-<section class="product scroll-margin" id="produto">
-  <div class="wrap">
-    <div class="product-grid">
-      <div class="reveal">
-        <div class="capsule">
-          <div class="halo"></div>
-          <div class="obj"></div>
-        </div>
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">O produto · BioBait</span>
-        <h2 style="font-size:clamp(1.9rem,3.4vw,2.8rem);color:var(--green-deep);margin-top:16px">A isca biológica que concentra a ação no foco da praga.</h2>
-        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O BioBait é aplicado de forma localizada no campo. Em vez de cobrir o talhão, ele atrai o <i>Sphenophorus</i> ao ponto de aplicação e concentra o controle onde a infestação realmente está.</p>
-        <div class="feat">
-          <div class="feat-card">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg></div>
-            <h4>Controle localizado</h4><p>Ação precisa no ponto exato do problema.</p>
-          </div>
-          <div class="feat-card">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <h4>Aplicação precisa</h4><p>Direcionamento inteligente, inclusive via drone.</p>
-          </div>
-          <div class="feat-card">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C12 4 16 3 16 3s.5 4-2 7"/><path d="M11 20s-1-7 4-11"/></svg></div>
-            <h4>Menor impacto</h4><p>Redução significativa de dispersão no campo.</p>
-          </div>
-          <div class="feat-card">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
-            <h4>Solução sistêmica</h4><p>Pensada como sistema completo, não insumo isolado.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</nav>
 
 <!-- ================= TECNOLOGIA + VÍDEO ================= -->
 <section class="tech scroll-margin" id="tecnologia">
@@ -670,9 +761,255 @@
         <p>Comparativo de soqueira tratada x não tratada, com leitura técnica do resultado — a prova que vira case.</p>
       </div>
     </div>
+
+    <div class="section-photo reveal" style="margin-top:32px">
+      <img src="smartbait-img-drone-campo.jpg" alt="Drone agrícola em aplicação de precisão sobre canavial produtivo" loading="lazy"/>
+      <span class="photo-tag">Simulação do mecanismo de aplicação</span>
+    </div>
     <p class="note">Demonstração em motion incorporada acima — as três cenas correspondem aos roteiros. Os mesmos roteiros servem de base para a filmagem real em campo.</p>
   </div>
 </section>
+
+<!-- ================= NÚMEROS INSTITUCIONAIS ================= -->
+<section class="institutional scroll-margin" id="empresa">
+  <div class="wrap">
+    <div class="inst-grid">
+      <div class="inst-item reveal">
+        <span class="inst-n">Plataforma</span>
+        <span class="inst-l">SmartBait é estruturada como empresa-plataforma — não como produto único — para abrigar novas tecnologias sem se reinventar</span>
+      </div>
+      <div class="inst-item reveal">
+        <span class="inst-n">On-farm</span>
+        <span class="inst-l">validação e entrada direto na operação do produtor, lado a lado com a equipe técnica de campo</span>
+      </div>
+      <div class="inst-item reveal">
+        <span class="inst-n">Foco</span>
+        <span class="inst-l">controle localizado no ponto exato da infestação — não cobertura de área</span>
+      </div>
+      <div class="inst-item reveal">
+        <span class="inst-n">BioBait Core</span>
+        <span class="inst-l">tecnologia proprietária por trás do sistema de atração e controle direcionado</span>
+      </div>
+    </div>
+  </div>
+  <span class="photo-tag" style="position:absolute;right:16px;bottom:12px;z-index:2">Imagem ilustrativa</span>
+</section>
+
+<!-- ================= STRIP ================= -->
+<div class="strip">
+  <div class="wrap strip-inner">
+    <div class="strip-item reveal"><span class="n">1</span><span class="l">praga de solo de difícil controle: <i>Sphenophorus levis</i></span></div>
+    <div class="strip-item reveal"><span class="n">biológico</span><span class="l">alternativa de base biológica às iscas químicas tradicionais</span></div>
+    <div class="strip-item reveal"><span class="n">drone</span><span class="l">distribuição direcionada, integrável à agricultura de precisão</span></div>
+    <div class="strip-item reveal"><span class="n">sistema</span><span class="l">o controle tratado como sistema, não como insumo isolado</span></div>
+  </div>
+</div>
+
+<!-- ================= PROBLEMA ================= -->
+<section class="problem scroll-margin" id="problema">
+  <div class="wrap">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="eyebrow">O problema no campo</span>
+        <h2 style="font-size:clamp(1.9rem,3.6vw,3rem);color:var(--green-deep);margin-top:16px">O inimigo que nenhuma frente isolada resolve sozinha.</h2>
+        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O <i>Sphenophorus levis</i> — o bicudo-da-cana — tem as larvas alojadas dentro do rizoma, abaixo do solo, onde abrem galerias e comprometem a soqueira. É uma praga primária de difícil manejo, e a literatura técnica é clara: uma única estratégia de controle não é suficiente.</p>
+        <ul>
+          <li><span class="problem-num">01</span><span><b>Larva protegida.</b> Vive dentro do rizoma, fora do alcance de boa parte das intervenções de superfície.</span></li>
+          <li><span class="problem-num">02</span><span><b>Manejo multi-tático.</b> Isca, controle mecânico e biológico precisam atuar de forma combinada.</span></li>
+          <li><span class="problem-num">03</span><span><b>Isca tradicional é química.</b> A ferramenta mais usada hoje é de base química, aplicada manualmente.</span></li>
+        </ul>
+      </div>
+      <div class="pest-card reveal">
+        <div class="pest-visual">
+          <div class="soil"></div>
+          <div class="spot" style="left:24%;top:30%"></div>
+          <div class="spot" style="left:60%;top:54%;width:40px;height:40px"></div>
+          <div class="lbl" style="left:24%;top:18%">foco · infestação</div>
+          <div class="lbl mono" style="right:16px;bottom:14px">solo · base da soqueira</div>
+        </div>
+        <div class="pest-meta">
+          <span class="sci">Sphenophorus levis</span>
+          <span class="tag">praga de solo · cana-de-açúcar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= A VIRADA / CATEGORIA ================= -->
+<section class="shift scroll-margin" id="categoria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">O princípio · isca biológica de precisão</span>
+      <h2>A isca já existe há décadas. A biologia muda o jogo.</h2>
+      <p>O manejo do bicudo-da-cana combina isca, controle mecânico e biológico. A SmartBait entra exatamente na isca — só que no campo biológico, com precisão de aplicação apoiada em tecnologia.</p>
+    </div>
+    <div class="reveal" style="margin:0 0 40px">
+      <div class="focus-demo" id="focusDemo">
+        <div class="scatter" id="scatter" aria-hidden="true"></div>
+        <div class="target" aria-hidden="true">
+          <div class="ring"></div><div class="ring r2"></div><div class="core"></div>
+        </div>
+        <div class="demo-caption">
+          <span><b id="demoTitle">Aplicação manual</b><span id="demoSub">ponto a ponto, sem mapeamento de dados</span></span>
+          <button class="demo-switch" id="demoSwitch">ver aplicação de precisão →</button>
+        </div>
+      </div>
+    </div>
+    <div class="compare">
+      <div class="compare-card old reveal">
+        <h3>Isca tóxica tradicional</h3>
+        <div class="big">Base química</div>
+        <ul>
+          <li>Toletes de cana cortados e imersos em inseticida químico</li>
+          <li>Aplicação manual, ponto a ponto</li>
+          <li>Uso concentrado no monitoramento e na reforma do canavial</li>
+          <li>Perfil de resíduo típico de inseticidas químicos</li>
+        </ul>
+      </div>
+      <div class="compare-card new reveal">
+        <h3>BioBait · SmartBait</h3>
+        <div class="big">Base biológica</div>
+        <ul>
+          <li>Isca de base biológica, sem o perfil de resíduo químico</li>
+          <li>Aplicação com apoio de mapeamento e tecnologia, inclusive via drone</li>
+          <li>Uso ao longo do ciclo da cultura, não só na reforma</li>
+          <li>Se integra às demais frentes do manejo — mecânico, biológico, monitoramento</li>
+        </ul>
+      </div>
+    </div>
+    <div class="category-claim reveal">
+      <p>O mercado brasileiro de bioinsumos já movimenta cerca de <span class="term">R$ 7 bilhões por ano</span> e deve crescer para perto de R$ 10 bilhões até 2030 — o Brasil é hoje o líder mundial em adoção de biológicos por área cultivada. A SmartBait nasce dentro dessa frente, aplicada a um problema específico e de alto impacto.</p>
+      <a href="#produto" class="btn btn-primary">Conhecer o BioBait
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUTO BIOBAIT ================= -->
+<section class="product scroll-margin" id="produto">
+  <div class="subnav">
+    <div class="wrap subnav-inner">
+      <a href="#produto-beneficios">Benefícios</a>
+      <a href="#produto-aplicacao">Modo de aplicação</a>
+      <a href="#produto-ficha">Ficha técnica</a>
+      <a href="#onfarm">Parceria on-farm</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="product-grid" id="produto-beneficios">
+      <div class="reveal">
+        <div class="product-photo">
+          <img src="smartbait-img-produto-still.jpg" alt="BioBait — pastilha biológica para controle direcionado do bicudo-da-cana" loading="lazy"/>
+          <span class="photo-tag">Ilustração do produto · simulação</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">O produto · BioBait</span>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.8rem);color:var(--green-deep);margin-top:16px">A isca biológica que concentra a ação no foco da praga.</h2>
+        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O BioBait é aplicado de forma localizada no campo. Em vez de cobrir o talhão, ele atrai o <i>Sphenophorus</i> ao ponto de aplicação e concentra o controle onde a infestação realmente está.</p>
+        <div class="feat" id="produto-aplicacao">
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg></div>
+            <h4>Controle localizado</h4><p>Ação precisa no ponto exato do problema.</p>
+          </div>
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h4>Aplicação precisa</h4><p>Direcionamento inteligente, inclusive via drone.</p>
+          </div>
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C12 4 16 3 16 3s.5 4-2 7"/><path d="M11 20s-1-7 4-11"/></svg></div>
+            <h4>Menor impacto</h4><p>Redução significativa de dispersão no campo.</p>
+          </div>
+          <div class="feat-card">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+            <h4>Solução sistêmica</h4><p>Pensada como sistema completo, não insumo isolado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="techsheet reveal" id="produto-ficha">
+      <div class="techsheet-head">
+        <div>
+          <h3>Ficha técnica · BioBait</h3>
+          <p>Dados de aplicação para uso técnico. A ficha completa acompanha laudo de eficácia e recomendações por tipo de solo e histórico de infestação.</p>
+        </div>
+        <a href="#contato" class="dl-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+          Solicitar ficha técnica em PDF
+        </a>
+      </div>
+      <div class="tt-wrap">
+        <table class="tt">
+          <thead>
+            <tr><th>Cultura</th><th>Alvo biológico</th><th>Forma de aplicação</th><th>Ponto de ação</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cana-de-açúcar</td>
+              <td class="sci">Sphenophorus levis</td>
+              <td>Localizada — manual ou via drone</td>
+              <td><span class="tag-mini">foco da infestação</span></td>
+            </tr>
+            <tr>
+              <td>Cana-de-açúcar (soqueira)</td>
+              <td class="sci">Sphenophorus levis</td>
+              <td>Distribuição direcionada na base da soqueira</td>
+              <td><span class="tag-mini">controle direcionado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="techsheet-note">Dados ilustrativos de estrutura — a tabela final é preenchida com o laudo técnico e o registro do produto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARCERIA ON-FARM ================= -->
+<section class="onfarm scroll-margin" id="onfarm">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Como funciona · parceria on-farm</span>
+      <h2 style="color:var(--green-deep)">Você fala direto com quem desenvolve a tecnologia.</h2>
+      <p>Sem revenda e sem intermediários: a equipe técnica da SmartBait acompanha o piloto e a aplicação junto com o seu time, do diagnóstico ao resultado em safra.</p>
+    </div>
+    <div class="section-photo reveal">
+      <img src="smartbait-img-tecnico-onfarm.jpg" alt="Monitoramento técnico da aplicação de precisão via drone em canavial" loading="lazy"/>
+      <span class="photo-tag">Ilustração da parceria on-farm · simulação</span>
+    </div>
+    <div class="onfarm-steps">
+      <div class="of-step reveal">
+        <span class="of-n">01</span>
+        <h4>Diagnóstico</h4>
+        <p>Levantamento do histórico de infestação e mapeamento dos talhões prioritários com a equipe técnica.</p>
+      </div>
+      <div class="of-step reveal">
+        <span class="of-n">02</span>
+        <h4>Piloto on-farm</h4>
+        <p>Aplicação direcionada em área controlada, com acompanhamento técnico da SmartBait em campo.</p>
+      </div>
+      <div class="of-step reveal">
+        <span class="of-n">03</span>
+        <h4>Leitura de resultado</h4>
+        <p>Medição de foco tratado, reaplicações e condição da soqueira ao longo do ciclo.</p>
+      </div>
+      <div class="of-step reveal">
+        <span class="of-n">04</span>
+        <h4>Escala contínua</h4>
+        <p>Expansão para novos talhões e safras, com suporte técnico permanente da equipe SmartBait.</p>
+      </div>
+    </div>
+    <div class="onfarm-cta reveal">
+      <p><b>Fale direto com a equipe técnica</b> para avaliar um piloto na sua operação.</p>
+      <a href="#contato" class="btn btn-primary">Solicitar diagnóstico
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <!-- ================= PROVA / CASES ================= -->
 <section class="proof scroll-margin" id="resultados">
@@ -692,9 +1029,9 @@
       </div>
       <div class="case reveal">
         <div class="bar"></div>
-        <div class="metric">foco<small>vs área</small></div>
-        <h4>Insumo onde a praga está</h4>
-        <p>Aplicação direcionada em vez de cobertura total: menos volume e menos desperdício por talhão.</p>
+        <div class="metric">bio<small>vs química</small></div>
+        <h4>Isca sem o perfil de resíduo químico</h4>
+        <p>Mesma lógica de isca já usada no manejo do bicudo, agora no campo biológico.</p>
         <div class="who">PRODUTOR · CANA-DE-AÇÚCAR</div>
       </div>
       <div class="case reveal">
@@ -820,6 +1157,12 @@
   </div>
 </footer>
 
+<!-- ================= FLOATING CONTACT ================= -->
+<a href="#contato" class="float-contact" id="floatContact" aria-label="Falar com especialista">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <span>Fale com especialista</span>
+</a>
+
 <!-- ================= MODAL ================= -->
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
@@ -845,42 +1188,42 @@ const MARK_SVG = `<img src="smartbait-symbol-white.png" alt="" style="width:100%
 const POSTS = [
   {
     cat:"Manejo",
-    title:"Por que a cobertura total não resolve o bicudo-da-cana",
-    excerpt:"O Sphenophorus levis vive no solo e ataca em focos. Combater a área inteira é caro, impreciso e deixa a praga voltar. Entenda a falha de lógica do método tradicional.",
+    title:"Por que uma única estratégia não resolve o bicudo-da-cana",
+    excerpt:"A larva do Sphenophorus levis vive protegida dentro do rizoma. A literatura técnica é direta: nenhuma frente isolada de controle é suficiente. Entenda por que o manejo precisa ser combinado.",
     meta:["Leitura · 4 min","Categoria · Manejo"],
     body:`
-      <p>O <em>Sphenophorus levis</em> não é uma praga de superfície. Ele age na base da soqueira, abaixo da linha do solo, e se distribui em focos dispersos pelo talhão. Essa característica simples explica por que o controle tradicional — pensado para cobrir a área inteira — entrega tão pouco resultado por safra.</p>
-      <h3>A lógica da cobertura total</h3>
-      <p>O método convencional parte de uma premissa de área: se a praga pode estar em qualquer lugar, trata-se tudo. O custo disso é triplo — gasta-se insumo onde não há infestação, aumenta-se a dispersão no ambiente e, ainda assim, o foco real raramente é atingido na profundidade certa.</p>
-      <h3>Três falhas que se repetem todo ano</h3>
+      <p>O <em>Sphenophorus levis</em> não é uma praga de superfície. Suas larvas ficam alojadas dentro do rizoma da planta, onde abrem galerias e comprometem a soqueira — protegidas de boa parte das intervenções que agem de fora para dentro.</p>
+      <h3>Um manejo que já é, por natureza, multi-tático</h3>
+      <p>A literatura técnica sobre o bicudo-da-cana é clara nesse ponto: uma única estratégia de controle não é eficaz. Na prática, o manejo combina isca (tradicionalmente toletes de cana imersos em inseticida químico), destruição mecânica das touceiras na reforma, controle biológico com fungos como a <em>Beauveria bassiana</em> e cuidados no plantio e no transporte de mudas.</p>
+      <h3>Onde a isca tradicional ainda deixa espaço</h3>
       <ul>
-        <li><strong>Imprecisão:</strong> o produto chega à superfície, mas o foco está na base da soqueira.</li>
-        <li><strong>Desperdício:</strong> a maior parte da aplicação acontece onde não há praga.</li>
-        <li><strong>Reaplicação:</strong> como o foco não é controlado, a infestação retorna e o ciclo recomeça.</li>
+        <li><strong>Base química:</strong> a isca mais usada hoje depende de inseticida químico aplicado manualmente.</li>
+        <li><strong>Uso concentrado:</strong> aparece sobretudo no monitoramento e na reforma, não ao longo de todo o ciclo.</li>
+        <li><strong>Sem apoio de dados:</strong> a colocação é manual, ponto a ponto, sem mapeamento da infestação.</li>
       </ul>
-      <h3>A virada: do tamanho da área para o ponto da praga</h3>
-      <p>Controlar o bicudo-da-cana com eficiência exige inverter a pergunta. Não é “quanto da área eu cubro?”, e sim “onde, exatamente, a praga está — e como concentro a ação ali?”. É essa virada que define o controle direcionado e a tecnologia por trás do BioBait.</p>
-      <p><span class="m-tag">Controle direcionado</span><span class="m-tag">Menos volume</span></p>
+      <h3>A virada: da isca química para a isca biológica de precisão</h3>
+      <p>O espaço de melhoria não está em "cobrir mais área" — está em levar a isca, ferramenta já validada no manejo do bicudo, para o campo biológico, com precisão de aplicação apoiada em tecnologia. É essa virada que define o BioBait.</p>
+      <p><span class="m-tag">Isca biológica</span><span class="m-tag">Manejo integrado</span></p>
     `
   },
   {
     cat:"Estratégia",
-    title:"Controle direcionado: a lógica de precisão que muda a conta do canavial",
-    excerpt:"Menos volume não é só uma questão ambiental — é economia de safra. Como concentrar a ação no foco altera custo de insumo, número de reaplicações e previsibilidade.",
+    title:"Isca biológica de precisão: a lógica que muda a conta do canavial",
+    excerpt:"O mercado de bioinsumos no Brasil já movimenta bilhões por ano. Entenda como levar a isca do bicudo-da-cana para o campo biológico, com apoio de tecnologia, muda a economia do manejo.",
     meta:["Leitura · 5 min","Categoria · Estratégia"],
     body:`
-      <p>Quando o controle deixa de ser uma operação de área e passa a ser uma operação de foco, a economia do canavial muda de natureza. O ganho não está só em usar menos produto — está em transformar um gasto recorrente e imprevisível em uma decisão técnica e mensurável.</p>
-      <h3>Onde o dinheiro vaza no modelo antigo</h3>
-      <p>Na cobertura total, três custos crescem juntos: o insumo aplicado fora do foco, a operação repetida de aplicação e a perda de produtividade da soqueira que continua sob ataque. Nenhum deles aparece numa linha só — e por isso costuma ser subestimado.</p>
-      <h3>O que o foco reorganiza</h3>
+      <p>A isca já é uma ferramenta validada no manejo do bicudo-da-cana. O que muda a conta do canavial não é trocar a isca por outra coisa — é levar essa mesma ferramenta para o campo biológico, com aplicação apoiada em mapeamento e tecnologia.</p>
+      <h3>Onde o modelo manual custa mais do que aparenta</h3>
+      <p>A isca tóxica tradicional depende de toletes de cana cortados e colocados manualmente, ponto a ponto — um processo de mão de obra intensiva, concentrado sobretudo no monitoramento e na reforma do canavial. O custo de escala e a dependência de mão de obra costumam ficar de fora da conta simples de "preço por hectare".</p>
+      <h3>O que a precisão tecnológica reorganiza</h3>
       <ul>
-        <li><strong>Insumo:</strong> aplicado onde a praga está, não onde ela poderia estar.</li>
-        <li><strong>Operação:</strong> menos reaplicações ao longo da safra.</li>
-        <li><strong>Previsibilidade:</strong> resultado lido em campo, comparável de talhão para talhão.</li>
+        <li><strong>Mão de obra:</strong> aplicação com apoio de mapeamento, inclusive via drone, reduz a dependência de colocação manual.</li>
+        <li><strong>Continuidade:</strong> uso possível ao longo do ciclo, não só no monitoramento pontual.</li>
+        <li><strong>Perfil biológico:</strong> sem o perfil de resíduo químico associado à isca tradicional.</li>
       </ul>
-      <h3>Compatível com agricultura de precisão</h3>
-      <p>O controle direcionado não é um passo para trás em tecnologia — é o contrário. Por agir em pontos definidos, ele conversa naturalmente com mapeamento, distribuição via drone e gestão por dados. A decisão de manejo deixa de ser hábito e vira método.</p>
-      <p><span class="m-tag">Economia de safra</span><span class="m-tag">Agricultura de precisão</span></p>
+      <h3>Uma frente que já é tendência de mercado</h3>
+      <p>O mercado brasileiro de bioinsumos movimentou cerca de R$ 7 bilhões em 2025 e deve se aproximar de R$ 10 bilhões até 2030 — o Brasil já é o maior adotante de biológicos por área cultivada do mundo. A migração da isca química para a isca biológica no manejo do bicudo-da-cana caminha na mesma direção.</p>
+      <p><span class="m-tag">Bioinsumos</span><span class="m-tag">Isca de precisão</span></p>
     `
   },
   {
@@ -974,6 +1317,41 @@ const io=new IntersectionObserver((entries)=>{
 },{threshold:.16});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+/* ---------- FLOATING CONTACT visibility ---------- */
+const floatContact=document.getElementById('floatContact');
+const contatoSection=document.getElementById('contato');
+if(floatContact){
+  const fcIO=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.target.id==='top-sentinel'){ floatContact.classList.toggle('visible', !en.isIntersecting); } });
+  },{threshold:0});
+  const sentinel=document.createElement('div');
+  sentinel.id='top-sentinel'; sentinel.style.cssText='position:absolute;top:520px;height:1px;width:1px;';
+  document.body.appendChild(sentinel);
+  fcIO.observe(sentinel);
+
+  if(contatoSection){
+    const hideIO=new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ floatContact.classList.remove('visible'); } });
+    },{threshold:.3});
+    hideIO.observe(contatoSection);
+  }
+}
+
+/* ---------- SUBNAV scroll-spy ---------- */
+const subnavLinks=document.querySelectorAll('.subnav a');
+if(subnavLinks.length){
+  const subTargets=[...subnavLinks].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const subIO=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const id='#'+en.target.id;
+        subnavLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')===id));
+      }
+    });
+  },{rootMargin:'-30% 0px -55% 0px',threshold:0});
+  subTargets.forEach(t=>subIO.observe(t));
+}
+
 /* ---------- HERO signature: cobertura -> direcionado ---------- */
 const scatter=document.getElementById('scatter');
 const focusDemo=document.getElementById('focusDemo');
@@ -982,7 +1360,7 @@ const demoTitle=document.getElementById('demoTitle');
 const demoSub=document.getElementById('demoSub');
 const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-/* build scattered dots (cobertura total) */
+/* build scattered dots (aplicação manual, sem mapeamento) */
 const N=46;
 for(let i=0;i<N;i++){
   const s=document.createElement('span');
@@ -998,8 +1376,8 @@ let converged=false;
 function setState(c){
   converged=c;
   focusDemo.classList.toggle('converged',c);
-  if(c){demoTitle.textContent='Controle direcionado';demoSub.textContent='ação no ponto exato · BioBait';demoSwitch.textContent='← ver cobertura total';}
-  else{demoTitle.textContent='Cobertura total';demoSub.textContent='veneno na área inteira · desperdício';demoSwitch.textContent='ver controle direcionado →';}
+  if(c){demoTitle.textContent='Aplicação de precisão';demoSub.textContent='isca biológica, mapeada e tecnológica';demoSwitch.textContent='← ver aplicação manual';}
+  else{demoTitle.textContent='Aplicação manual';demoSub.textContent='ponto a ponto, sem mapeamento de dados';demoSwitch.textContent='ver aplicação de precisão →';}
 }
 demoSwitch.addEventListener('click',()=>setState(!converged));
 /* auto-play the thesis once on load */

@@ -23,7 +23,7 @@
   .head{text-align:center;max-width:720px}
   .head .logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
   .head .logo .mark{width:34px;height:34px;color:var(--cream)}
-  .head .logo .wm{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:22px;line-height:1;padding-top:2px}
+  .head .logo .wm{font-family:"Inter",sans-serif;font-weight:700;font-size:22px;line-height:1;padding-top:2px}
   .head h1{font-size:1.15rem;font-weight:600;margin:0;color:rgba(244,242,237,.8);letter-spacing:.01em}
   .head h1 b{color:var(--cream);font-weight:700}
 
@@ -38,15 +38,15 @@
 
   /* shared captions */
   .cap{position:absolute;left:30px;bottom:26px;z-index:20;max-width:70%}
-  .cap .num{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;color:var(--terracotta);font-weight:600}
-  .cap h2{font-family:"Baloo 2",sans-serif;font-size:clamp(1.1rem,2.6vw,1.7rem);margin:6px 0 4px;font-weight:700;color:#fff;letter-spacing:-.01em}
+  .cap .num{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:.18em;color:var(--terracotta);font-weight:600}
+  .cap h2{font-family:"Inter",sans-serif;font-size:clamp(1.1rem,2.6vw,1.7rem);margin:6px 0 4px;font-weight:700;color:#fff;letter-spacing:-.01em}
   .cap p{font-size:clamp(.8rem,1.5vw,.98rem);color:rgba(255,255,255,.82);margin:0;max-width:24em}
   .scene.active .cap{animation:capIn .8s var(--ease) both .25s}
   @keyframes capIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
   .wmk{position:absolute;right:22px;top:18px;z-index:20;display:flex;align-items:center;gap:8px;opacity:.9}
   .wmk .mark{width:24px;height:24px;color:#fff}
-  .wmk .wm{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:15px;color:#fff;padding-top:2px}
+  .wmk .wm{font-family:"Inter",sans-serif;font-weight:700;font-size:15px;color:#fff;padding-top:2px}
 
   /* focal target */
   .target{position:absolute;width:120px;height:120px;transform:translate(-50%,-50%) scale(0);z-index:14}
@@ -136,7 +136,7 @@
   #s3 .half{position:absolute;top:0;bottom:0;width:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px}
   #s3 .half.l{left:0;border-right:1px dashed rgba(244,242,237,.18)}
   #s3 .half.r{right:0}
-  #s3 .lbl{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  #s3 .lbl{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
   #s3 .half.l .lbl{color:rgba(244,242,237,.55)}
   #s3 .half.r .lbl{color:var(--green-light)}
   .field-box{position:relative;width:150px;height:150px;border-radius:14px;border:1px solid rgba(244,242,237,.2);overflow:hidden;background:rgba(244,242,237,.04)}
@@ -152,10 +152,10 @@
   .scene.active #s3 .endcard{animation:endIn 1s var(--ease) both 3.2s}
   @keyframes endIn{from{opacity:0}to{opacity:1}}
   #s3 .endcard .mk{width:62px;height:62px;color:#fff}
-  #s3 .endcard .slogan{font-family:"Baloo 2",sans-serif;font-size:clamp(1.4rem,3.6vw,2.4rem);font-weight:700;color:#fff;text-align:center}
+  #s3 .endcard .slogan{font-family:"Inter",sans-serif;font-size:clamp(1.4rem,3.6vw,2.4rem);font-weight:700;color:#fff;text-align:center}
   #s3 .endcard .slogan .a{color:var(--terracotta)}
   #s3 .endcard .sub{font-size:.95rem;color:rgba(244,242,237,.75);letter-spacing:.02em}
-  #s3 .endcard .wm{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:1.1rem;color:#fff;display:flex;align-items:center;gap:9px;margin-top:6px}
+  #s3 .endcard .wm{font-family:"Inter",sans-serif;font-weight:700;font-size:1.1rem;color:#fff;display:flex;align-items:center;gap:9px;margin-top:6px}
   #s3 .endcard .wm .mark{width:26px;height:26px}
 
   /* ---------- CONTROLS ---------- */
@@ -191,11 +191,7 @@
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:.001s!important;transition:none!important}
   }
-  /* Fidelidade ao brandbook: Inter em toda a tipografia */
-  .head .logo .wm,.cap h2,.wmk .wm,.cap .num,
-  #s3 .lbl,#s3 .endcard .slogan,#s3 .endcard .wm{
-    font-family:"Inter",system-ui,sans-serif;
-  }
+  /* Brandbook: Inter é a única fonte da marca */
   .logo-img{height:30px;width:auto;display:block}
   .wmk-img{height:22px;width:auto;display:block}
   .mk-img{width:62px;height:62px;object-fit:contain;display:block}
@@ -229,7 +225,7 @@
     <div class="cap">
       <div class="num">01 · APLICAÇÃO DIRECIONADA</div>
       <h2>A isca é liberada no ponto exato</h2>
-      <p>Em vez de cobrir o talhão, o BioBait é aplicado de forma localizada — inclusive via drone.</p>
+      <p>A isca já é usada no manejo do bicudo — aqui, de forma biológica e mapeada, inclusive via drone.</p>
     </div>
   </div>
 
@@ -254,14 +250,14 @@
   <!-- SCENE 3 -->
   <div class="scene" id="s3">
     <div class="half l">
-      <span class="lbl">Cobertura total</span>
+      <span class="lbl">Aplicação manual</span>
       <div class="field-box" id="scatterBox"></div>
-      <span class="lbl">desperdício</span>
+      <span class="lbl">sem mapeamento</span>
     </div>
     <div class="half r">
-      <span class="lbl">Controle direcionado</span>
+      <span class="lbl">Aplicação de precisão</span>
       <div class="right-target"><span class="ring a"></span><span class="ring b"></span><span class="core"></span></div>
-      <span class="lbl">no ponto certo</span>
+      <span class="lbl">biológica e tecnológica</span>
     </div>
     <div class="endcard">
       <img src="smartbait-symbol-white.png" alt="SmartBait" class="mk-img"/>
