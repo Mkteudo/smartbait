@@ -128,9 +128,9 @@
     font-size:1.05rem;max-width:26em;line-height:1.4;letter-spacing:-.01em;
   }
   .hero-photo-disclaimer{
-    position:absolute;right:16px;top:16px;z-index:2;font-size:11px;font-weight:600;letter-spacing:.02em;
-    color:var(--cream);background:rgba(23,40,29,.55);padding:5px 11px;border-radius:100px;
-    backdrop-filter:blur(4px);
+    position:absolute;right:16px;top:16px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.04em;
+    text-transform:uppercase;color:rgba(244,242,237,.75);background:rgba(23,40,29,.4);padding:4px 9px;border-radius:100px;
+    backdrop-filter:blur(3px);
   }
   @media(max-width:560px){
     .hero-benefits{gap:16px 22px}
@@ -229,21 +229,9 @@
     box-shadow:0 24px 60px -40px rgba(31,77,58,.5);
   }
   .pest-visual{
-    border-radius:14px;aspect-ratio:4/3;position:relative;overflow:hidden;
-    background:
-      linear-gradient(180deg,#2c4a39,#16261d),
-      repeating-linear-gradient(100deg,rgba(169,194,160,.08) 0 2px,transparent 2px 22px);
+    border-radius:14px;aspect-ratio:2/3;position:relative;overflow:hidden;background:var(--green-deep);
   }
-  .pest-visual .soil{position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,rgba(158,106,71,.55))}
-  .pest-visual .spot{
-    position:absolute;width:54px;height:54px;border-radius:50%;
-    border:2px solid var(--terracotta);
-  }
-  .pest-visual .spot::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;border-radius:50%;background:var(--terracotta);transform:translate(-50%,-50%)}
-  .pest-visual .lbl{
-    position:absolute;font-family:"Inter",system-ui,sans-serif;font-size:11px;color:var(--cream);
-    background:rgba(23,40,29,.7);padding:4px 9px;border-radius:6px;border:1px solid rgba(169,194,160,.25);
-  }
+  .pest-visual img{width:100%;height:100%;object-fit:cover;display:block}
   .pest-meta{display:flex;justify-content:space-between;padding:14px 12px 8px;font-size:12.5px}
   .pest-meta .sci{font-style:italic;color:var(--green-deep);font-weight:600}
   .pest-meta .tag{font-family:"Inter",system-ui,sans-serif;color:var(--clay)}
@@ -531,16 +519,16 @@
   }
   .product-photo img{ width:100%; display:block; aspect-ratio:3/4; object-fit:cover; }
   .photo-tag{
-    position:absolute; left:14px; bottom:14px; font-size:11px; font-weight:600; letter-spacing:.03em;
-    color:var(--cream); background:rgba(23,40,29,.62); padding:5px 11px; border-radius:100px;
-    backdrop-filter:blur(4px);
+    position:absolute; right:12px; bottom:12px; left:auto; font-size:10px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:rgba(244,242,237,.75); background:rgba(23,40,29,.4); padding:4px 9px; border-radius:100px;
+    backdrop-filter:blur(3px);
   }
   .section-photo{
     position:relative; border-radius:20px; overflow:hidden; margin-bottom:40px;
     box-shadow:0 30px 60px -44px rgba(31,77,58,.5);
   }
   .section-photo img{ width:100%; display:block; object-fit:cover; }
-  .section-photo .photo-tag{ left:16px; bottom:16px; }
+  .section-photo .photo-tag{ right:16px; bottom:16px; }
 
   /* ---------- FLOATING CONTACT ---------- */
   .float-contact{
@@ -701,7 +689,7 @@
       <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
     </video>
     <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
-    <span class="hero-photo-disclaimer">Simulação em vídeo · gerada por IA</span>
+    <span class="hero-photo-disclaimer">Conceito</span>
   </div>
 </section>
 
@@ -764,9 +752,9 @@
 
     <div class="section-photo reveal" style="margin-top:32px">
       <img src="smartbait-img-drone-campo.jpg" alt="Drone agrícola em aplicação de precisão sobre canavial produtivo" loading="lazy"/>
-      <span class="photo-tag">Simulação do mecanismo de aplicação</span>
+      <span class="photo-tag">Conceito</span>
     </div>
-    <p class="note">Demonstração em motion incorporada acima — as três cenas correspondem aos roteiros. Os mesmos roteiros servem de base para a filmagem real em campo.</p>
+    
   </div>
 </section>
 
@@ -792,7 +780,7 @@
       </div>
     </div>
   </div>
-  <span class="photo-tag" style="position:absolute;right:16px;bottom:12px;z-index:2">Imagem ilustrativa</span>
+  <span class="photo-tag" style="position:absolute;right:16px;bottom:12px;z-index:2">Conceito</span>
 </section>
 
 <!-- ================= STRIP ================= -->
@@ -821,11 +809,8 @@
       </div>
       <div class="pest-card reveal">
         <div class="pest-visual">
-          <div class="soil"></div>
-          <div class="spot" style="left:24%;top:30%"></div>
-          <div class="spot" style="left:60%;top:54%;width:40px;height:40px"></div>
-          <div class="lbl" style="left:24%;top:18%">foco · infestação</div>
-          <div class="lbl mono" style="right:16px;bottom:14px">solo · base da soqueira</div>
+          <img src="smartbait-img-pest-visual.jpg" alt="Aplicação de precisão sobre foco de infestação do bicudo-da-cana" loading="lazy"/>
+          <span class="photo-tag">Conceito</span>
         </div>
         <div class="pest-meta">
           <span class="sci">Sphenophorus levis</span>
@@ -902,7 +887,7 @@
       <div class="reveal">
         <div class="product-photo">
           <img src="smartbait-img-produto-still.jpg" alt="BioBait — pastilha biológica para controle direcionado do bicudo-da-cana" loading="lazy"/>
-          <span class="photo-tag">Ilustração do produto · simulação</span>
+          <span class="photo-tag">Conceito</span>
         </div>
       </div>
       <div class="reveal">
@@ -977,7 +962,7 @@
     </div>
     <div class="section-photo reveal">
       <img src="smartbait-img-tecnico-onfarm.jpg" alt="Monitoramento técnico da aplicação de precisão via drone em canavial" loading="lazy"/>
-      <span class="photo-tag">Ilustração da parceria on-farm · simulação</span>
+      <span class="photo-tag">Conceito</span>
     </div>
     <div class="onfarm-steps">
       <div class="of-step reveal">
