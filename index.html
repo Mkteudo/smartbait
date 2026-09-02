@@ -572,6 +572,49 @@
     .qn-item:first-child{border-top:0}
   }
 
+  /* ---------- EVIDÊNCIA TÉCNICA ---------- */
+  .evidence{background:var(--cream)}
+  .ev-block{background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 38px;margin-bottom:24px}
+  .ev-block-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:26px}
+  .ev-num{
+    flex:0 0 40px;width:40px;height:40px;border-radius:10px;background:rgba(31,77,58,.08);
+    color:var(--green-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+  }
+  .ev-block-head h3{font-size:1.35rem;color:var(--green-deep);margin-bottom:4px}
+  .ev-loc{font-size:.88rem;color:var(--clay)}
+  .ev-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center}
+  .ev-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .ev-chart{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .ev-chart img{width:100%;display:block}
+  .ev-stats{display:flex;flex-direction:column;gap:18px}
+  .ev-stat{display:flex;flex-direction:column;gap:2px}
+  .ev-stat b{font-size:1.9rem;font-weight:800;color:var(--terracotta);letter-spacing:-.02em;line-height:1}
+  .ev-stat span{font-size:.9rem;color:var(--ink)}
+  .ev-caption{font-size:.9rem;color:var(--ink);margin-top:10px;text-align:center}
+  .ev-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .ev-photos img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+  .ev-note{font-size:.92rem;color:var(--clay);line-height:1.6;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .ev-note-warn{color:#8a5a3a}
+  .ev-callout{
+    background:var(--green-deep);color:var(--cream);border-radius:16px;padding:26px 30px;margin-bottom:24px;
+  }
+  .ev-callout p{font-size:1rem;line-height:1.6}
+  .ev-callout b{color:var(--green-light)}
+  .ev-sources{padding:0 6px}
+  .ev-sources-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta)}
+  .ev-sources ol{margin:14px 0 0;padding-left:20px;display:grid;gap:10px}
+  .ev-sources li{font-size:.85rem;color:var(--clay);line-height:1.5}
+  @media(max-width:920px){
+    .ev-grid{grid-template-columns:1fr}
+    .ev-grid-2{grid-template-columns:1fr}
+    .ev-photos{grid-template-columns:1fr 1fr}
+    .ev-block{padding:28px 22px}
+  }
+  @media(max-width:560px){
+    .ev-photos{grid-template-columns:1fr}
+    .ev-block-head{flex-direction:column;gap:10px}
+  }
+
   /* reveal */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .reveal.is-visible{opacity:1;transform:none}
@@ -996,38 +1039,97 @@
 </section>
 
 
-<!-- ================= PROVA / CASES ================= -->
-<section class="proof scroll-margin" id="resultados">
+<!-- ================= EVIDÊNCIA TÉCNICA ================= -->
+<section class="evidence scroll-margin" id="resultados">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Prova real</span>
-      <h2 style="color:var(--green-deep)">Cada aplicação vira aprendizado. Cada resultado vira case.</h2>
-      <p>A entrada é on-farm, ao lado de quem vive o problema. O resultado é medido em campo e documentado — a base de credibilidade que sustenta a expansão.</p>
+      <span class="eyebrow">Evidência técnica</span>
+      <h2 style="color:var(--green-deep)">O que os dados já mostram</h2>
+      <p>A tecnologia de isca sólida atrativa por trás do BioEsférico já tem evidência em duas dimensões complementares: atratividade em condição real de campo, e efeito sobre o dano em ensaio controlado. Os níveis de evidência são apresentados separadamente, para não confundir observação de campo com ensaio inferencial.</p>
     </div>
-    <div class="cases">
-      <div class="case reveal">
-        <div class="bar"></div>
-        <div class="metric">−<small>reaplicações</small></div>
-        <h4>Controle desde a primeira aplicação</h4>
-        <p>Ação concentrada no foco reduz a necessidade de repetir o tratamento ao longo da safra.</p>
-        <div class="who">USINA · PILOTO ON-FARM</div>
+
+    <!-- 01 Atratividade -->
+    <div class="ev-block reveal">
+      <div class="ev-block-head">
+        <span class="ev-num">01</span>
+        <div>
+          <h3>Atratividade em campo</h3>
+          <p class="ev-loc">Fazenda Bela Vista · Prata-MG — relato operacional</p>
+        </div>
       </div>
-      <div class="case reveal">
-        <div class="bar"></div>
-        <div class="metric">bio<small>vs química</small></div>
-        <h4>Controle biológico sem o perfil de resíduo químico</h4>
-        <p>Mesma lógica de atração já usada no manejo do bicudo, agora no campo do controle biológico.</p>
-        <div class="who">PRODUTOR · CANA-DE-AÇÚCAR</div>
+      <div class="ev-grid">
+        <div class="ev-chart"><img src="smartbait-chart-prata.png" alt="Gráfico de captura acumulada de Sphenophorus levis e Metamasius em Prata-MG" loading="lazy"/></div>
+        <div class="ev-stats">
+          <div class="ev-stat"><b>81</b><span>adultos de <i>S. levis</i> capturados em 21 dias</span></div>
+          <div class="ev-stat"><b>62</b><span>Metamasius adicionais registrados no mesmo período</span></div>
+          <div class="ev-stat"><b>7–15</b><span>dias — janela de pico de capturas</span></div>
+        </div>
       </div>
-      <div class="case reveal">
-        <div class="bar"></div>
-        <div class="metric">+<small>precisão</small></div>
-        <h4>Decisão baseada em dados</h4>
-        <p>Compatível com agricultura de precisão, o manejo passa a ser técnico e mensurável.</p>
-        <div class="who">EQUIPE TÉCNICA · CAMPO</div>
+      <div class="ev-photos">
+        <img src="smartbait-img-prata-isca-mao.jpg" alt="Isca sólida atrativa com adulto de Sphenophorus levis capturado em campo" loading="lazy"/>
+        <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca instalada na palhada do canavial em Prata-MG" loading="lazy"/>
+        <img src="smartbait-img-prata-capturas.jpg" alt="Adultos de Sphenophorus levis e Metamasius capturados" loading="lazy"/>
       </div>
+      <p class="ev-note">Leitura técnica: a captura acumulada confirma que a matriz atrativa é funcional em condição comercial. O relatório também registra perda de atratividade ao final da janela de 21 dias, associada às chuvas.</p>
     </div>
-    <p style="font-size:12.5px;color:var(--clay);margin-top:22px;font-style:italic">Indicadores ilustrativos — preenchidos com os números reais de cada piloto on-farm conforme os cases são documentados.</p>
+
+    <!-- 02 Resposta em campo -->
+    <div class="ev-block reveal">
+      <div class="ev-block-head">
+        <span class="ev-num">02</span>
+        <div>
+          <h3>Resposta em campo</h3>
+          <p class="ev-loc">Fazenda Barreiro (Morro Agudo/MG) e Usina Cerradão (Frutal/MG) — projetos comerciais</p>
+        </div>
+      </div>
+      <div class="ev-grid-2">
+        <div>
+          <div class="ev-chart"><img src="smartbait-chart-barreiro.png" alt="Gráfico de percentual de tocos atacados na Fazenda Barreiro" loading="lazy"/></div>
+          <p class="ev-caption">Barreiro: <b>26,7% → 11,9%</b> nas iscas entre 0 e 60 DAA (−55,4%)</p>
+        </div>
+        <div>
+          <div class="ev-chart"><img src="smartbait-chart-cerradao.png" alt="Gráfico de percentual de tocos atacados na Usina Cerradão" loading="lazy"/></div>
+          <p class="ev-caption">Cerradão: <b>5,3% → 3,1%</b> nas iscas entre 0 e 60 DAA (−41,7%)</p>
+        </div>
+      </div>
+      <p class="ev-note ev-note-warn">Importante: estes dois resultados são observacionais. Os protocolos não estabelecem inferência estatística de eficácia — são apresentados como sinal de resposta de campo, não como prova causal isolada.</p>
+    </div>
+
+    <!-- 03 Evidência científica -->
+    <div class="ev-block reveal">
+      <div class="ev-block-head">
+        <span class="ev-num">03</span>
+        <div>
+          <h3>Evidência científica</h3>
+          <p class="ev-loc">BioAssay 21 (2026) — ensaio controlado, publicado</p>
+        </div>
+      </div>
+      <div class="ev-grid">
+        <div class="ev-chart"><img src="smartbait-chart-bioassay.png" alt="Gráfico de dano em bases de colmo por tratamento, BioAssay 21 2026" loading="lazy"/></div>
+        <div class="ev-stats">
+          <div class="ev-stat"><b>43%</b><span>de bases danificadas no controle (testemunha)</span></div>
+          <div class="ev-stat"><b>~5%</b><span>com imidacloprido 200 — menor média (grupo estatístico "c")</span></div>
+          <div class="ev-stat"><b>18–20%</b><span>com <i>B. bassiana</i> 100/200 — controle biológico, diferença significativa vs. testemunha</span></div>
+        </div>
+      </div>
+      <p class="ev-note">Aos 60 dias, tratamentos com imidacloprido (50 e 200) e com <i>Beauveria bassiana</i> (100 e 200) apresentaram dano significativamente menor que a testemunha (Tukey, p ≤ 0,05) — incluindo a via biológica, a mesma frente em que o BioEsférico atua.</p>
+    </div>
+
+    <!-- Callout: níveis de evidência -->
+    <div class="ev-callout reveal">
+      <p><b>Conclusão tecnicamente defensável hoje:</b> a tecnologia demonstrou atratividade em campo e redução de dano em ensaio controlado. A base de validação está em expansão — mais fazendas, repetições e condições de chuva fazem parte do programa 2026–2027.</p>
+    </div>
+
+    <!-- Fontes -->
+    <div class="ev-sources reveal">
+      <span class="ev-sources-label">Fontes e rastreabilidade</span>
+      <ol>
+        <li>Departamento Técnico. <i>Teste de Iscas para controle de Sphenophorus levis.</i> Prata-MG. Documento de campo.</li>
+        <li>Pinto, A. de S.; Silva, M. M.; Berti, M. G.; Oliva, M. B. (2026). <i>Artificial baits treated with imidacloprid or Beauveria bassiana reduce damage by Sphenophorus levis in sugarcane.</i> BioAssay, 21: ba21004. DOI: 10.37486/1809-8460.ba21004.</li>
+        <li>Protocolo Fazenda Barreiro. Morro Agudo/MG. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
+        <li>Protocolo Usina Cerradão / Fazenda São Mateus. Frutal/MG. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
+      </ol>
+    </div>
   </div>
 </section>
 
