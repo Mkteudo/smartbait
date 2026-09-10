@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SmartBait — Inteligência no ponto certo.</title>
-<meta name="description" content="SmartBait: plataforma de controle inteligente no campo. Controle direcionado do Sphenophorus levis (bicudo-da-cana) — menos volume, mais inteligência." />
+<meta name="description" content="BioEsférico: controle biológico direcionado para o Sphenophorus levis (bicudo-da-cana). Isca biológica que atrai a praga ao ponto exato da infestação — menos volume, mais inteligência." />
 <meta name="theme-color" content="#1F4D3A" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -472,13 +472,6 @@
   .techsheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px}
   .techsheet-head h3{font-size:1.3rem;color:var(--green-deep)}
   .techsheet-head p{font-size:.94rem;color:var(--clay);margin-top:6px;max-width:38em}
-  .dl-btn{
-    display:inline-flex;align-items:center;gap:8px;background:var(--green-deep);color:var(--cream);
-    padding:11px 20px;border-radius:100px;font-size:13.5px;font-weight:600;white-space:nowrap;
-    transition:background .2s,transform .2s var(--ease);
-  }
-  .dl-btn:hover{background:#173e2e;transform:translateY(-1px)}
-  .dl-btn svg{width:15px;height:15px}
   .tt-wrap{overflow-x:auto}
   table.tt{width:100%;border-collapse:collapse;font-size:.92rem;min-width:640px}
   table.tt th{
@@ -490,6 +483,10 @@
   table.tt td.sci{font-style:italic;color:var(--green-deep);font-weight:600}
   table.tt .tag-mini{display:inline-block;background:rgba(194,106,61,.12);color:var(--terracotta);font-weight:600;font-size:12px;padding:3px 10px;border-radius:100px}
   .techsheet-note{font-size:12px;color:var(--clay);margin-top:18px;font-style:italic}
+  .tt-ref{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+  .tt-ref-item{display:flex;flex-direction:column;gap:2px}
+  .tt-ref-item b{font-size:1.35rem;font-weight:800;color:var(--terracotta);letter-spacing:-.02em;line-height:1}
+  .tt-ref-item span{font-size:.82rem;color:var(--clay);max-width:16em}
 
   /* ---------- PARCERIA ON-FARM ---------- */
   .onfarm{background:var(--cream);border-top:1px solid var(--line)}
@@ -550,7 +547,7 @@
 
   /* ---------- QUICK NAV ---------- */
   .quicknav{background:#fff;border-bottom:1px solid var(--line)}
-  .quicknav-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .quicknav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
   .qn-item{
     padding:28px 26px;border-left:1px solid var(--line);
     display:flex;flex-direction:column;gap:6px;transition:background .2s;
@@ -564,7 +561,6 @@
     .quicknav-grid{grid-template-columns:1fr 1fr}
     .qn-item:nth-child(2){border-left:1px solid var(--line)}
     .qn-item:nth-child(3){border-left:0;border-top:1px solid var(--line)}
-    .qn-item:nth-child(4){border-top:1px solid var(--line)}
   }
   @media(max-width:560px){
     .quicknav-grid{grid-template-columns:1fr}
@@ -600,6 +596,16 @@
   }
   .ev-callout p{font-size:1rem;line-height:1.6}
   .ev-callout b{color:var(--green-light)}
+  .ev-tagline{
+    margin-top:16px;padding-top:16px;border-top:1px solid rgba(244,242,237,.2);
+    font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--green-light);
+  }
+  .ev-roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ev-rm-item{background:var(--cream);border-radius:12px;padding:16px 18px}
+  .ev-rm-item b{display:block;font-size:.95rem;color:var(--green-deep);margin-bottom:4px}
+  .ev-rm-item span{font-size:.82rem;color:var(--clay);line-height:1.4}
+  @media(max-width:768px){.ev-roadmap{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.ev-roadmap{grid-template-columns:1fr}}
   .ev-sources{padding:0 6px}
   .ev-sources-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta)}
   .ev-sources ol{margin:14px 0 0;padding-left:20px;display:grid;gap:10px}
@@ -695,7 +701,6 @@
         <li><a href="#categoria">Controle direcionado</a></li>
         <li><a href="#produto">BioEsférico</a></li>
         <li><a href="#onfarm">On-farm</a></li>
-        <li><a href="#portal">Portal</a></li>
         <li><a href="#contato" class="nav-cta">Falar com especialista</a></li>
       </ul>
     </nav>
@@ -710,7 +715,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="hero-tag">Plataforma de controle inteligente no campo</span>
+      <span class="hero-tag">Controle biológico direcionado para o bicudo-da-cana</span>
       <h1>Inteligência <span class="accent">no ponto certo.</span></h1>
       <p class="lede">A SmartBait é controle biológico direcionado para o bicudo-da-cana: o BioEsférico atrai a praga ao ponto exato da infestação e age só ali. Menos volume, mais inteligência.</p>
       <div class="hero-actions">
@@ -728,12 +733,9 @@
     </div>
   </div>
   <div class="hero-photo">
-    <video src="smartbait-hero-video.mp4" poster="smartbait-img-aerial-fazenda.jpg" autoplay muted loop playsinline preload="auto">
-      <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
-    </video>
-    <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
-    <span class="hero-photo-disclaimer">Conceito</span>
-  </div>
+    <img src="smartbait-hero-bioesferico.jpg" alt="BioEsférico — controle biológico de precisão contra o Sphenophorus levis"/>
+    <span class="hero-photo-tag">Controle biológico de precisão contra o Sphenophorus levis</span>
+      </div>
 </section>
 
 <!-- ================= NAVEGAÇÃO RÁPIDA ================= -->
@@ -746,18 +748,13 @@
     </a>
     <a href="#tecnologia" class="qn-item">
       <span class="qn-label">Tecnologia</span>
-      <span class="qn-title">BioEsférico Core</span>
-      <span class="qn-desc">O motor por trás do controle de precisão</span>
+      <span class="qn-title">Tecnologia</span>
+      <span class="qn-desc">Como o BioEsférico age no campo</span>
     </a>
     <a href="#onfarm" class="qn-item">
       <span class="qn-label">Modelo</span>
       <span class="qn-title">Parceria on-farm</span>
       <span class="qn-desc">Diagnóstico, piloto e acompanhamento direto</span>
-    </a>
-    <a href="#portal" class="qn-item">
-      <span class="qn-label">Conteúdo</span>
-      <span class="qn-title">Portal técnico</span>
-      <span class="qn-desc">Referência sobre manejo do bicudo-da-cana</span>
     </a>
   </div>
 </nav>
@@ -766,9 +763,9 @@
 <section class="tech scroll-margin" id="tecnologia">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">A tecnologia · BioEsférico Core</span>
+      <span class="eyebrow">A tecnologia · BioEsférico</span>
       <h2>Veja a tecnologia agindo no campo.</h2>
-      <p>O BioEsférico Core é o motor proprietário por trás do controle direcionado. Abaixo, a demonstração de campo — do voo do drone ao ponto exato de ação.</p>
+      <p>O BioEsférico atua de forma biológica e direcionada, concentrando o controle no ponto exato da infestação. Abaixo, a demonstração de campo — da aplicação ao ponto exato de ação.</p>
     </div>
 
     <div class="demo-embed reveal">
@@ -795,7 +792,6 @@
 
     <div class="section-photo reveal" style="margin-top:32px">
       <img src="smartbait-img-drone-campo.jpg" alt="Drone agrícola em aplicação de precisão sobre canavial produtivo" loading="lazy"/>
-      <span class="photo-tag">Conceito</span>
     </div>
     
   </div>
@@ -806,8 +802,8 @@
   <div class="wrap">
     <div class="inst-grid">
       <div class="inst-item reveal">
-        <span class="inst-n">Plataforma</span>
-        <span class="inst-l">SmartBait é estruturada como empresa-plataforma — não como produto único — para abrigar novas tecnologias sem se reinventar</span>
+        <span class="inst-n">Biológico</span>
+        <span class="inst-l">ativo biológico, sem o perfil de resíduo típico de inseticidas</span>
       </div>
       <div class="inst-item reveal">
         <span class="inst-n">On-farm</span>
@@ -818,19 +814,18 @@
         <span class="inst-l">controle localizado no ponto exato da infestação — não cobertura de área</span>
       </div>
       <div class="inst-item reveal">
-        <span class="inst-n">BioEsférico Core</span>
-        <span class="inst-l">tecnologia proprietária por trás do sistema de atração e controle direcionado</span>
+        <span class="inst-n">Científico</span>
+        <span class="inst-l">base validada em ensaio publicado e em resultados de campo</span>
       </div>
     </div>
   </div>
-  <span class="photo-tag" style="position:absolute;right:16px;bottom:12px;z-index:2">Conceito</span>
 </section>
 
 <!-- ================= STRIP ================= -->
 <div class="strip">
   <div class="wrap strip-inner">
     <div class="strip-item reveal"><span class="n">1</span><span class="l">praga de solo de difícil controle: <i>Sphenophorus levis</i></span></div>
-    <div class="strip-item reveal"><span class="n">biológico</span><span class="l">controle biológico direcionado, alternativa às iscas químicas tradicionais</span></div>
+    <div class="strip-item reveal"><span class="n">biológico</span><span class="l">ativo biológico, sem o perfil de resíduo típico de inseticidas</span></div>
     <div class="strip-item reveal"><span class="n">drone</span><span class="l">distribuição direcionada, integrável à agricultura de precisão</span></div>
     <div class="strip-item reveal"><span class="n">sistema</span><span class="l">o controle tratado como sistema, não como insumo isolado</span></div>
   </div>
@@ -847,14 +842,13 @@
         <ul>
           <li><span class="problem-num">01</span><span><b>Larva protegida.</b> Vive dentro do rizoma, fora do alcance de boa parte das intervenções de superfície.</span></li>
           <li><span class="problem-num">02</span><span><b>Manejo multi-tático.</b> Isca, controle mecânico e biológico precisam atuar de forma combinada.</span></li>
-          <li><span class="problem-num">03</span><span><b>Isca tradicional é química.</b> A ferramenta mais usada hoje é de base química, aplicada manualmente.</span></li>
+          <li><span class="problem-num">03</span><span><b>Dano expressivo sem controle.</b> Na ausência de manejo, o dano pode ultrapassar 40% das bases de colmo (BioAssay 21, 2026).</span></li>
         </ul>
       </div>
       <div class="pest-card reveal">
         <div class="pest-visual">
           <img src="smartbait-img-pest-visual.jpg" alt="Aplicação de precisão sobre foco de infestação do bicudo-da-cana" loading="lazy"/>
-          <span class="photo-tag">Conceito</span>
-        </div>
+            </div>
         <div class="pest-meta">
           <span class="sci">Sphenophorus levis</span>
           <span class="tag">praga de solo · cana-de-açúcar</span>
@@ -868,46 +862,28 @@
 <section class="shift scroll-margin" id="categoria">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">O princípio · controle biológico de precisão</span>
-      <h2>A atração já existe há décadas. O controle biológico muda o jogo.</h2>
-      <p>O manejo do bicudo-da-cana combina isca, controle mecânico e biológico. A SmartBait entra no controle biológico — usando o mesmo princípio de atração, com precisão de aplicação via drone.</p>
+      <span class="eyebrow">O princípio</span>
+      <h2>O princípio é simples: atrair para controlar.</h2>
+      <p>O BioEsférico atua por atração: a isca leva o bicudo-da-cana ao ponto exato de controle. A eficácia biológica tem base em ensaio publicado. <a href="#resultados" style="color:inherit;text-decoration:underline">Ver evidência técnica ↓</a></p>
     </div>
-    <div class="reveal" style="margin:0 0 40px">
-      <div class="focus-demo" id="focusDemo">
-        <div class="scatter" id="scatter" aria-hidden="true"></div>
-        <div class="target" aria-hidden="true">
-          <div class="ring"></div><div class="ring r2"></div><div class="core"></div>
-        </div>
-        <div class="demo-caption">
-          <span><b id="demoTitle">Aplicação manual</b><span id="demoSub">ponto a ponto, sem mapeamento de dados</span></span>
-          <button class="demo-switch" id="demoSwitch">ver aplicação de precisão →</button>
-        </div>
-      </div>
+    <div class="section-photo reveal" style="margin-bottom:40px">
+      <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca sólida atrativa instalada na palhada do canavial, Prata-MG" loading="lazy" style="aspect-ratio:16/8;object-position:65% 78%"/>
+      <span class="photo-tag" style="background:rgba(23,40,29,.55);color:var(--cream)">Prata-MG · campo real</span>
     </div>
-    <div class="compare">
-      <div class="compare-card old reveal">
-        <h3>Isca tóxica tradicional</h3>
-        <div class="big">Base química</div>
-        <ul>
-          <li>Toletes de cana cortados e imersos em inseticida químico</li>
-          <li>Aplicação manual, ponto a ponto</li>
-          <li>Uso concentrado no monitoramento e na reforma do canavial</li>
-          <li>Perfil de resíduo típico de inseticidas químicos</li>
-        </ul>
-      </div>
-      <div class="compare-card new reveal">
+    <div class="compare" style="grid-template-columns:1fr;justify-items:center">
+      <div class="compare-card new reveal" style="max-width:640px;margin:0 auto">
         <h3>BioEsférico · SmartBait</h3>
-        <div class="big">Base biológica</div>
+        <div class="big">Ativo biológico</div>
         <ul>
-          <li>Controle biológico direcionado, sem o perfil de resíduo químico</li>
+          <li>Reduz o dano de forma comprovada (BioAssay 21, 2026)</li>
+          <li>Ativo biológico, sem o perfil de resíduo químico</li>
           <li>Aplicação com apoio de mapeamento e tecnologia, inclusive via drone</li>
-          <li>Uso ao longo do ciclo da cultura, não só na reforma</li>
           <li>Se integra às demais frentes do manejo — mecânico, biológico, monitoramento</li>
         </ul>
       </div>
     </div>
     <div class="category-claim reveal">
-      <p>O mercado brasileiro de bioinsumos já movimenta cerca de <span class="term">R$ 7 bilhões por ano</span> e deve crescer para perto de R$ 10 bilhões até 2030 — o Brasil é hoje o líder mundial em adoção de biológicos por área cultivada. A SmartBait nasce dentro dessa frente, aplicada a um problema específico e de alto impacto.</p>
+      <p>O mercado brasileiro de bioinsumos já movimenta cerca de <span class="term">R$ 7 bilhões por ano</span> e deve crescer para perto de R$ 10 bilhões até 2030 — o Brasil é hoje o líder mundial em adoção de biológicos por área cultivada. A SmartBait nasce dentro dessa frente, com evidência de campo e ensaio publicado.</p>
       <a href="#produto" class="btn btn-primary">Conhecer o BioEsférico
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -930,8 +906,7 @@
       <div class="reveal">
         <div class="product-photo">
           <img src="smartbait-img-produto-still.jpg" alt="BioEsférico — controle biológico direcionado do bicudo-da-cana, aplicado via drone" loading="lazy"/>
-          <span class="photo-tag">Conceito</span>
-        </div>
+            </div>
       </div>
       <div class="reveal">
         <span class="eyebrow">O produto · BioEsférico</span>
@@ -948,7 +923,7 @@
           </div>
           <div class="feat-card">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C12 4 16 3 16 3s.5 4-2 7"/><path d="M11 20s-1-7 4-11"/></svg></div>
-            <h4>Menor impacto</h4><p>Redução significativa de dispersão no campo.</p>
+            <h4>Sem resíduo químico</h4><p>Ativo biológico, sem o perfil de resíduo associado a inseticidas.</p>
           </div>
           <div class="feat-card">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
@@ -958,39 +933,52 @@
       </div>
     </div>
 
+    <div class="reveal" style="background:var(--green-deep);color:var(--cream);border-radius:16px;padding:28px 32px;margin-top:36px;display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+      <div style="max-width:34em">
+        <span class="eyebrow" style="color:var(--green-light)">Foco de lançamento</span>
+        <h4 style="font-size:1.3rem;font-weight:800;margin-top:10px;color:#fff">Cana planta e 1º corte.</h4>
+        <p style="font-size:.98rem;color:rgba(244,242,237,.85);margin-top:10px;line-height:1.6">Nessas fases, a palhada ainda é menor — o que facilita o caminhamento da praga até o ponto de aplicação e aumenta a eficiência da isca. São também as fases de maior investimento em proteção da lavoura, com impacto direto nos cortes seguintes.</p>
+      </div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-size:1.8rem;font-weight:800;color:var(--terracotta);letter-spacing:-.02em">−palha</div>
+          <div style="font-size:.78rem;color:rgba(244,242,237,.75);margin-top:4px;max-width:9em">mais caminhamento da praga até a isca</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:1.8rem;font-weight:800;color:var(--terracotta);letter-spacing:-.02em">+invest.</div>
+          <div style="font-size:.78rem;color:rgba(244,242,237,.75);margin-top:4px;max-width:9em">maior investimento em proteção nessas fases</div>
+        </div>
+      </div>
+    </div>
+
     <div class="techsheet reveal" id="produto-ficha">
       <div class="techsheet-head">
         <div>
           <h3>Ficha técnica · BioEsférico</h3>
-          <p>Dados de aplicação para uso técnico. A ficha completa acompanha laudo de eficácia e recomendações por tipo de solo e histórico de infestação.</p>
+          <p>Dados de aplicação para uso técnico, com referência dos ensaios de campo documentados.</p>
         </div>
-        <a href="#contato" class="dl-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
-          Solicitar ficha técnica em PDF
-        </a>
       </div>
       <div class="tt-wrap">
         <table class="tt">
           <thead>
-            <tr><th>Cultura</th><th>Alvo biológico</th><th>Forma de aplicação</th><th>Ponto de ação</th></tr>
+            <tr><th>Cultura</th><th>Alvo biológico</th><th>Ativo</th><th>Forma de aplicação</th></tr>
           </thead>
           <tbody>
             <tr>
               <td>Cana-de-açúcar</td>
               <td class="sci">Sphenophorus levis</td>
-              <td>Localizada — manual ou via drone</td>
-              <td><span class="tag-mini">foco da infestação</span></td>
-            </tr>
-            <tr>
-              <td>Cana-de-açúcar (soqueira)</td>
-              <td class="sci">Sphenophorus levis</td>
-              <td>Distribuição direcionada na base da soqueira</td>
-              <td><span class="tag-mini">controle direcionado</span></td>
+              <td><span class="tag-mini">biológico</span></td>
+              <td>Isca sólida atrativa, localizada — manual ou via drone</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="techsheet-note">Dados ilustrativos de estrutura — a tabela final é preenchida com o laudo técnico e o registro do produto.</p>
+      <div class="tt-ref">
+        <div class="tt-ref-item"><b>100–150</b><span>iscas/ha — densidade usada nos ensaios de campo documentados</span></div>
+        <div class="tt-ref-item"><b>0–60</b><span>dias — janela de avaliação de eficácia nos ensaios</span></div>
+        <div class="tt-ref-item"><b>7–15</b><span>dias — pico de atratividade observado em campo</span></div>
+      </div>
+      <p class="techsheet-note">Densidade e janela de avaliação com base nos ensaios de campo e no estudo publicado citados em <a href="#resultados" style="color:inherit">Evidência técnica ↓</a>. Ativo específico, dose de rótulo e número de registro: a confirmar com o laudo técnico oficial do produto.</p>
     </div>
   </div>
 </section>
@@ -1000,12 +988,11 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Como funciona · parceria on-farm</span>
-      <h2 style="color:var(--green-deep)">Você fala direto com quem desenvolve a tecnologia.</h2>
-      <p>Sem revenda e sem intermediários: a equipe técnica da SmartBait acompanha o piloto e a aplicação junto com o seu time, do diagnóstico ao resultado em safra.</p>
+      <h2 style="color:var(--green-deep)">Você fala direto com quem desenvolve o BioEsférico.</h2>
+      <p>Sem revenda e sem intermediários: a equipe técnica da SmartBait acompanha o piloto junto com o seu time, do diagnóstico ao resultado em safra.</p>
     </div>
     <div class="section-photo reveal">
       <img src="smartbait-img-tecnico-onfarm.jpg" alt="Monitoramento técnico da aplicação de precisão via drone em canavial" loading="lazy"/>
-      <span class="photo-tag">Conceito</span>
     </div>
     <div class="onfarm-steps">
       <div class="of-step reveal">
@@ -1045,7 +1032,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Evidência técnica</span>
       <h2 style="color:var(--green-deep)">O que os dados já mostram</h2>
-      <p>A tecnologia de isca sólida atrativa por trás do BioEsférico já tem evidência em duas dimensões complementares: atratividade em condição real de campo, e efeito sobre o dano em ensaio controlado. Os níveis de evidência são apresentados separadamente, para não confundir observação de campo com ensaio inferencial.</p>
+      <p>O BioEsférico já tem evidência em duas dimensões complementares: atratividade em condição real de campo, e efeito sobre o dano em ensaio controlado. Os níveis de evidência são apresentados separadamente, para não confundir observação de campo com ensaio inferencial.</p>
     </div>
 
     <!-- 01 Atratividade -->
@@ -1115,9 +1102,30 @@
       <p class="ev-note">Aos 60 dias, tratamentos com imidacloprido (50 e 200) e com <i>Beauveria bassiana</i> (100 e 200) apresentaram dano significativamente menor que a testemunha (Tukey, p ≤ 0,05) — incluindo a via biológica, a mesma frente em que o BioEsférico atua.</p>
     </div>
 
+    <!-- 04 Próxima etapa -->
+    <div class="ev-block reveal">
+      <div class="ev-block-head">
+        <span class="ev-num">04</span>
+        <div>
+          <h3>Próxima etapa</h3>
+          <p class="ev-loc">Programa de validação 2026–2027</p>
+        </div>
+      </div>
+      <p style="font-size:.95rem;color:var(--ink);margin-bottom:20px">O objetivo não é apenas repetir o resultado, mas medir sua consistência. Seis frentes estruturam a ampliação da base experimental:</p>
+      <div class="ev-roadmap">
+        <div class="ev-rm-item"><b>Multilocal</b><span>mais fazendas, solos e níveis de infestação</span></div>
+        <div class="ev-rm-item"><b>Repetição</b><span>mais blocos e áreas independentes por tratamento</span></div>
+        <div class="ev-rm-item"><b>Chuva &amp; residual</b><span>monitorar precipitação, integridade e tempo de atratividade</span></div>
+        <div class="ev-rm-item"><b>Desfechos</b><span>dano, adultos, formas imaturas e indicadores agronômicos</span></div>
+        <div class="ev-rm-item"><b>Estatística</b><span>modelos para medidas repetidas e comparação com testemunha</span></div>
+        <div class="ev-rm-item"><b>Longo prazo</b><span>efeito sobre reboleiras, sobrevivência e desempenho da soqueira</span></div>
+      </div>
+    </div>
+
     <!-- Callout: níveis de evidência -->
     <div class="ev-callout reveal">
       <p><b>Conclusão tecnicamente defensável hoje:</b> a tecnologia demonstrou atratividade em campo e redução de dano em ensaio controlado. A base de validação está em expansão — mais fazendas, repetições e condições de chuva fazem parte do programa 2026–2027.</p>
+      <p class="ev-tagline">TECNOLOGIA EM CAMPO · DADOS REAIS · VALIDAÇÃO CONTÍNUA</p>
     </div>
 
     <!-- Fontes -->
@@ -1125,29 +1133,10 @@
       <span class="ev-sources-label">Fontes e rastreabilidade</span>
       <ol>
         <li>Departamento Técnico. <i>Teste de Iscas para controle de Sphenophorus levis.</i> Prata-MG. Documento de campo.</li>
-        <li>Pinto, A. de S.; Silva, M. M.; Berti, M. G.; Oliva, M. B. (2026). <i>Artificial baits treated with imidacloprid or Beauveria bassiana reduce damage by Sphenophorus levis in sugarcane.</i> BioAssay, 21: ba21004. DOI: 10.37486/1809-8460.ba21004.</li>
+        <li>Pinto, A. de S.; Silva, M. M.; Berti, M. G.; Oliva, M. B. (2026). <i>Artificial baits treated with imidacloprid or Beauveria bassiana reduce damage by Sphenophorus levis in sugarcane.</i> Mineiros do Tietê/SP. BioAssay, 21: ba21004. DOI: 10.37486/1809-8460.ba21004.</li>
         <li>Protocolo Fazenda Barreiro. Morro Agudo/MG. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
         <li>Protocolo Usina Cerradão / Fazenda São Mateus. Frutal/MG. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
       </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PORTAL / BLOG ================= -->
-<section class="portal scroll-margin" id="portal">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <span class="eyebrow">Portal SmartBait · conhecimento de campo</span>
-        <h2 style="color:var(--green-deep);font-size:clamp(1.9rem,3.4vw,2.8rem);margin-top:16px">A referência sobre controle direcionado no canavial.</h2>
-        <p style="color:var(--clay);font-size:1.08rem;margin-top:16px">Conteúdo técnico para produtores e agrônomos — quem ensina a categoria é quem se torna referência nela.</p>
-      </div>
-      <a href="#portal" class="portal-link">Ver todos os artigos
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <div class="posts" id="posts">
-      <!-- posts injected by JS for a single source of truth -->
     </div>
   </div>
 </section>
@@ -1160,7 +1149,6 @@
         <span class="eyebrow">A origem da marca</span>
         <h2>Pioneirismo não se copia. Nossa lógica nasce do foco.</h2>
         <p>A SmartBait nasce de um controle biológico desenvolvido para o bicudo-da-cana — e de uma decisão: combater o foco, não a área. Foi essa lógica que deu origem ao nome e a tudo que a marca comunica.</p>
-        <p>Por isso a SmartBait é empresa-plataforma, não produto único: estruturada para abrigar novos produtos e tecnologias sem se reinventar a cada passo.</p>
         <div class="quote">“Menos volume, mais inteligência.”</div>
       </div>
       <div class="smartbait-split reveal">
@@ -1204,11 +1192,10 @@
         <div class="logo">
           <img src="smartbait-logo-white.png" alt="SmartBait" class="logo-img"/>
         </div>
-        <p>Inteligência no ponto certo. A plataforma de controle inteligente no campo.</p>
+        <p>Inteligência no ponto certo. Controle biológico direcionado para o bicudo-da-cana.</p>
         <div class="foot-arch">
-          <span>SmartBait · plataforma</span>
+          <span>SmartBait · empresa</span>
           <span>BioEsférico · produto</span>
-          <span>BioEsférico Core · tecnologia</span>
         </div>
       </div>
       <div class="foot-col">
@@ -1217,13 +1204,12 @@
           <li><a href="#problema">O problema</a></li>
           <li><a href="#categoria">Controle direcionado</a></li>
           <li><a href="#produto">BioEsférico</a></li>
-          <li><a href="#tecnologia">BioEsférico Core</a></li>
+          <li><a href="#tecnologia">Tecnologia</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h5>Conteúdo</h5>
         <ul>
-          <li><a href="#portal">Portal</a></li>
           <li><a href="#resultados">Cases</a></li>
           <li><a href="#origem">A marca</a></li>
         </ul>
@@ -1250,142 +1236,7 @@
   <span>Fale com especialista</span>
 </a>
 
-<!-- ================= MODAL ================= -->
-<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal">
-    <div class="m-cover" id="mCover">
-      <button class="m-close" id="mClose" aria-label="Fechar artigo">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <span class="cat" id="mCat"></span>
-    </div>
-    <div class="m-body" id="mBody"></div>
-  </div>
-</div>
-
 <script>
-/* ---------- POSTS (single source of truth: cards + article) ---------- */
-const PATTERNS = [
-  'repeating-linear-gradient(118deg,rgba(169,194,160,.16) 0 2px,transparent 2px 24px)',
-  'repeating-radial-gradient(circle at 70% 40%,rgba(194,106,61,.22) 0 1px,transparent 1px 16px)',
-  'repeating-linear-gradient(95deg,rgba(169,194,160,.14) 0 2px,transparent 2px 30px)'
-];
-const MARK_SVG = `<img src="smartbait-symbol-white.png" alt="" style="width:100%;height:100%;object-fit:contain;opacity:.55"/>`;
-
-const POSTS = [
-  {
-    cat:"Manejo",
-    title:"Por que uma única estratégia não resolve o bicudo-da-cana",
-    excerpt:"A larva do Sphenophorus levis vive protegida dentro do rizoma. A literatura técnica é direta: nenhuma frente isolada de controle é suficiente. Entenda por que o manejo precisa ser combinado.",
-    meta:["Leitura · 4 min","Categoria · Manejo"],
-    body:`
-      <p>O <em>Sphenophorus levis</em> não é uma praga de superfície. Suas larvas ficam alojadas dentro do rizoma da planta, onde abrem galerias e comprometem a soqueira — protegidas de boa parte das intervenções que agem de fora para dentro.</p>
-      <h3>Um manejo que já é, por natureza, multi-tático</h3>
-      <p>A literatura técnica sobre o bicudo-da-cana é clara nesse ponto: uma única estratégia de controle não é eficaz. Na prática, o manejo combina isca (tradicionalmente toletes de cana imersos em inseticida químico), destruição mecânica das touceiras na reforma, controle biológico com fungos como a <em>Beauveria bassiana</em> e cuidados no plantio e no transporte de mudas.</p>
-      <h3>Onde a isca tradicional ainda deixa espaço</h3>
-      <ul>
-        <li><strong>Base química:</strong> a isca mais usada hoje depende de inseticida químico aplicado manualmente.</li>
-        <li><strong>Uso concentrado:</strong> aparece sobretudo no monitoramento e na reforma, não ao longo de todo o ciclo.</li>
-        <li><strong>Sem apoio de dados:</strong> a colocação é manual, ponto a ponto, sem mapeamento da infestação.</li>
-      </ul>
-      <h3>A virada: da isca química para o controle biológico de precisão</h3>
-      <p>O espaço de melhoria não está em "cobrir mais área" — está em levar a atração, mecanismo já validado no manejo do bicudo, para o campo do controle biológico, com precisão de aplicação via drone. É essa virada que define o BioEsférico.</p>
-      <p><span class="m-tag">Controle biológico</span><span class="m-tag">Manejo integrado</span></p>
-    `
-  },
-  {
-    cat:"Estratégia",
-    title:"Controle biológico de precisão: a lógica que muda a conta do canavial",
-    excerpt:"O mercado de bioinsumos no Brasil já movimenta bilhões por ano. Entenda como levar o controle do bicudo-da-cana para o campo biológico, com apoio de tecnologia, muda a economia do manejo.",
-    meta:["Leitura · 5 min","Categoria · Estratégia"],
-    body:`
-      <p>A atração já é uma ferramenta validada no manejo do bicudo-da-cana. O que muda a conta do canavial não é trocar essa lógica por outra — é levar o controle para o campo biológico, com aplicação apoiada em mapeamento e tecnologia via drone.</p>
-      <h3>Onde o modelo manual custa mais do que aparenta</h3>
-      <p>A isca tóxica tradicional depende de toletes de cana cortados e colocados manualmente, ponto a ponto — um processo de mão de obra intensiva, concentrado sobretudo no monitoramento e na reforma do canavial. O custo de escala e a dependência de mão de obra costumam ficar de fora da conta simples de "preço por hectare".</p>
-      <h3>O que a precisão tecnológica reorganiza</h3>
-      <ul>
-        <li><strong>Mão de obra:</strong> aplicação com apoio de mapeamento, inclusive via drone, reduz a dependência de colocação manual.</li>
-        <li><strong>Continuidade:</strong> uso possível ao longo do ciclo, não só no monitoramento pontual.</li>
-        <li><strong>Perfil biológico:</strong> sem o perfil de resíduo químico associado à isca tradicional.</li>
-      </ul>
-      <h3>Uma frente que já é tendência de mercado</h3>
-      <p>O mercado brasileiro de bioinsumos movimentou cerca de R$ 7 bilhões em 2025 e deve se aproximar de R$ 10 bilhões até 2030 — o Brasil já é o maior adotante de biológicos por área cultivada do mundo. A migração da isca química para o controle biológico no manejo do bicudo-da-cana caminha na mesma direção.</p>
-      <p><span class="m-tag">Bioinsumos</span><span class="m-tag">Controle de precisão</span></p>
-    `
-  },
-  {
-    cat:"Resultado",
-    title:"Do foco à safra: como medir o resultado de um manejo localizado",
-    excerpt:"Resultado que não se mede não vira decisão. Um roteiro prático para documentar a eficácia do controle direcionado e transformar cada aplicação em prova real.",
-    meta:["Leitura · 4 min","Categoria · Resultado"],
-    body:`
-      <p>Um manejo que funciona, mas não é medido, perde duas vezes: não orienta a próxima decisão e não constrói reputação. No controle direcionado, a medição é parte do método — e é o que separa uma aplicação de um case.</p>
-      <h3>O que medir</h3>
-      <ul>
-        <li><strong>Foco tratado vs. infestação observada:</strong> a aderência da aplicação ao problema real.</li>
-        <li><strong>Reaplicações na safra:</strong> o indicador mais direto de controle efetivo.</li>
-        <li><strong>Condição da soqueira:</strong> leitura comparativa entre talhões tratados e não tratados.</li>
-      </ul>
-      <h3>Como documentar</h3>
-      <p>Registro antes da aplicação, marcação dos pontos de foco, acompanhamento ao longo do ciclo e comparação no fim da safra. Cada etapa gera um dado — e o conjunto deles gera a prova que sustenta a expansão.</p>
-      <h3>Por que isso é estratégico</h3>
-      <p>No on-farm, a prova nasce no campo de quem decide a compra. Documentar com método transforma resultado em autoridade: o concorrente pode imitar o produto, mas começa do zero na prova acumulada.</p>
-      <p><span class="m-tag">Prova real</span><span class="m-tag">On-farm</span></p>
-    `
-  }
-];
-
-/* render post cards */
-const postsEl = document.getElementById('posts');
-POSTS.forEach((p,i)=>{
-  const card = document.createElement('article');
-  card.className = 'post reveal';
-  card.tabIndex = 0;
-  card.setAttribute('role','button');
-  card.setAttribute('aria-label','Abrir artigo: '+p.title);
-  card.innerHTML = `
-    <div class="cover">
-      <div class="pat" style="background:${PATTERNS[i%3]}"></div>
-      <span class="cat">${p.cat}</span>
-      <div class="mk">${MARK_SVG}</div>
-    </div>
-    <div class="body">
-      <h3>${p.title}</h3>
-      <p>${p.excerpt}</p>
-      <span class="read">Ler artigo
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
-    </div>`;
-  const open = ()=>openPost(i);
-  card.addEventListener('click',open);
-  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
-  postsEl.appendChild(card);
-});
-
-/* ---------- MODAL ---------- */
-const modal=document.getElementById('modal'),mBody=document.getElementById('mBody'),
-      mCat=document.getElementById('mCat'),mCover=document.getElementById('mCover'),mClose=document.getElementById('mClose');
-let lastFocus=null;
-function openPost(i){
-  const p=POSTS[i];
-  lastFocus=document.activeElement;
-  mCat.textContent=p.cat;
-  mCover.style.background=`var(--green-deep)`;
-  mCover.style.backgroundImage=PATTERNS[i%3];
-  mBody.innerHTML=`<h2 id="modalTitle">${p.title}</h2><div class="m-meta">${p.meta.map(m=>`<span>${m}</span>`).join('')}</div>${p.body}`;
-  modal.classList.add('open');
-  document.body.style.overflow='hidden';
-  mClose.focus();
-}
-function closePost(){
-  modal.classList.remove('open');
-  document.body.style.overflow='';
-  if(lastFocus)lastFocus.focus();
-}
-mClose.addEventListener('click',closePost);
-modal.addEventListener('click',e=>{if(e.target===modal)closePost();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closePost();});
-
 /* ---------- NAV scroll + toggle ---------- */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20);});
@@ -1438,38 +1289,6 @@ if(subnavLinks.length){
   },{rootMargin:'-30% 0px -55% 0px',threshold:0});
   subTargets.forEach(t=>subIO.observe(t));
 }
-
-/* ---------- HERO signature: cobertura -> direcionado ---------- */
-const scatter=document.getElementById('scatter');
-const focusDemo=document.getElementById('focusDemo');
-const demoSwitch=document.getElementById('demoSwitch');
-const demoTitle=document.getElementById('demoTitle');
-const demoSub=document.getElementById('demoSub');
-const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-/* build scattered dots (aplicação manual, sem mapeamento) */
-const N=46;
-for(let i=0;i<N;i++){
-  const s=document.createElement('span');
-  const x=8+Math.random()*84, y=8+Math.random()*84;
-  s.style.left=x+'%'; s.style.top=y+'%';
-  // vector pointing toward center for convergence
-  s.style.setProperty('--cx',(50-x)*0.9+'%');
-  s.style.setProperty('--cy',(50-y)*0.9+'%');
-  s.style.transitionDelay=(Math.random()*0.4)+'s';
-  scatter.appendChild(s);
-}
-let converged=false;
-function setState(c){
-  converged=c;
-  focusDemo.classList.toggle('converged',c);
-  if(c){demoTitle.textContent='Aplicação de precisão';demoSub.textContent='controle biológico, mapeado e tecnológico';demoSwitch.textContent='← ver aplicação manual';}
-  else{demoTitle.textContent='Aplicação manual';demoSub.textContent='ponto a ponto, sem mapeamento de dados';demoSwitch.textContent='ver aplicação de precisão →';}
-}
-demoSwitch.addEventListener('click',()=>setState(!converged));
-/* auto-play the thesis once on load */
-if(!reduce){ setTimeout(()=>setState(true),1400); }
-else { setState(true); }
 
 /* ---------- (motion demo is embedded via iframe in the tecnologia section) ---------- */
 </script>
