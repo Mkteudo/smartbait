@@ -122,7 +122,7 @@
     display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--green-deep);
   }
   .hb-dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta);flex:0 0 auto}
-  .hero-photo{position:relative;margin-top:56px;height:52vh;min-height:340px;max-height:520px;overflow:hidden;background:var(--green-deep)}
+  .hero-photo{position:relative;width:100%;margin-top:56px;aspect-ratio:4/1;min-height:300px;max-height:560px;overflow:hidden;background:var(--green-deep)}
   .hero-photo img,.hero-photo video{width:100%;height:100%;object-fit:cover;display:block}
   .hero-photo::after{
     content:"";position:absolute;inset:0;
@@ -140,7 +140,7 @@
   @media(max-width:560px){
     .hero-benefits{gap:16px 22px}
     .hero-benefits li{font-size:12.5px}
-    .hero-photo{height:38vh;min-height:220px;margin-top:40px}
+    .hero-photo{min-height:240px;margin-top:40px}
     .hero-photo-tag{font-size:.92rem;left:18px;bottom:16px}
     .hero-photo-disclaimer{font-size:10px;right:12px;top:12px;padding:4px 9px}
   }
@@ -573,7 +573,7 @@
     position:relative; border-radius:20px; overflow:hidden; margin-bottom:40px;
     box-shadow:0 30px 60px -44px rgba(31,77,58,.5);
   }
-  .section-photo img{ width:100%; display:block; object-fit:cover; }
+  .section-photo img,.section-photo video{ width:100%; display:block; object-fit:cover; }
   .section-photo .photo-tag{ right:16px; bottom:16px; }
 
   /* ---------- FLOATING CONTACT ---------- */
@@ -782,9 +782,7 @@
     </div>
   </div>
   <div class="hero-photo">
-    <video src="smartbait-hero-video.mp4" poster="smartbait-img-aerial-fazenda.jpg" autoplay muted loop playsinline preload="auto">
-      <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
-    </video>
+    <img src="smartbait-hero-banner.jpg" alt="BioEsférico posicionado sobre o canavial — controle biológico concentrado no ponto exato da infestação" fetchpriority="high"/>
     <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
       </div>
 </section>
@@ -842,7 +840,9 @@
     </div>
 
     <div class="section-photo reveal" style="margin-top:32px">
-      <img src="smartbait-hero-bioesferico.jpg" alt="BioEsférico — controle biológico de precisão contra o Sphenophorus levis" loading="lazy"/>
+      <video src="smartbait-hero-video.mp4" poster="smartbait-img-aerial-fazenda.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drone sobrevoando o canavial durante a aplicação direcionada do BioEsférico">
+        <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
+      </video>
     </div>
     
   </div>
