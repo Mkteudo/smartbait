@@ -123,14 +123,16 @@
   }
   .hb-dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta);flex:0 0 auto}
   .hero-photo{position:relative;width:100%;margin-top:56px;aspect-ratio:4/1;min-height:300px;max-height:560px;overflow:hidden;background:var(--green-deep)}
+  .hero-photo picture{display:block;width:100%;height:100%}
   .hero-photo img,.hero-photo video{width:100%;height:100%;object-fit:cover;display:block}
   .hero-photo::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(0deg, rgba(23,40,29,.72) 0%, rgba(23,40,29,.06) 42%, transparent 70%);
+    background:linear-gradient(0deg, rgba(23,40,29,.28) 0%, rgba(23,40,29,.03) 34%, transparent 60%);
   }
   .hero-photo-tag{
-    position:absolute;left:28px;bottom:24px;z-index:2;color:var(--cream);font-weight:600;
-    font-size:1.05rem;max-width:26em;line-height:1.4;letter-spacing:-.01em;
+    display:block;margin:26px auto 0;padding:0 20px;text-align:center;
+    color:var(--green-deep);font-weight:600;
+    font-size:1.18rem;max-width:min(46em,92vw);line-height:1.45;letter-spacing:-.01em;
   }
   .hero-photo-disclaimer{
     position:absolute;right:16px;top:16px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.04em;
@@ -140,8 +142,8 @@
   @media(max-width:560px){
     .hero-benefits{gap:16px 22px}
     .hero-benefits li{font-size:12.5px}
-    .hero-photo{min-height:240px;margin-top:40px}
-    .hero-photo-tag{font-size:.92rem;left:18px;bottom:16px}
+    .hero-photo{min-height:250px;margin-top:40px}
+    .hero-photo-tag{font-size:1rem;margin-top:20px}
     .hero-photo-disclaimer{font-size:10px;right:12px;top:12px;padding:4px 9px}
   }
   .hero .btn-ghost{color:var(--green-deep);border-color:var(--line)}
@@ -558,6 +560,31 @@
     .socio-photo{max-width:200px}
   }
 
+  /* ---------- O PRINCIPIO: texto + foto lado a lado ---------- */
+  .principio-grid{
+    display:grid;grid-template-columns:1fr 400px;gap:52px;align-items:center;margin-bottom:52px;
+  }
+  .principio-grid .sec-head{max-width:none;margin-bottom:0}
+  .principio-photo{margin-bottom:0;max-width:400px;width:100%}
+  @media(max-width:940px){
+    .principio-grid{grid-template-columns:1fr;gap:30px;margin-bottom:40px}
+    .principio-photo{max-width:420px;margin-left:auto;margin-right:auto}
+  }
+
+  /* ---------- VIDEO FULL-BLEED (TECNOLOGIA) ---------- */
+  .tech-video-full{
+    position:relative;width:100%;
+    margin-top:72px;margin-bottom:-104px;
+    height:46vh;min-height:300px;max-height:520px;
+    overflow:hidden;background:var(--green-deep);
+  }
+  .tech-video-full video,.tech-video-full img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  @media(max-width:560px){
+    .tech-video-full{margin-top:48px;margin-bottom:-72px;height:34vh;min-height:210px}
+  }
+
   /* ---------- REAL/ILLUSTRATIVE PHOTOS ---------- */
   .product-photo{
     position:relative; max-width:420px; margin:0 auto; border-radius:24px; overflow:hidden;
@@ -782,9 +809,12 @@
     </div>
   </div>
   <div class="hero-photo">
-    <img src="smartbait-hero-banner.jpg" alt="BioEsférico posicionado sobre o canavial — controle biológico concentrado no ponto exato da infestação" fetchpriority="high"/>
-    <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
+    <picture>
+      <source media="(max-width:700px)" srcset="smartbait-hero-banner-mobile.jpg"/>
+      <img src="smartbait-hero-banner.jpg" alt="BioEsférico posicionado sobre o canavial — controle biológico concentrado no ponto exato da infestação" fetchpriority="high"/>
+    </picture>
       </div>
+  <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
 </section>
 
 <!-- ================= NAVEGAÇÃO RÁPIDA ================= -->
@@ -839,12 +869,12 @@
       </div>
     </div>
 
-    <div class="section-photo reveal" style="margin-top:32px">
-      <video src="smartbait-hero-video.mp4" poster="smartbait-img-aerial-fazenda.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drone sobrevoando o canavial durante a aplicação direcionada do BioEsférico">
-        <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
-      </video>
-    </div>
-    
+  </div>
+
+  <div class="tech-video-full reveal">
+    <video src="smartbait-hero-video.mp4" poster="smartbait-img-aerial-fazenda.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drone sobrevoando o canavial durante a aplicação direcionada do BioEsférico">
+      <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
+    </video>
   </div>
 </section>
 
@@ -912,14 +942,16 @@
 <!-- ================= A VIRADA / CATEGORIA ================= -->
 <section class="shift scroll-margin" id="categoria">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">O princípio</span>
-      <h2>Inteligência aplicada: atrair, controlar, resolver.</h2>
-      <p>O BioEsférico combina biologia e tecnologia de precisão: a isca atrai o bicudo-da-cana ao ponto exato da infestação, e o controle biológico age ali, resolvendo o problema na origem. A eficácia tem base em ensaio publicado. <a href="#resultados" style="color:inherit;text-decoration:underline">Ver evidência técnica ↓</a></p>
-    </div>
-    <div class="section-photo reveal" style="margin-bottom:40px">
-      <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca sólida atrativa instalada na palhada do canavial, Prata-MG" loading="lazy" style="aspect-ratio:16/10;object-position:60% 72%"/>
-      <span class="photo-tag" style="background:rgba(23,40,29,.55);color:var(--cream)">Prata-MG · campo real</span>
+    <div class="principio-grid">
+      <div class="sec-head reveal">
+        <span class="eyebrow">O princípio</span>
+        <h2>Inteligência aplicada: atrair, controlar, resolver.</h2>
+        <p>O BioEsférico combina biologia e tecnologia de precisão: a isca atrai o bicudo-da-cana ao ponto exato da infestação, e o controle biológico age ali, resolvendo o problema na origem. A eficácia tem base em ensaio publicado. <a href="#resultados" style="color:inherit;text-decoration:underline">Ver evidência técnica ↓</a></p>
+      </div>
+      <div class="section-photo principio-photo reveal">
+        <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca sólida atrativa instalada na palhada do canavial, Prata-MG" loading="lazy" style="aspect-ratio:4/3;object-position:60% 72%"/>
+        <span class="photo-tag" style="background:rgba(23,40,29,.55);color:var(--cream);top:14px;bottom:auto">Prata-MG · campo real</span>
+      </div>
     </div>
     <div class="compare" style="grid-template-columns:1fr;justify-items:center">
       <div class="compare-card new reveal" style="max-width:640px;margin:0 auto">
@@ -956,7 +988,7 @@
     <div class="product-grid" id="produto-beneficios">
       <div class="reveal">
         <div class="product-photo">
-          <img src="smartbait-img-produto-still.jpg" alt="BioEsférico — controle biológico direcionado do bicudo-da-cana, aplicado via drone" loading="lazy"/>
+          <img src="smartbait-img-produto-still.jpg" alt="BioEsférico em campo: a esfera do controle biológico com um bicudo-da-cana atraído sobre ela" loading="lazy"/>
             </div>
       </div>
       <div class="reveal">
@@ -1077,60 +1109,6 @@
 </section>
 
 
-<!-- ================= SOCIOS ================= -->
-<section class="socios scroll-margin" id="socios">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Quem está por trás</span>
-      <h2>Ciência de entomologia e realidade de canavial, na mesma mesa.</h2>
-      <p>O BioEsférico nasce do encontro de duas competências que raramente andam juntas: a pesquisa aplicada em controle biológico e a operação agrícola em escala comercial.</p>
-    </div>
-
-    <div class="socios-grid">
-
-      <article class="socio reveal">
-        <div class="socio-photo">
-          <img src="smartbait-socio-alexandre.jpg" alt="Prof. Dr. Alexandre de Sene Pinto, sócio da SmartBait responsável pela direção científica" loading="lazy"/>
-        </div>
-        <div class="socio-body">
-          <span class="socio-role">Sócio · Direção científica</span>
-          <h3>Prof. Dr. Alexandre de Sene Pinto</h3>
-          <p class="socio-org">Engenheiro Agrônomo · Entomologia Agrícola</p>
-          <ul>
-            <li>Mestre em Entomologia Agrícola pela <b>FCAV/Unesp</b> (1995) e Doutor em Entomologia pela <b>ESALQ/USP</b> (1999).</li>
-            <li>Professor do <b>Centro Universitário Moura Lacerda</b> e professor convidado da <b>ESALQ/USP</b>.</li>
-            <li>Consultoria técnica em cerca de <b>90 usinas de cana-de-açúcar</b> na América Latina.</li>
-            <li>Autor principal do estudo publicado na <b>BioAssay 21 (2026)</b> — a base científica citada na seção de evidência deste site.</li>
-            <li>Palestrante no <b>1º Summit Sphenophorus</b>, Ribeirão Preto · 18 de setembro de 2026.</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="socio reveal">
-        <div class="socio-photo">
-          <img src="smartbait-socio-leonardo.jpg" alt="Leonardo Leal Lopes, sócio da SmartBait responsável pela frente de operação e escala" loading="lazy"/>
-        </div>
-        <div class="socio-body">
-          <span class="socio-role">Sócio · Operação e escala</span>
-          <h3>Leonardo Leal Lopes</h3>
-          <p class="socio-org">Grupo LL Agro · Ribeirão Preto/SP</p>
-          <ul>
-            <li>À frente do <b>Grupo LL Agro</b>, grupo agrícola com mais de <b>uma década</b> de operação própria no interior paulista.</li>
-            <li>Cerca de <b>7 mil hectares</b> sob gestão, entre cana-de-açúcar, grãos, hortifrúti e pecuária.</li>
-            <li>Responsável pela frente de <b>agricultura 4.0</b> do grupo — agricultura de precisão, mapeamento e imageamento aéreo aplicados à lavoura.</li>
-            <li>Traz para a SmartBait o teste do produto <b>na realidade de quem produz cana em escala</b>, com custo, janela operacional e logística reais.</li>
-          </ul>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="socios-note reveal">
-      <p><b>Transparência.</b> O Prof. Dr. Alexandre de Sene Pinto é sócio da SmartBait e também autor principal do estudo publicado na BioAssay 21 (2026) citado na seção de evidência técnica. O artigo passou por revisão por pares e está disponível na íntegra pelo DOI indicado nas fontes, para consulta independente.</p>
-    </div>
-
-  </div>
-</section>
 
 
 <!-- ================= EVIDÊNCIA TÉCNICA ================= -->
@@ -1270,6 +1248,62 @@
     </div>
   </div>
 </section>
+
+<!-- ================= SOCIOS ================= -->
+<section class="socios scroll-margin" id="socios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Quem está por trás</span>
+      <h2>Ciência de entomologia e realidade de canavial, na mesma mesa.</h2>
+      <p>O BioEsférico nasce do encontro de duas competências que raramente andam juntas: a pesquisa aplicada em controle biológico e a operação agrícola em escala comercial.</p>
+    </div>
+
+    <div class="socios-grid">
+
+      <article class="socio reveal">
+        <div class="socio-photo">
+          <img src="smartbait-socio-alexandre.jpg" alt="Prof. Dr. Alexandre de Sene Pinto, sócio da SmartBait responsável pela direção científica" loading="lazy"/>
+        </div>
+        <div class="socio-body">
+          <span class="socio-role">Sócio · Direção científica</span>
+          <h3>Prof. Dr. Alexandre de Sene Pinto</h3>
+          <p class="socio-org">Engenheiro Agrônomo · Entomologia Agrícola</p>
+          <ul>
+            <li>Mestre em Entomologia Agrícola pela <b>FCAV/Unesp</b> (1995) e Doutor em Entomologia pela <b>ESALQ/USP</b> (1999).</li>
+            <li>Professor do <b>Centro Universitário Moura Lacerda</b> e professor convidado da <b>ESALQ/USP</b>.</li>
+            <li>Consultoria técnica em cerca de <b>90 usinas de cana-de-açúcar</b> na América Latina.</li>
+            <li>Autor principal do estudo publicado na <b>BioAssay 21 (2026)</b> — a base científica citada na seção de evidência deste site.</li>
+            <li>Palestrante no <b>1º Summit Sphenophorus</b>, Ribeirão Preto · 18 de setembro de 2026.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="socio reveal">
+        <div class="socio-photo">
+          <img src="smartbait-socio-leonardo.jpg" alt="Leonardo Leal Lopes, sócio da SmartBait responsável pela frente de operação e escala" loading="lazy"/>
+        </div>
+        <div class="socio-body">
+          <span class="socio-role">Sócio · Operação e escala</span>
+          <h3>Leonardo Leal Lopes</h3>
+          <p class="socio-org">Grupo LL Agro · Ribeirão Preto/SP</p>
+          <ul>
+            <li>À frente do <b>Grupo LL Agro</b>, grupo agrícola com mais de <b>uma década</b> de operação própria no interior paulista.</li>
+            <li>Cerca de <b>7 mil hectares</b> sob gestão, entre cana-de-açúcar, grãos, hortifrúti e pecuária.</li>
+            <li>Responsável pela frente de <b>agricultura 4.0</b> do grupo — agricultura de precisão, mapeamento e imageamento aéreo aplicados à lavoura.</li>
+            <li>Traz para a SmartBait o teste do produto <b>na realidade de quem produz cana em escala</b>, com custo, janela operacional e logística reais.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="socios-note reveal">
+      <p><b>Transparência.</b> O Prof. Dr. Alexandre de Sene Pinto é sócio da SmartBait e também autor principal do estudo publicado na BioAssay 21 (2026) citado na seção de evidência técnica. O artigo passou por revisão por pares e está disponível na íntegra pelo DOI indicado nas fontes, para consulta independente.</p>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- ================= FOOTER ================= -->
 <footer>
