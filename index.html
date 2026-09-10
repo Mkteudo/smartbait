@@ -560,6 +560,39 @@
     .socio-photo{max-width:200px}
   }
 
+  /* ---------- MISSAO, VISAO E VALORES ---------- */
+  .mvv{position:relative;z-index:2;margin-top:72px;padding-top:56px;border-top:1px solid rgba(244,242,237,.16)}
+  .mvv-head{margin-bottom:38px}
+  .mvv-head h3{
+    font-size:clamp(1.5rem,2.6vw,2.05rem);color:var(--cream);margin-top:14px;
+    max-width:26em;line-height:1.25;letter-spacing:-.01em;
+  }
+  .mvv-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:34px}
+  .mvv-stmt{
+    background:rgba(244,242,237,.05);border:1px solid rgba(244,242,237,.14);
+    border-radius:18px;padding:30px 30px;position:relative;
+  }
+  .mvv-stmt .lbl{
+    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--green-light);display:block;margin-bottom:14px;
+  }
+  .mvv-stmt p{margin:0;font-size:1.06rem;line-height:1.55;color:rgba(244,242,237,.92)}
+  .mvv-stmt.visao{border-left:3px solid var(--terracotta)}
+
+  .mvv-vals{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .mvv-val{
+    background:rgba(244,242,237,.04);border:1px solid rgba(244,242,237,.12);
+    border-radius:16px;padding:24px 22px;
+  }
+  .mvv-val .n{
+    font-size:12px;font-weight:700;color:var(--terracotta);letter-spacing:.06em;display:block;margin-bottom:12px;
+  }
+  .mvv-val h4{font-size:1.02rem;color:var(--cream);margin:0 0 10px;line-height:1.3}
+  .mvv-val p{margin:0;font-size:.89rem;line-height:1.55;color:rgba(244,242,237,.78)}
+  @media(max-width:1040px){.mvv-vals{grid-template-columns:1fr 1fr}}
+  @media(max-width:760px){.mvv-pair{grid-template-columns:1fr}}
+  @media(max-width:560px){.mvv-vals{grid-template-columns:1fr}.mvv{margin-top:52px;padding-top:42px}}
+
   /* ---------- O PRINCIPIO: texto + foto lado a lado ---------- */
   .principio-grid{
     display:grid;grid-template-columns:1fr 400px;gap:52px;align-items:center;margin-bottom:52px;
@@ -1227,6 +1260,48 @@
         </div>
       </div>
     </div>
+
+    <div class="mvv">
+      <div class="mvv-head reveal">
+        <span class="eyebrow">Missão, visão e valores</span>
+        <h3>O que sustenta cada decisão técnica da SmartBait.</h3>
+      </div>
+
+      <div class="mvv-pair">
+        <div class="mvv-stmt reveal">
+          <span class="lbl">Missão</span>
+          <p>Proteger a produtividade do canavial brasileiro com controle biológico aplicado no ponto exato da infestação — unindo ciência entomológica e tecnologia de precisão para que cada aplicação entregue mais resultado com menos volume.</p>
+        </div>
+        <div class="mvv-stmt visao reveal">
+          <span class="lbl">Visão</span>
+          <p>Ser a referência em controle biológico direcionado na cana-de-açúcar, transformando o manejo do <i>Sphenophorus levis</i> de uma operação de cobertura em uma decisão técnica — medida, documentada e comprovada safra a safra.</p>
+        </div>
+      </div>
+
+      <div class="mvv-vals">
+        <div class="mvv-val reveal">
+          <span class="n">01</span>
+          <h4>Ciência antes da promessa</h4>
+          <p>Nada é afirmado sobre o produto sem ensaio, protocolo ou leitura de campo que sustente. Quando a evidência é observacional, dizemos que é.</p>
+        </div>
+        <div class="mvv-val reveal">
+          <span class="n">02</span>
+          <h4>Foco em vez de cobertura</h4>
+          <p>Tratar o ponto exato da infestação resolve mais do que tratar a área inteira. Essa escolha define o produto, o nome e a empresa.</p>
+        </div>
+        <div class="mvv-val reveal">
+          <span class="n">03</span>
+          <h4>Tecnologia a serviço de quem decide</h4>
+          <p>Mapeamento, precisão e aplicação dirigida existem para apoiar o agrônomo e a equipe de campo — nunca para substituir a decisão técnica de quem conhece o talhão.</p>
+        </div>
+        <div class="mvv-val reveal">
+          <span class="n">04</span>
+          <h4>Eficiência que se mede</h4>
+          <p>Menos volume, menos reaplicação e soqueira preservada. Ganho que não pode ser medido na operação do produtor não é ganho.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
