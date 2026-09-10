@@ -514,6 +514,50 @@
   @media(max-width:920px){.onfarm-steps{grid-template-columns:1fr 1fr}.of-step::after{display:none}}
   @media(max-width:560px){.onfarm-steps{grid-template-columns:1fr}}
 
+  /* ---------- SOCIOS ---------- */
+  .socios{background:#fff;border-top:1px solid var(--line)}
+  .socios-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:8px}
+  .socio{
+    display:grid;grid-template-columns:210px 1fr;gap:26px;align-items:start;
+    background:var(--cream);border:1px solid var(--line);border-radius:20px;
+    padding:24px;
+  }
+  .socio-photo{
+    position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;
+    background:var(--green-deep);
+  }
+  .socio-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .socio-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(31,77,58,0) 52%,rgba(31,77,58,.42) 100%);
+  }
+  .socio-role{
+    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--terracotta);display:block;margin-bottom:8px;
+  }
+  .socio h3{font-size:1.28rem;color:var(--green-deep);line-height:1.2;margin:0 0 4px}
+  .socio .socio-org{font-size:.92rem;color:var(--clay);font-weight:600;margin-bottom:16px}
+  .socio ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  .socio li{
+    position:relative;padding-left:18px;font-size:.9rem;line-height:1.5;color:var(--clay);
+  }
+  .socio li::before{
+    content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;
+    background:var(--green-tech);
+  }
+  .socio li b{color:var(--green-deep);font-weight:600}
+  .socios-note{
+    margin-top:30px;padding:18px 22px;border-left:3px solid var(--green-light);
+    background:var(--cream);border-radius:0 12px 12px 0;
+  }
+  .socios-note p{font-size:.86rem;color:var(--clay);line-height:1.55;margin:0}
+  .socios-note b{color:var(--green-deep)}
+  @media(max-width:1040px){.socios-grid{grid-template-columns:1fr}}
+  @media(max-width:560px){
+    .socio{grid-template-columns:1fr;gap:20px}
+    .socio-photo{max-width:200px}
+  }
+
   /* ---------- REAL/ILLUSTRATIVE PHOTOS ---------- */
   .product-photo{
     position:relative; max-width:420px; margin:0 auto; border-radius:24px; overflow:hidden;
@@ -898,7 +942,7 @@
   </div>
 </section>
 
-<!-- ================= PRODUTO BIOBAIT ================= -->
+<!-- ================= PRODUTO BIOESFERICO ================= -->
 <section class="product scroll-margin" id="produto">
   <div class="subnav">
     <div class="wrap subnav-inner">
@@ -1029,6 +1073,62 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
+  </div>
+</section>
+
+
+<!-- ================= SOCIOS ================= -->
+<section class="socios scroll-margin" id="socios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Quem está por trás</span>
+      <h2>Ciência de entomologia e realidade de canavial, na mesma mesa.</h2>
+      <p>O BioEsférico nasce do encontro de duas competências que raramente andam juntas: a pesquisa aplicada em controle biológico e a operação agrícola em escala comercial.</p>
+    </div>
+
+    <div class="socios-grid">
+
+      <article class="socio reveal">
+        <div class="socio-photo">
+          <img src="smartbait-socio-alexandre.jpg" alt="Prof. Dr. Alexandre de Sene Pinto, sócio da SmartBait responsável pela direção científica" loading="lazy"/>
+        </div>
+        <div class="socio-body">
+          <span class="socio-role">Sócio · Direção científica</span>
+          <h3>Prof. Dr. Alexandre de Sene Pinto</h3>
+          <p class="socio-org">Engenheiro Agrônomo · Entomologia Agrícola</p>
+          <ul>
+            <li>Mestre em Entomologia Agrícola pela <b>FCAV/Unesp</b> (1995) e Doutor em Entomologia pela <b>ESALQ/USP</b> (1999).</li>
+            <li>Professor do <b>Centro Universitário Moura Lacerda</b> e professor convidado da <b>ESALQ/USP</b>.</li>
+            <li>Consultoria técnica em cerca de <b>90 usinas de cana-de-açúcar</b> na América Latina.</li>
+            <li>Autor principal do estudo publicado na <b>BioAssay 21 (2026)</b> — a base científica citada na seção de evidência deste site.</li>
+            <li>Palestrante no <b>1º Summit Sphenophorus</b>, Ribeirão Preto · 18 de setembro de 2026.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="socio reveal">
+        <div class="socio-photo">
+          <img src="smartbait-socio-leonardo.jpg" alt="Leonardo Leal Lopes, sócio da SmartBait responsável pela frente de operação e escala" loading="lazy"/>
+        </div>
+        <div class="socio-body">
+          <span class="socio-role">Sócio · Operação e escala</span>
+          <h3>Leonardo Leal Lopes</h3>
+          <p class="socio-org">Grupo LL Agro · Ribeirão Preto/SP</p>
+          <ul>
+            <li>À frente do <b>Grupo LL Agro</b>, grupo agrícola com mais de <b>uma década</b> de operação própria no interior paulista.</li>
+            <li>Cerca de <b>7 mil hectares</b> sob gestão, entre cana-de-açúcar, grãos, hortifrúti e pecuária.</li>
+            <li>Responsável pela frente de <b>agricultura 4.0</b> do grupo — agricultura de precisão, mapeamento e imageamento aéreo aplicados à lavoura.</li>
+            <li>Traz para a SmartBait o teste do produto <b>na realidade de quem produz cana em escala</b>, com custo, janela operacional e logística reais.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="socios-note reveal">
+      <p><b>Transparência.</b> O Prof. Dr. Alexandre de Sene Pinto é sócio da SmartBait e também autor principal do estudo publicado na BioAssay 21 (2026) citado na seção de evidência técnica. O artigo passou por revisão por pares e está disponível na íntegra pelo DOI indicado nas fontes, para consulta independente.</p>
+    </div>
+
   </div>
 </section>
 
@@ -1197,6 +1297,7 @@
       <div class="foot-col">
         <h5>Conteúdo</h5>
         <ul>
+          <li><a href="#socios">Sócios</a></li>
           <li><a href="#resultados">Cases</a></li>
           <li><a href="#origem">A marca</a></li>
         </ul>
