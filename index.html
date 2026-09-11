@@ -145,8 +145,9 @@
   }
   .hb-dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta);flex:0 0 auto}
   .hero-photo{position:relative;width:100%;margin-top:56px;aspect-ratio:4/1;min-height:300px;max-height:560px;overflow:hidden;background:var(--green-deep)}
-  .hero-photo picture{display:block;width:100%;height:100%}
-  .hero-photo img,.hero-photo video{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo>picture,.hero-photo>img,.hero-photo>video{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero-photo picture{display:block}
+  .hero-photo img,.hero-photo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .hero-photo::after{
     content:"";position:absolute;inset:0;
     background:linear-gradient(0deg, rgba(23,40,29,.28) 0%, rgba(23,40,29,.03) 34%, transparent 60%);
@@ -575,12 +576,6 @@
     background:var(--green-tech);
   }
   .socio li b{color:var(--green-deep);font-weight:600}
-  .socios-note{
-    margin-top:30px;padding:18px 22px;border-left:3px solid var(--green-light);
-    background:var(--cream);border-radius:0 12px 12px 0;
-  }
-  .socios-note p{font-size:.86rem;color:var(--clay);line-height:1.55;margin:0}
-  .socios-note b{color:var(--green-deep)}
   @media(max-width:1040px){.socios-grid{grid-template-columns:1fr}}
   @media(max-width:560px){
     .socio{grid-template-columns:1fr;gap:20px}
@@ -854,6 +849,39 @@
   .nav-links a{font-weight:400}
   .hero-benefits li{font-weight:400}
   .hero-photo-tag{font-weight:300}
+
+  /* ====== v2: o terracota sai dos preenchimentos e vira só acento ====== */
+  /* botão principal: verde no fundo claro */
+  .btn-primary{background:var(--green-deep)!important;color:var(--cream)!important;border:1px solid var(--green-deep)!important}
+  .btn-primary:hover{background:#173E2E!important;border-color:#173E2E!important}
+  /* ...e creme quando está sobre fundo verde — máximo contraste, zero laranja */
+  .tech .btn-primary,.shift .btn-primary,.origin .btn-primary,.cta-box .btn-primary,
+  .onfarm-cta .btn-primary,.v2bg .btn-primary{
+    background:var(--cream)!important;color:var(--green-deep)!important;border-color:var(--cream)!important}
+  .tech .btn-primary:hover,.shift .btn-primary:hover,.origin .btn-primary:hover,
+  .cta-box .btn-primary:hover,.onfarm-cta .btn-primary:hover,.v2bg .btn-primary:hover{
+    background:#fff!important;border-color:#fff!important}
+  /* botão do menu e blocos que eram laranja chapado */
+  .nav-cta{background:var(--green-deep)!important;color:var(--cream)!important}
+  .nav-cta:hover{background:#173E2E!important}
+  .split-card.bait{background:rgba(244,242,237,.07)!important;border:1px solid rgba(244,242,237,.20)!important}
+  .modal .m-cover .cat,.post .cat{background:rgba(31,77,58,.92)!important;color:var(--cream)!important}
+  .play-btn,.player .hud .t .c,.target .core{background:var(--green-deep)!important}
+  .target .core::after{border-color:rgba(244,242,237,.55)!important}
+  /* pontos e barras deixam de ser laranja: viram o próprio texto, mais discretos */
+  .hb-dot{background:var(--green-tech)!important}
+  .compare-card.new li::before{background:rgba(244,242,237,.45)!important}
+  .case .bar{background:var(--green-tech)!important}
+  .mvv-stmt.visao{border-left:1px solid rgba(244,242,237,.20)!important}
+  .origin .quote{border-left:1px solid rgba(244,242,237,.35)!important}
+  /* o terracota fica onde ele trabalha: fio do rótulo e microtexto de seção */
+  /* iOS Safari: aspect-ratio + min-height dentro de <picture> falha; no mobile a altura é fixa */
+  @media(max-width:700px){
+    .hero-photo{aspect-ratio:auto;height:250px;min-height:0;max-height:none}
+  }
+  @media(max-width:380px){
+    .hero-photo{height:220px}
+  }
   /* texto corrido numa cor só também no fundo claro */
   .lede{color:var(--green-deep);opacity:.78}
   .sec-head p{color:var(--green-deep);opacity:.74}
@@ -1442,10 +1470,6 @@
         </div>
       </article>
 
-    </div>
-
-    <div class="socios-note reveal">
-      <p><b>Transparência.</b> O Prof. Dr. Alexandre de Sene Pinto é sócio da SmartBait e também autor principal do estudo publicado na BioAssay 21 (2026) citado na seção de evidência técnica. O artigo passou por revisão por pares e está disponível na íntegra pelo DOI indicado nas fontes, para consulta independente.</p>
     </div>
 
   </div>
