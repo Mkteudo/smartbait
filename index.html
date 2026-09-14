@@ -4,24 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SmartBait — Inteligência no ponto certo.</title>
-<meta name="description" content="BioEsférico: controle biológico direcionado para o Sphenophorus levis (bicudo-da-cana). A praga é atraída ao ponto exato da infestação — menos volume, mais inteligência." />
-<link rel="canonical" href="https://www.smartbait.com.br/" />
-
-<!-- compartilhamento em WhatsApp, LinkedIn e redes -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="SmartBait" />
-<meta property="og:locale" content="pt_BR" />
-<meta property="og:url" content="https://www.smartbait.com.br/" />
-<meta property="og:title" content="SmartBait — Inteligência no ponto certo." />
-<meta property="og:description" content="BioEsférico: controle biológico direcionado para o bicudo-da-cana. Evidência de campo e ensaio publicado." />
-<meta property="og:image" content="https://www.smartbait.com.br/smartbait-og.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="BioEsférico, esfera de controle biológico sobre um canavial." />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SmartBait — Inteligência no ponto certo." />
-<meta name="twitter:description" content="BioEsférico: controle biológico direcionado para o bicudo-da-cana. Evidência de campo e ensaio publicado." />
-<meta name="twitter:image" content="https://www.smartbait.com.br/smartbait-og.jpg" />
+<meta name="description" content="BioSphericus: controle biológico direcionado para o Sphenophorus levis (bicudo-da-cana). Isca biológica que atrai a praga ao ponto exato da infestação — menos volume, mais inteligência." />
 <meta name="theme-color" content="#1F4D3A" />
 <link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
@@ -30,7 +13,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
     --green-deep:#1F4D3A;
@@ -60,28 +43,6 @@
     overflow-x:hidden;
   }
   h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em;margin:0;font-weight:800}
-
-  /* ================= SISTEMA v2 ================= */
-  /* títulos leves; o destaque vem do PESO, nunca de outra cor */
-  h1,h2{font-weight:200;letter-spacing:-.03em;line-height:1.12}
-  h3{font-weight:300;letter-spacing:-.025em}
-  h1 .accent,h2 .accent,h1 em,h2 em{font-style:normal;font-weight:500;color:inherit}
-  .sec-head h2{font-weight:200}
-  .sec-head p{font-weight:300}
-  .lede{font-weight:300}
-
-  /* fundo verde vivo: gradiente + halo, no lugar do verde chapado */
-  .v2bg{position:relative;isolation:isolate}
-  .v2bg::before{
-    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:
-      radial-gradient(120% 85% at 78% 10%, rgba(111,143,107,.40) 0%, rgba(46,107,79,.15) 38%, transparent 68%),
-      radial-gradient(95% 70% at 10% 98%, rgba(169,194,160,.18) 0%, transparent 58%),
-      linear-gradient(163deg,#0B241A 0%,#1B4433 46%,#23583F 78%,#0C2418 100%);
-  }
-  .v2bg>*{position:relative;z-index:1}
-
-
   p{margin:0}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -147,7 +108,7 @@
   }
   .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;position:relative;z-index:2;max-width:840px}
   .hero h1{font-size:clamp(2.5rem,5.4vw,4.4rem);margin:22px 0 0;color:var(--green-deep)}
-  .hero h1 .accent{color:inherit;font-weight:500;display:block}
+  .hero h1 .accent{color:var(--green-tech)}
   .hero .lede{
     font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--clay);
     max-width:30em;margin:26px 0 0;font-weight:400;
@@ -161,18 +122,15 @@
     display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--green-deep);
   }
   .hb-dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta);flex:0 0 auto}
-  .hero-photo{position:relative;width:100%;margin-top:56px;aspect-ratio:4/1;min-height:300px;max-height:560px;overflow:hidden;background:var(--green-deep)}
-  .hero-photo>picture,.hero-photo>img,.hero-photo>video{position:absolute;inset:0;width:100%;height:100%;display:block}
-  .hero-photo picture{display:block}
-  .hero-photo img,.hero-photo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo{position:relative;margin-top:56px;height:52vh;min-height:340px;max-height:520px;overflow:hidden;background:var(--green-deep)}
+  .hero-photo img,.hero-photo video{width:100%;height:100%;object-fit:cover;display:block}
   .hero-photo::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(0deg, rgba(23,40,29,.28) 0%, rgba(23,40,29,.03) 34%, transparent 60%);
+    background:linear-gradient(0deg, rgba(23,40,29,.72) 0%, rgba(23,40,29,.06) 42%, transparent 70%);
   }
   .hero-photo-tag{
-    display:block;margin:26px auto 0;padding:0 20px;text-align:center;
-    color:var(--green-deep);font-weight:600;
-    font-size:1.18rem;max-width:min(46em,92vw);line-height:1.45;letter-spacing:-.01em;
+    position:absolute;left:28px;bottom:24px;z-index:2;color:var(--cream);font-weight:600;
+    font-size:1.05rem;max-width:26em;line-height:1.4;letter-spacing:-.01em;
   }
   .hero-photo-disclaimer{
     position:absolute;right:16px;top:16px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.04em;
@@ -182,8 +140,8 @@
   @media(max-width:560px){
     .hero-benefits{gap:16px 22px}
     .hero-benefits li{font-size:12.5px}
-    .hero-photo{min-height:250px;margin-top:40px}
-    .hero-photo-tag{font-size:1rem;margin-top:20px}
+    .hero-photo{height:38vh;min-height:220px;margin-top:40px}
+    .hero-photo-tag{font-size:.92rem;left:18px;bottom:16px}
     .hero-photo-disclaimer{font-size:10px;right:12px;top:12px;padding:4px 9px}
   }
   .hero .btn-ghost{color:var(--green-deep);border-color:var(--line)}
@@ -280,7 +238,6 @@
   }
   .pest-visual img{width:100%;height:100%;object-fit:cover;display:block}
   .pest-meta{display:flex;justify-content:space-between;padding:14px 12px 8px;font-size:12.5px}
-  .sci{font-style:italic}
   .pest-meta .sci{font-style:italic;color:var(--green-deep);font-weight:600}
   .pest-meta .tag{font-family:"Inter",system-ui,sans-serif;color:var(--clay)}
   .problem ul{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:16px}
@@ -294,10 +251,6 @@
 
   /* a virada / categoria */
   .shift{background:var(--green-deep);color:var(--cream)}
-  /* uma cor de texto por fundo: no verde, tudo creme; no claro, tudo verde-profundo */
-  .shift .sec-head p,.tech .sec-head p,.origin p{color:rgba(244,242,237,.76)}
-  .shift .eyebrow,.tech .eyebrow,.origin .eyebrow{color:rgba(244,242,237,.70);font-weight:500;letter-spacing:.24em}
-  .shift .eyebrow::before,.tech .eyebrow::before,.origin .eyebrow::before{background:rgba(244,242,237,.45)}
   .shift .sec-head h2{color:var(--cream)}
   .shift .sec-head p{color:rgba(244,242,237,.78)}
   .shift .sec-head .eyebrow{color:var(--green-light)}
@@ -322,7 +275,7 @@
   .category-claim p{font-size:1.25rem;font-weight:600;max-width:30em}
   .category-claim .term{color:var(--green-light)}
 
-  /* produto BioEsférico */
+  /* produto BioSphericus */
   .product{background:var(--cream)}
   .product-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
   .capsule{
@@ -561,102 +514,6 @@
   @media(max-width:920px){.onfarm-steps{grid-template-columns:1fr 1fr}.of-step::after{display:none}}
   @media(max-width:560px){.onfarm-steps{grid-template-columns:1fr}}
 
-  /* ---------- SOCIOS ---------- */
-  .socios{background:#fff;border-top:1px solid var(--line)}
-  .socios-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:8px}
-  .socio{
-    display:grid;grid-template-columns:210px 1fr;gap:26px;align-items:start;
-    background:var(--cream);border:1px solid var(--line);border-radius:20px;
-    padding:24px;
-  }
-  .socio-photo{
-    position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;
-    background:var(--green-deep);
-  }
-  .socio-photo img{width:100%;height:100%;object-fit:cover;display:block}
-  .socio-photo::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(31,77,58,0) 52%,rgba(31,77,58,.42) 100%);
-  }
-  .socio-role{
-    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;
-    color:var(--terracotta);display:block;margin-bottom:8px;
-  }
-  .socio h3{font-size:1.28rem;color:var(--green-deep);line-height:1.2;margin:0 0 4px}
-  .socio .socio-org{font-size:.92rem;color:var(--clay);font-weight:600;margin-bottom:16px}
-  .socio ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-  .socio li{
-    position:relative;padding-left:18px;font-size:.9rem;line-height:1.5;color:var(--clay);
-  }
-  .socio li::before{
-    content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;
-    background:var(--green-tech);
-  }
-  .socio li b{color:var(--green-deep);font-weight:600}
-  @media(max-width:1040px){.socios-grid{grid-template-columns:1fr}}
-  @media(max-width:560px){
-    .socio{grid-template-columns:1fr;gap:20px}
-    .socio-photo{max-width:200px}
-  }
-
-  /* ---------- MISSAO, VISAO E VALORES ---------- */
-  .mvv{position:relative;z-index:2;margin-top:72px;padding-top:56px;border-top:1px solid rgba(244,242,237,.16)}
-  .mvv-head{margin-bottom:38px}
-  .mvv-head h3{
-    font-size:clamp(1.5rem,2.6vw,2.05rem);color:var(--cream);margin-top:14px;
-    max-width:26em;line-height:1.25;letter-spacing:-.01em;
-  }
-  .mvv-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:34px}
-  .mvv-stmt{
-    background:rgba(244,242,237,.05);border:1px solid rgba(244,242,237,.14);
-    border-radius:18px;padding:30px 30px;position:relative;
-  }
-  .mvv-stmt .lbl{
-    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;
-    color:var(--green-light);display:block;margin-bottom:14px;
-  }
-  .mvv-stmt p{margin:0;font-size:1.06rem;line-height:1.55;color:rgba(244,242,237,.92)}
-  .mvv-stmt.visao{border-left:3px solid var(--terracotta)}
-
-  .mvv-vals{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .mvv-val{
-    background:rgba(244,242,237,.04);border:1px solid rgba(244,242,237,.12);
-    border-radius:16px;padding:24px 22px;
-  }
-  .mvv-val .n{
-    font-size:12px;font-weight:700;color:var(--terracotta);letter-spacing:.06em;display:block;margin-bottom:12px;
-  }
-  .mvv-val h4{font-size:1.02rem;color:var(--cream);margin:0 0 10px;line-height:1.3}
-  .mvv-val p{margin:0;font-size:.89rem;line-height:1.55;color:rgba(244,242,237,.78)}
-  @media(max-width:1040px){.mvv-vals{grid-template-columns:1fr 1fr}}
-  @media(max-width:760px){.mvv-pair{grid-template-columns:1fr}}
-  @media(max-width:560px){.mvv-vals{grid-template-columns:1fr}.mvv{margin-top:52px;padding-top:42px}}
-
-  /* ---------- O PRINCIPIO: texto + foto lado a lado ---------- */
-  .principio-grid{
-    display:grid;grid-template-columns:1fr 400px;gap:52px;align-items:center;margin-bottom:52px;
-  }
-  .principio-grid .sec-head{max-width:none;margin-bottom:0}
-  .principio-photo{margin-bottom:0;max-width:400px;width:100%}
-  @media(max-width:940px){
-    .principio-grid{grid-template-columns:1fr;gap:30px;margin-bottom:40px}
-    .principio-photo{max-width:420px;margin-left:auto;margin-right:auto}
-  }
-
-  /* ---------- VIDEO FULL-BLEED (TECNOLOGIA) ---------- */
-  .tech-video-full{
-    position:relative;width:100%;
-    margin-top:72px;margin-bottom:-104px;
-    height:46vh;min-height:300px;max-height:520px;
-    overflow:hidden;background:var(--green-deep);
-  }
-  .tech-video-full video,.tech-video-full img{
-    width:100%;height:100%;object-fit:cover;display:block;
-  }
-  @media(max-width:560px){
-    .tech-video-full{margin-top:48px;margin-bottom:-72px;height:34vh;min-height:210px}
-  }
-
   /* ---------- REAL/ILLUSTRATIVE PHOTOS ---------- */
   .product-photo{
     position:relative; max-width:420px; margin:0 auto; border-radius:24px; overflow:hidden;
@@ -672,7 +529,7 @@
     position:relative; border-radius:20px; overflow:hidden; margin-bottom:40px;
     box-shadow:0 30px 60px -44px rgba(31,77,58,.5);
   }
-  .section-photo img,.section-photo video{ width:100%; display:block; object-fit:cover; }
+  .section-photo img{ width:100%; display:block; object-fit:cover; }
   .section-photo .photo-tag{ right:16px; bottom:16px; }
 
   /* ---------- FLOATING CONTACT ---------- */
@@ -832,84 +689,6 @@
   /* Brandbook: Inter é a única fonte da marca — nenhuma exceção no CSS */
   .logo-img{height:44px;width:auto;display:block}
   .foot-brand .logo-img{height:48px}
-
-  /* ====== v2: sobrescritas de componente (precisam vir por último) ====== */
-  /* cards de vidro em vez de blocos de cor chapada */
-  .compare-card.new{background:rgba(244,242,237,.07)!important;border:1px solid rgba(244,242,237,.20)!important;
-    backdrop-filter:blur(2px)}
-  .compare-card h3{font-weight:500;letter-spacing:.18em;color:rgba(244,242,237,.62);font-size:.92rem}
-  .compare-card .big{font-weight:200;font-size:2rem;letter-spacing:-.03em}
-  .compare-card li{font-weight:300;color:rgba(244,242,237,.82)}
-  .compare-card.new li::before{background:rgba(244,242,237,.45)}
-  .split-card{background:rgba(244,242,237,.07);border:1px solid rgba(244,242,237,.20)}
-  .split-card.bait{background:rgba(244,242,237,.07);border:1px solid rgba(244,242,237,.20)}
-  .split-card .k{font-weight:300;font-size:1.7rem;letter-spacing:-.02em}
-  .split-card p,.split-card.bait p{font-weight:300;color:rgba(244,242,237,.78)}
-  .mvv-stmt,.mvv-val{background:rgba(244,242,237,.07);border:1px solid rgba(244,242,237,.20)}
-  .mvv-stmt.visao{border-left:1px solid rgba(244,242,237,.20)}
-  .mvv-head h3,.mvv-val h4{font-weight:300}
-  .mvv-stmt p,.mvv-val p{font-weight:300}
-  .mvv-stmt .lbl,.mvv-val .n{color:rgba(244,242,237,.62);font-weight:500;letter-spacing:.22em}
-
-  /* uma cor de texto por fundo: nada de palavra colorida no meio da frase */
-  .category-claim p{font-weight:300;font-size:1.32rem;line-height:1.5}
-  .category-claim .term{color:inherit;font-weight:500}
-  .origin .quote{font-weight:200;border-left:1px solid rgba(244,242,237,.35);color:rgba(244,242,237,.95)}
-  .tech .roteiro .num,.roteiro .num{color:rgba(244,242,237,.62);font-weight:500;letter-spacing:.18em}
-  .roteiro h4{font-weight:300;font-size:1.15rem}
-  .roteiro p{font-weight:300}
-  .inst-n{font-weight:200!important;letter-spacing:-.02em}
-  .inst-l{font-weight:300}
-
-  /* botões e rótulos: peso, não peso extra */
-  .btn{font-weight:500}
-  .nav-links a{font-weight:400}
-  .hero-benefits li{font-weight:400}
-  .hero-photo-tag{font-weight:300}
-
-  /* ====== v2: o terracota sai dos preenchimentos e vira só acento ====== */
-  /* botão principal: verde no fundo claro */
-  .btn-primary{background:var(--green-deep)!important;color:var(--cream)!important;border:1px solid var(--green-deep)!important}
-  .btn-primary:hover{background:#173E2E!important;border-color:#173E2E!important}
-  /* ...e creme quando está sobre fundo verde — máximo contraste, zero laranja */
-  .tech .btn-primary,.shift .btn-primary,.origin .btn-primary,.cta-box .btn-primary,
-  .onfarm-cta .btn-primary,.v2bg .btn-primary{
-    background:var(--cream)!important;color:var(--green-deep)!important;border-color:var(--cream)!important}
-  .tech .btn-primary:hover,.shift .btn-primary:hover,.origin .btn-primary:hover,
-  .cta-box .btn-primary:hover,.onfarm-cta .btn-primary:hover,.v2bg .btn-primary:hover{
-    background:#fff!important;border-color:#fff!important}
-  /* botão do menu e blocos que eram laranja chapado */
-  .nav-cta{background:var(--green-deep)!important;color:var(--cream)!important}
-  .nav-cta:hover{background:#173E2E!important}
-  .split-card.bait{background:rgba(244,242,237,.07)!important;border:1px solid rgba(244,242,237,.20)!important}
-  .modal .m-cover .cat,.post .cat{background:rgba(31,77,58,.92)!important;color:var(--cream)!important}
-  .play-btn,.player .hud .t .c,.target .core{background:var(--green-deep)!important}
-  .target .core::after{border-color:rgba(244,242,237,.55)!important}
-  /* pontos e barras deixam de ser laranja: viram o próprio texto, mais discretos */
-  .hb-dot{background:var(--green-tech)!important}
-  .compare-card.new li::before{background:rgba(244,242,237,.45)!important}
-  .case .bar{background:var(--green-tech)!important}
-  .mvv-stmt.visao{border-left:1px solid rgba(244,242,237,.20)!important}
-  .origin .quote{border-left:1px solid rgba(244,242,237,.35)!important}
-  /* o terracota fica onde ele trabalha: fio do rótulo e microtexto de seção */
-  /* iOS Safari: aspect-ratio + min-height dentro de <picture> falha; no mobile a altura é fixa */
-  @media(max-width:700px){
-    .hero-photo{aspect-ratio:auto;height:250px;min-height:0;max-height:none}
-  }
-  @media(max-width:380px){
-    .hero-photo{height:220px}
-  }
-  /* texto corrido numa cor só também no fundo claro */
-  .lede{color:var(--green-deep);opacity:.78}
-  .sec-head p{color:var(--green-deep);opacity:.74}
-  .shift .sec-head p,.tech .sec-head p,.origin p{color:rgba(244,242,237,.76);opacity:1}
-  .problem li,.of-step p,.feat-card p,.ev-note{color:var(--green-deep);opacity:.76}
-  .of-step h4,.feat-card h4{font-weight:400}
-  .ev-num,.case .metric,.strip-item .n{font-weight:200;letter-spacing:-.035em}
-  .ev-stat .k{font-weight:200}
-  .socio h3{font-weight:300}
-  .socio li{font-weight:300}
-
 </style>
 </head>
 <body>
@@ -925,9 +704,9 @@
         <li><a href="#tecnologia">Tecnologia</a></li>
         <li><a href="#problema">O problema</a></li>
         <li><a href="#categoria">Controle direcionado</a></li>
-        <li><a href="#produto">BioEsférico</a></li>
+        <li><a href="#produto">BioSphericus</a></li>
         <li><a href="#onfarm">On-farm</a></li>
-        <li><a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener" class="nav-cta">Falar com especialista</a></li>
+        <li><a href="#contato" class="nav-cta">Falar com especialista</a></li>
       </ul>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -943,9 +722,9 @@
     <div>
       <span class="hero-tag">Controle biológico direcionado para o bicudo-da-cana</span>
       <h1>Inteligência <span class="accent">no ponto certo.</span></h1>
-      <p class="lede">Controle biológico de precisão contra o <i>Sphenophorus levis</i>.</p>
+      <p class="lede">Controle biológico de precisão contra o Sphenophorus levis.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener" class="btn btn-primary">Solicitar aplicação on-farm
+        <a href="#contato" class="btn btn-primary">Solicitar aplicação on-farm
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="#tecnologia" class="btn btn-ghost">Ver a tecnologia em campo</a>
@@ -959,12 +738,11 @@
     </div>
   </div>
   <div class="hero-photo">
-    <picture>
-      <source media="(max-width:700px)" srcset="smartbait-hero-banner-mobile.jpg"/>
-      <img src="smartbait-hero-banner.jpg" alt="BioEsférico posicionado sobre o canavial — controle biológico concentrado no ponto exato da infestação" fetchpriority="high"/>
-    </picture>
+    <video src="smartbait-hero-video.mp4" poster="smartbait-img-aerial-fazenda.jpg" autoplay muted loop playsinline preload="auto">
+      <img src="smartbait-img-aerial-fazenda.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
+    </video>
+    <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
       </div>
-  <span class="hero-photo-tag">Controle direcionado, a serviço da produtividade do canavial</span>
 </section>
 
 <!-- ================= NAVEGAÇÃO RÁPIDA ================= -->
@@ -972,13 +750,13 @@
   <div class="wrap quicknav-grid">
     <a href="#produto" class="qn-item">
       <span class="qn-label">Produto</span>
-      <span class="qn-title">BioEsférico</span>
+      <span class="qn-title">BioSphericus</span>
       <span class="qn-desc">O controle biológico de aplicação direcionada</span>
     </a>
     <a href="#tecnologia" class="qn-item">
       <span class="qn-label">Tecnologia</span>
       <span class="qn-title">Tecnologia</span>
-      <span class="qn-desc">Como o BioEsférico age no campo</span>
+      <span class="qn-desc">Como o BioSphericus age no campo</span>
     </a>
     <a href="#onfarm" class="qn-item">
       <span class="qn-label">Modelo</span>
@@ -989,28 +767,28 @@
 </nav>
 
 <!-- ================= TECNOLOGIA + VÍDEO ================= -->
-<section class="tech v2bg scroll-margin" id="tecnologia">
+<section class="tech scroll-margin" id="tecnologia">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">A tecnologia · BioEsférico</span>
+      <span class="eyebrow">A tecnologia · BioSphericus</span>
       <h2>Veja a tecnologia agindo no campo.</h2>
-      <p>O BioEsférico atua de forma biológica e direcionada, concentrando o controle no ponto exato da infestação. Abaixo, a demonstração de campo — da aplicação ao ponto exato de ação.</p>
+      <p>O BioSphericus atua de forma biológica e direcionada, concentrando o controle no ponto exato da infestação. Abaixo, a demonstração de campo — da aplicação ao ponto exato de ação.</p>
     </div>
 
     <div class="demo-embed reveal">
-      <iframe src="smartbait-motion-demo.html" title="Demonstração do BioEsférico em motion — controle direcionado do bicudo-da-cana" loading="lazy" allowfullscreen></iframe>
+      <iframe src="smartbait-motion-demo.html" title="Demonstração do BioSphericus em motion — controle direcionado do bicudo-da-cana" loading="lazy" allowfullscreen></iframe>
     </div>
 
     <div class="roteiros">
       <div class="roteiro reveal">
         <span class="num">VÍDEO 01</span>
         <h4>Aplicação via drone</h4>
-        <p>Plano aéreo do drone sobrevoando o talhão e liberando o BioEsférico em pontos definidos — a precisão substituindo a cobertura.</p>
+        <p>Plano aéreo do drone sobrevoando o talhão e liberando o BioSphericus em pontos definidos — a precisão substituindo a cobertura.</p>
       </div>
       <div class="roteiro reveal">
         <span class="num">VÍDEO 02</span>
         <h4>O ponto de ação</h4>
-        <p>Close no foco: o BioEsférico atrai e concentra a praga. A marca-alvo aparece sobre o ponto exato — “Inteligência no ponto certo.”</p>
+        <p>Close no foco: o BioSphericus atrai e concentra a praga. A marca-alvo aparece sobre o ponto exato — “Inteligência no ponto certo.”</p>
       </div>
       <div class="roteiro reveal">
         <span class="num">VÍDEO 03</span>
@@ -1019,12 +797,10 @@
       </div>
     </div>
 
-  </div>
-
-  <div class="tech-video-full reveal">
-    <video src="smartbait-hero-video.mp4" poster="smartbait-hero-video-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drone sobrevoando o canavial durante a aplicação direcionada do BioEsférico">
-      <img src="smartbait-hero-video-poster.jpg" alt="Canavial produtivo visto do alto, com drone em operação"/>
-    </video>
+    <div class="section-photo reveal" style="margin-top:32px">
+      <img src="smartbait-hero-bioesferico.jpg" alt="BioSphericus — controle biológico de precisão contra o Sphenophorus levis" loading="lazy"/>
+    </div>
+    
   </div>
 </section>
 
@@ -1090,25 +866,23 @@
 </section>
 
 <!-- ================= A VIRADA / CATEGORIA ================= -->
-<section class="shift v2bg scroll-margin" id="categoria">
+<section class="shift scroll-margin" id="categoria">
   <div class="wrap">
-    <div class="principio-grid">
-      <div class="sec-head reveal">
-        <span class="eyebrow">O princípio</span>
-        <h2>Inteligência aplicada: atrair, controlar, resolver.</h2>
-        <p>O BioEsférico combina biologia e tecnologia de precisão: a isca atrai o bicudo-da-cana ao ponto exato da infestação, e o controle biológico age ali, resolvendo o problema na origem. A eficácia tem base em ensaio publicado. <a href="#resultados" style="color:inherit;text-decoration:underline">Ver evidência técnica ↓</a></p>
-      </div>
-      <div class="section-photo principio-photo reveal">
-        <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca sólida atrativa instalada na palhada do canavial, Prata-MG" loading="lazy" style="aspect-ratio:4/3;object-position:60% 72%"/>
-        <span class="photo-tag" style="background:rgba(23,40,29,.55);color:var(--cream);top:14px;bottom:auto">Prata-MG · campo real</span>
-      </div>
+    <div class="sec-head reveal">
+      <span class="eyebrow">O princípio</span>
+      <h2>Inteligência aplicada: atrair, controlar, resolver.</h2>
+      <p>O BioSphericus combina biologia e tecnologia de precisão: a isca atrai o bicudo-da-cana ao ponto exato da infestação, e o controle biológico age ali, resolvendo o problema na origem. A eficácia tem base em ensaio publicado. <a href="#resultados" style="color:inherit;text-decoration:underline">Ver evidência técnica ↓</a></p>
+    </div>
+    <div class="section-photo reveal" style="margin-bottom:40px">
+      <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca sólida atrativa instalada na palhada do canavial, Prata, MG" loading="lazy" style="aspect-ratio:16/10;object-position:60% 72%"/>
+      <span class="photo-tag" style="background:rgba(23,40,29,.55);color:var(--cream)">Prata, MG · campo real</span>
     </div>
     <div class="compare" style="grid-template-columns:1fr;justify-items:center">
       <div class="compare-card new reveal" style="max-width:640px;margin:0 auto">
-        <h3>BioEsférico · SmartBait</h3>
+        <h3>BioSphericus · SmartBait</h3>
         <div class="big">Ativo biológico</div>
         <ul>
-          <li>Reduz o dano de forma comprovada (BioAssay 21, 2026)</li>
+          <li>Reduz o dano com respaldo em ensaio publicado (BioAssay 21, 2026)</li>
           <li>Ativo biológico, sem o perfil de resíduo químico</li>
           <li>Aplicação com apoio de mapeamento e tecnologia, inclusive via drone</li>
           <li>Se integra às demais frentes do manejo — mecânico, biológico, monitoramento</li>
@@ -1117,14 +891,14 @@
     </div>
     <div class="category-claim reveal">
       <p>O mercado brasileiro de bioinsumos já movimenta cerca de <span class="term">R$ 7 bilhões por ano</span> e deve crescer para perto de R$ 10 bilhões até 2030 — o Brasil é hoje o líder mundial em adoção de biológicos por área cultivada. A SmartBait nasce dentro dessa frente, com evidência de campo e ensaio publicado.</p>
-      <a href="#produto" class="btn btn-primary">Conhecer o BioEsférico
+      <a href="#produto" class="btn btn-primary">Conhecer o BioSphericus
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ================= PRODUTO BIOESFERICO ================= -->
+<!-- ================= PRODUTO BIOBAIT ================= -->
 <section class="product scroll-margin" id="produto">
   <div class="subnav">
     <div class="wrap subnav-inner">
@@ -1138,13 +912,13 @@
     <div class="product-grid" id="produto-beneficios">
       <div class="reveal">
         <div class="product-photo">
-          <img src="smartbait-img-produto-still.jpg" alt="BioEsférico em campo: a esfera do controle biológico com um bicudo-da-cana atraído sobre ela" loading="lazy"/>
+          <img src="smartbait-img-produto-still.jpg" alt="BioSphericus — controle biológico direcionado do bicudo-da-cana, aplicado via drone" loading="lazy"/>
             </div>
       </div>
       <div class="reveal">
-        <span class="eyebrow">O produto · BioEsférico</span>
+        <span class="eyebrow">O produto · BioSphericus</span>
         <h2 style="font-size:clamp(1.9rem,3.4vw,2.8rem);color:var(--green-deep);margin-top:16px">O controle biológico que concentra a ação no foco da praga.</h2>
-        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O BioEsférico é aplicado de forma localizada no campo, via drone com dispenser de precisão. Ele atrai o <i>Sphenophorus</i> ao ponto de aplicação e concentra o controle biológico onde a infestação realmente está.</p>
+        <p style="font-size:1.08rem;color:var(--clay);margin-top:18px;line-height:1.55">O BioSphericus é aplicado de forma localizada no campo, via drone com dispenser de precisão. Ele atrai o <i>Sphenophorus</i> ao ponto de aplicação e concentra o controle biológico onde a infestação realmente está.</p>
         <div class="feat" id="produto-aplicacao">
           <div class="feat-card">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg></div>
@@ -1169,7 +943,7 @@
     <div class="reveal" style="background:var(--green-deep);color:var(--cream);border-radius:16px;padding:28px 32px;margin-top:36px;display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:space-between">
       <div style="max-width:34em">
         <span class="eyebrow" style="color:var(--green-light)">Foco de lançamento</span>
-        <h4 style="font-size:1.3rem;font-weight:800;margin-top:10px;color:#fff">Cana planta e 1º corte.</h4>
+        <h4 style="font-size:1.3rem;font-weight:800;margin-top:10px;color:#fff">Cana-planta e 1º corte.</h4>
         <p style="font-size:.98rem;color:rgba(244,242,237,.85);margin-top:10px;line-height:1.6">Nessas fases, a palhada ainda é menor — o que facilita o caminhamento da praga até o ponto de aplicação e aumenta a eficiência da isca. São também as fases de maior investimento em proteção da lavoura, com impacto direto nos cortes seguintes.</p>
       </div>
       <div style="display:flex;gap:20px;flex-wrap:wrap">
@@ -1187,7 +961,7 @@
     <div class="techsheet reveal" id="produto-ficha">
       <div class="techsheet-head">
         <div>
-          <h3>Ficha técnica · BioEsférico</h3>
+          <h3>Ficha técnica · BioSphericus</h3>
           <p>Dados de aplicação para uso técnico, com referência dos ensaios de campo documentados.</p>
         </div>
       </div>
@@ -1209,7 +983,7 @@
       <div class="tt-ref">
         <div class="tt-ref-item"><b>100–150</b><span>iscas/ha — densidade usada nos ensaios de campo documentados</span></div>
         <div class="tt-ref-item"><b>0–60</b><span>dias — janela de avaliação de eficácia nos ensaios</span></div>
-        <div class="tt-ref-item"><b>7–15</b><span>dias — pico de atratividade observado em campo</span></div>
+        <div class="tt-ref-item"><b>7–15</b><span>pico de atratividade entre o 7º e o 15º dia</span></div>
       </div>
       <p class="techsheet-note">Densidade e janela de avaliação com base nos ensaios de campo e no estudo publicado citados em <a href="#resultados" style="color:inherit">Evidência técnica ↓</a>. Ativo específico, dose de rótulo e número de registro: a confirmar com o laudo técnico oficial do produto.</p>
     </div>
@@ -1221,7 +995,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Como funciona · parceria on-farm</span>
-      <h2 style="color:var(--green-deep)">Você fala direto com quem desenvolve o BioEsférico.</h2>
+      <h2 style="color:var(--green-deep)">Você fala direto com quem desenvolve o BioSphericus.</h2>
       <p>Sem revenda e sem intermediários: a equipe técnica da SmartBait acompanha o piloto junto com o seu time, do diagnóstico ao resultado em safra.</p>
     </div>
     <div class="section-photo reveal">
@@ -1251,14 +1025,12 @@
     </div>
     <div class="onfarm-cta reveal">
       <p><b>Fale direto com a equipe técnica</b> para avaliar um piloto na sua operação.</p>
-      <a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener" class="btn btn-primary">Solicitar diagnóstico
+      <a href="#contato" class="btn btn-primary">Solicitar diagnóstico
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
   </div>
 </section>
-
-
 
 
 <!-- ================= EVIDÊNCIA TÉCNICA ================= -->
@@ -1267,7 +1039,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Evidência técnica</span>
       <h2 style="color:var(--green-deep)">O que os dados já mostram</h2>
-      <p>O BioEsférico já tem evidência em duas dimensões complementares: atratividade em condição real de campo, e efeito sobre o dano em ensaio controlado. Os níveis de evidência são apresentados separadamente, para não confundir observação de campo com ensaio inferencial.</p>
+      <p>O BioSphericus já tem evidência em duas dimensões complementares: atratividade em condição real de campo, e efeito sobre o dano em ensaio controlado. Os níveis de evidência são apresentados separadamente, para não confundir observação de campo com ensaio inferencial.</p>
     </div>
 
     <!-- 01 Atratividade -->
@@ -1276,20 +1048,20 @@
         <span class="ev-num">01</span>
         <div>
           <h3>Atratividade em campo</h3>
-          <p class="ev-loc">Fazenda Bela Vista · Prata-MG — relato operacional</p>
+          <p class="ev-loc">Fazenda Bela Vista · Prata, MG — relato operacional</p>
         </div>
       </div>
       <div class="ev-grid">
-        <div class="ev-chart"><img src="smartbait-chart-prata.png" alt="Gráfico de captura acumulada de Sphenophorus levis e Metamasius em Prata-MG" loading="lazy"/></div>
+        <div class="ev-chart"><img src="smartbait-chart-prata.png" alt="Gráfico de captura acumulada de Sphenophorus levis e Metamasius em Prata, MG" loading="lazy"/></div>
         <div class="ev-stats">
           <div class="ev-stat"><b>81</b><span>adultos de <i>S. levis</i> capturados em 21 dias</span></div>
-          <div class="ev-stat"><b>62</b><span>Metamasius adicionais registrados no mesmo período</span></div>
-          <div class="ev-stat"><b>7–15</b><span>dias — janela de pico de capturas</span></div>
+          <div class="ev-stat"><b>62</b><span>indivíduos de <i>Metamasius</i> sp. registrados no mesmo período</span></div>
+          <div class="ev-stat"><b>7–15</b><span>pico de capturas entre o 7º e o 15º dia</span></div>
         </div>
       </div>
       <div class="ev-photos">
         <img src="smartbait-img-prata-isca-mao.jpg" alt="Isca sólida atrativa com adulto de Sphenophorus levis capturado em campo" loading="lazy"/>
-        <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca instalada na palhada do canavial em Prata-MG" loading="lazy"/>
+        <img src="smartbait-img-prata-isca-campo.jpg" alt="Isca instalada na palhada do canavial em Prata, MG" loading="lazy"/>
         <img src="smartbait-img-prata-capturas.jpg" alt="Adultos de Sphenophorus levis e Metamasius capturados" loading="lazy"/>
       </div>
       <p class="ev-note">Leitura técnica: a captura acumulada confirma que a matriz atrativa é funcional em condição comercial. O relatório também registra perda de atratividade ao final da janela de 21 dias, associada às chuvas.</p>
@@ -1301,17 +1073,17 @@
         <span class="ev-num">02</span>
         <div>
           <h3>Resposta em campo</h3>
-          <p class="ev-loc">Fazenda Barreiro (Morro Agudo/MG) e Usina Cerradão (Frutal/MG) — projetos comerciais</p>
+          <p class="ev-loc">Fazenda Barreiro (Morro Agudo, SP) e Usina Cerradão (Frutal, MG) — projetos comerciais</p>
         </div>
       </div>
       <div class="ev-grid-2">
         <div>
           <div class="ev-chart"><img src="smartbait-chart-barreiro.png" alt="Gráfico de percentual de tocos atacados na Fazenda Barreiro" loading="lazy"/></div>
-          <p class="ev-caption">Barreiro: <b>26,7% → 11,9%</b> nas iscas entre 0 e 60 DAA (−55,4%)</p>
+          <p class="ev-caption">Barreiro: <b>26,7% → 11,9%</b> nas áreas tratadas com iscas após 60 DAA (−55,4%)</p>
         </div>
         <div>
           <div class="ev-chart"><img src="smartbait-chart-cerradao.png" alt="Gráfico de percentual de tocos atacados na Usina Cerradão" loading="lazy"/></div>
-          <p class="ev-caption">Cerradão: <b>5,3% → 3,1%</b> nas iscas entre 0 e 60 DAA (−41,7%)</p>
+          <p class="ev-caption">Cerradão: <b>5,3% → 3,1%</b> nas áreas tratadas com iscas após 60 DAA (−41,5%)</p>
         </div>
       </div>
       <p class="ev-note ev-note-warn">Importante: estes dois resultados são observacionais. Os protocolos não estabelecem inferência estatística de eficácia — são apresentados como sinal de resposta de campo, não como prova causal isolada.</p>
@@ -1331,10 +1103,10 @@
         <div class="ev-stats">
           <div class="ev-stat"><b>43%</b><span>de bases danificadas no controle (testemunha)</span></div>
           <div class="ev-stat"><b>~5%</b><span>com imidacloprido 200 — menor média (grupo estatístico "c")</span></div>
-          <div class="ev-stat"><b>18–20%</b><span>com <i>B. bassiana</i> 100/200 — controle biológico, diferença significativa vs. testemunha</span></div>
+          <div class="ev-stat"><b>18–20%</b><span>de bases de colmo danificadas com iscas de <i>B. bassiana</i> (100 e 200 iscas/ha) vs. 43% na testemunha — diferença significativa (Tukey, p ≤ 0,05)</span></div>
         </div>
       </div>
-      <p class="ev-note">Aos 60 dias, tratamentos com imidacloprido (50 e 200) e com <i>Beauveria bassiana</i> (100 e 200) apresentaram dano significativamente menor que a testemunha (Tukey, p ≤ 0,05) — incluindo a via biológica, a mesma frente em que o BioEsférico atua.</p>
+      <p class="ev-note">Aos 60 dias, tratamentos com imidacloprido (50 e 200) e com <i>Beauveria bassiana</i> (100 e 200) apresentaram dano significativamente menor que a testemunha (Tukey, p ≤ 0,05) — incluindo a via biológica, a mesma frente em que o BioSphericus atua.</p>
     </div>
 
     <!-- Callout: níveis de evidência -->
@@ -1347,17 +1119,17 @@
     <div class="ev-sources reveal">
       <span class="ev-sources-label">Fontes e rastreabilidade</span>
       <ol>
-        <li>Departamento Técnico. <i>Teste de Iscas para controle de Sphenophorus levis.</i> Prata-MG. Documento de campo.</li>
-        <li>Pinto, A. de S.; Silva, M. M.; Berti, M. G.; Oliva, M. B. (2026). <i>Artificial baits treated with imidacloprid or Beauveria bassiana reduce damage by Sphenophorus levis in sugarcane.</i> Mineiros do Tietê/SP. BioAssay, 21: ba21004. DOI: 10.37486/1809-8460.ba21004.</li>
-        <li>Protocolo Fazenda Barreiro. Morro Agudo/MG. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
-        <li>Protocolo Usina Cerradão / Fazenda São Mateus. Frutal/MG. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
+        <li>Departamento Técnico da SmartBait. <i>Teste de Iscas para controle de Sphenophorus levis.</i> Prata, MG. Documento de campo.</li>
+        <li>Pinto, A. de S.; Silva, M. M. da; Berti, M. G.; Oliva, M. B. (2026). <i>Artificial baits treated with imidacloprid or Beauveria bassiana (Bals.-Criv.) Vuill. reduce damage by Sphenophorus levis Vaurie, 1978 (Coleoptera: Curculionidae) in sugarcane.</i> BioAssay, 21, ba21004. DOI: 10.37486/1809-8460.ba21004. Local do experimento: Mineiros do Tietê, SP.</li>
+        <li>Protocolo Fazenda Barreiro. Morro Agudo, SP. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
+        <li>Protocolo Usina Cerradão / Fazenda São Mateus. Frutal, MG. Ensaio com 150 iscas em 1,5 ha e testemunha; avaliações 0–60 DAA.</li>
       </ol>
     </div>
   </div>
 </section>
 
 <!-- ================= ORIGEM / PIONEIRISMO ================= -->
-<section class="origin v2bg scroll-margin" id="origem">
+<section class="origin scroll-margin" id="origem">
   <div class="wrap">
     <div class="origin-grid">
       <div class="reveal">
@@ -1377,121 +1149,27 @@
         </div>
       </div>
     </div>
-
-    <div class="mvv">
-      <div class="mvv-head reveal">
-        <span class="eyebrow">Missão, visão e valores</span>
-        <h3>O que sustenta cada decisão técnica da SmartBait.</h3>
-      </div>
-
-      <div class="mvv-pair">
-        <div class="mvv-stmt reveal">
-          <span class="lbl">Missão</span>
-          <p>Proteger a produtividade do canavial brasileiro com controle biológico aplicado no ponto exato da infestação — unindo ciência entomológica e tecnologia de precisão para que cada aplicação entregue mais resultado com menos volume.</p>
-        </div>
-        <div class="mvv-stmt visao reveal">
-          <span class="lbl">Visão</span>
-          <p>Ser a referência em controle biológico direcionado na cana-de-açúcar, transformando o manejo do <i>Sphenophorus levis</i> de uma operação de cobertura em uma decisão técnica — medida, documentada e comprovada safra a safra.</p>
-        </div>
-      </div>
-
-      <div class="mvv-vals">
-        <div class="mvv-val reveal">
-          <span class="n">01</span>
-          <h4>Ciência antes da promessa</h4>
-          <p>Nada é afirmado sobre o produto sem ensaio, protocolo ou leitura de campo que sustente. Quando a evidência é observacional, dizemos que é.</p>
-        </div>
-        <div class="mvv-val reveal">
-          <span class="n">02</span>
-          <h4>Foco em vez de cobertura</h4>
-          <p>Tratar o ponto exato da infestação resolve mais do que tratar a área inteira. Essa escolha define o produto, o nome e a empresa.</p>
-        </div>
-        <div class="mvv-val reveal">
-          <span class="n">03</span>
-          <h4>Tecnologia a serviço de quem decide</h4>
-          <p>Mapeamento, precisão e aplicação dirigida existem para apoiar o agrônomo e a equipe de campo — nunca para substituir a decisão técnica de quem conhece o talhão.</p>
-        </div>
-        <div class="mvv-val reveal">
-          <span class="n">04</span>
-          <h4>Eficiência que se mede</h4>
-          <p>Menos volume, menos reaplicação e soqueira preservada. Ganho que não pode ser medido na operação do produtor não é ganho.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ================= CTA ================= -->
 <section class="cta scroll-margin" id="contato">
   <div class="wrap">
-    <div class="cta-box v2bg reveal">
+    <div class="cta-box reveal">
       <div>
         <h2>Leve o controle direcionado para o seu canavial.</h2>
         <p>Fale com nossa equipe técnica e agende uma aplicação on-farm. A prova acontece no seu campo, com acompanhamento e resultado documentado.</p>
       </div>
       <div class="cta-actions">
-        <a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener" class="btn btn-primary">Falar no WhatsApp
-          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.02h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.22-8.24 8.22z"/></svg>
+        <a href="#contato" class="btn btn-primary">Falar com um especialista
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="#tecnologia" class="btn btn-ghost">Ver demonstração de campo</a>
-        <span class="cta-note">Atendimento direto pela equipe técnica, no WhatsApp</span>
+        <span class="cta-note">Resposta da equipe técnica em até 1 dia útil</span>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ================= SOCIOS ================= -->
-<section class="socios scroll-margin" id="socios">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Quem está por trás</span>
-      <h2>Ciência de entomologia e realidade de canavial, na mesma mesa.</h2>
-      <p>O BioEsférico nasce do encontro de duas competências que raramente andam juntas: a pesquisa aplicada em controle biológico e a operação agrícola em escala comercial.</p>
-    </div>
-
-    <div class="socios-grid">
-
-      <article class="socio reveal">
-        <div class="socio-photo">
-          <img src="smartbait-socio-alexandre.jpg" alt="Prof. Dr. Alexandre de Sene Pinto, sócio da SmartBait responsável pela direção científica" loading="lazy"/>
-        </div>
-        <div class="socio-body">
-          <span class="socio-role">Sócio · Direção científica</span>
-          <h3>Prof. Dr. Alexandre de Sene Pinto</h3>
-          <p class="socio-org">Engenheiro Agrônomo · Entomologia Agrícola</p>
-          <ul>
-            <li>Mestre em Entomologia Agrícola pela <b>FCAV/Unesp</b> (1995) e Doutor em Entomologia pela <b>ESALQ/USP</b> (1999).</li>
-            <li>Professor do <b>Centro Universitário Moura Lacerda</b> e professor convidado da <b>ESALQ/USP</b>.</li>
-            <li>Consultoria técnica em cerca de <b>90 usinas de cana-de-açúcar</b> na América Latina.</li>
-            <li>Autor principal do estudo publicado na <b>BioAssay 21 (2026)</b> — a base científica citada na seção de evidência deste site.</li>
-            <li>Palestrante no <b>1º Summit Sphenophorus</b>, Ribeirão Preto · 18 de setembro de 2026.</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="socio reveal">
-        <div class="socio-photo">
-          <img src="smartbait-socio-leonardo.jpg" alt="Leonardo Leal Lopes, sócio da SmartBait responsável pela frente de operação e escala" loading="lazy"/>
-        </div>
-        <div class="socio-body">
-          <span class="socio-role">Sócio · Operação e escala</span>
-          <h3>Leonardo Leal Lopes</h3>
-          <p class="socio-org">Grupo LL Agro · Ribeirão Preto/SP</p>
-          <ul>
-            <li>À frente do <b>Grupo LL Agro</b>, grupo agrícola com mais de <b>uma década</b> de operação própria no interior paulista.</li>
-            <li>Cerca de <b>7 mil hectares</b> sob gestão, entre cana-de-açúcar, grãos, hortifrúti e pecuária.</li>
-            <li>Responsável pela frente de <b>agricultura 4.0</b> do grupo — agricultura de precisão, mapeamento e imageamento aéreo aplicados à lavoura.</li>
-            <li>Traz para a SmartBait o teste do produto <b>na realidade de quem produz cana em escala</b>, com custo, janela operacional e logística reais.</li>
-          </ul>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
 
 <!-- ================= FOOTER ================= -->
 <footer>
@@ -1504,7 +1182,7 @@
         <p>Inteligência no ponto certo. Controle biológico direcionado para o bicudo-da-cana.</p>
         <div class="foot-arch">
           <span>SmartBait · empresa</span>
-          <span>BioEsférico · produto</span>
+          <span>BioSphericus · produto</span>
         </div>
       </div>
       <div class="foot-col">
@@ -1512,14 +1190,13 @@
         <ul>
           <li><a href="#problema">O problema</a></li>
           <li><a href="#categoria">Controle direcionado</a></li>
-          <li><a href="#produto">BioEsférico</a></li>
+          <li><a href="#produto">BioSphericus</a></li>
           <li><a href="#tecnologia">Tecnologia</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h5>Conteúdo</h5>
         <ul>
-          <li><a href="#socios">Sócios</a></li>
           <li><a href="#resultados">Cases</a></li>
           <li><a href="#origem">A marca</a></li>
         </ul>
@@ -1527,9 +1204,9 @@
       <div class="foot-col">
         <h5>Contato</h5>
         <ul>
-          <li><a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener">Falar com especialista</a></li>
-          <li><a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener">Aplicação on-farm</a></li>
-          <li><a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener">Para usinas</a></li>
+          <li><a href="#contato">Falar com especialista</a></li>
+          <li><a href="#contato">Aplicação on-farm</a></li>
+          <li><a href="#contato">Para usinas</a></li>
         </ul>
       </div>
     </div>
@@ -1541,7 +1218,7 @@
 </footer>
 
 <!-- ================= FLOATING CONTACT ================= -->
-<a href="https://wa.me/5516996261316?text=Ol%C3%A1%21%20Cliquei%20em%20%22Falar%20com%20um%20especialista%22%20no%20site%20da%20SmartBait%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20BioEsf%C3%A9rico." target="_blank" rel="noopener" class="float-contact" id="floatContact" aria-label="Falar com especialista no WhatsApp">
+<a href="#contato" class="float-contact" id="floatContact" aria-label="Falar com especialista">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
   <span>Fale com especialista</span>
 </a>
